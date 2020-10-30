@@ -9,7 +9,8 @@ Create and manage Virtual Hosts for XAMPP.
 - Automatic backups
 
 ## Requirements
-- Microsoft .NET Framwork 4.7.2
+- XAMPP
+- Microsoft .NET Framework 4.7.2
 
 ## Screenshots
 ### Main Window
