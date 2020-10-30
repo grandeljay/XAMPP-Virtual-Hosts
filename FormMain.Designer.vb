@@ -24,9 +24,9 @@ Partial Class FormMain
     Private Sub InitializeComponent()
         Me.ComboBoxVirtualHosts = New System.Windows.Forms.ComboBox()
         Me.TextBoxVirtualHostEntryRaw = New System.Windows.Forms.TextBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBoxViewVirtualHosts = New System.Windows.Forms.GroupBox()
         Me.ButtonAddNewVirtualHost = New System.Windows.Forms.Button()
-        Me.GroupBox1.SuspendLayout()
+        Me.GroupBoxViewVirtualHosts.SuspendLayout()
         Me.SuspendLayout()
         '
         'ComboBoxVirtualHosts
@@ -52,21 +52,21 @@ Partial Class FormMain
         Me.TextBoxVirtualHostEntryRaw.TabIndex = 1
         Me.TextBoxVirtualHostEntryRaw.WordWrap = False
         '
-        'GroupBox1
+        'GroupBoxViewVirtualHosts
         '
-        Me.GroupBox1.AutoSize = True
-        Me.GroupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox1.Controls.Add(Me.ButtonAddNewVirtualHost)
-        Me.GroupBox1.Controls.Add(Me.ComboBoxVirtualHosts)
-        Me.GroupBox1.Controls.Add(Me.TextBoxVirtualHostEntryRaw)
-        Me.GroupBox1.Location = New System.Drawing.Point(20, 20)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(0, 0, 0, 20)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(20)
-        Me.GroupBox1.Size = New System.Drawing.Size(817, 312)
-        Me.GroupBox1.TabIndex = 2
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "View Virtual Hosts"
+        Me.GroupBoxViewVirtualHosts.AutoSize = True
+        Me.GroupBoxViewVirtualHosts.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBoxViewVirtualHosts.Controls.Add(Me.ButtonAddNewVirtualHost)
+        Me.GroupBoxViewVirtualHosts.Controls.Add(Me.ComboBoxVirtualHosts)
+        Me.GroupBoxViewVirtualHosts.Controls.Add(Me.TextBoxVirtualHostEntryRaw)
+        Me.GroupBoxViewVirtualHosts.Location = New System.Drawing.Point(20, 20)
+        Me.GroupBoxViewVirtualHosts.Margin = New System.Windows.Forms.Padding(0, 0, 0, 20)
+        Me.GroupBoxViewVirtualHosts.Name = "GroupBoxViewVirtualHosts"
+        Me.GroupBoxViewVirtualHosts.Padding = New System.Windows.Forms.Padding(20)
+        Me.GroupBoxViewVirtualHosts.Size = New System.Drawing.Size(817, 312)
+        Me.GroupBoxViewVirtualHosts.TabIndex = 2
+        Me.GroupBoxViewVirtualHosts.TabStop = False
+        Me.GroupBoxViewVirtualHosts.Text = "View Virtual Hosts"
         '
         'ButtonAddNewVirtualHost
         '
@@ -88,7 +88,7 @@ Partial Class FormMain
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(1026, 574)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.GroupBoxViewVirtualHosts)
         Me.Font = New System.Drawing.Font("Open Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -97,8 +97,8 @@ Partial Class FormMain
         Me.Padding = New System.Windows.Forms.Padding(20)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "XAMPP Virtual Hosts"
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.GroupBoxViewVirtualHosts.ResumeLayout(False)
+        Me.GroupBoxViewVirtualHosts.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -106,6 +106,6 @@ Partial Class FormMain
 
     Friend WithEvents ComboBoxVirtualHosts As ComboBox
     Friend WithEvents TextBoxVirtualHostEntryRaw As TextBox
-    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents GroupBoxViewVirtualHosts As GroupBox
     Friend WithEvents ButtonAddNewVirtualHost As Button
 End Class
