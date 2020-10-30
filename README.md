@@ -8,6 +8,9 @@ Create and manage Virtual Hosts for XAMPP.
     - Delete Virtual Hosts
 - Automatic backups
 
+## Requirements
+- Microsoft .NET Framwork 4.7.2
+
 ## Screenshots
 ### Main Window
 ![Main Window](/screenshots/main-window.png "Main Window")
