@@ -23,6 +23,9 @@ Create and manage Virtual Hosts for XAMPP.
 ![Remove Virtual Host](/screenshots/remove-virtual-host.png "Remove Virtual Host")
 
 ## Roadmap
-For the future the following things are planned:
+The following things are planned for the future:
 - Restore backups
 - Determine invalid hosts
+- Specify filepaths of
+    - Windows hosts file
+    - XAMPP httpd-vhosts.conf
