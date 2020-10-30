@@ -173,4 +173,67 @@ Module Functions
         Return VirtualHostsList
     End Function
 
+    Public Function WriteToFile(ByVal Filepath As String, ByVal Contents As Object, Optional ByVal BackupOriginal As Boolean = False)
+        If BackupOriginal Then
+            '
+            ' Create Backup
+            '
+            Dim DateNow As String = Date.Now.Year & "-" & Date.Now.Month & "-" & Date.Now.Day
+            Dim BackupDirectory As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\" & Application.ProductName & "\Backups"
+            Dim BackupFilepath As String = BackupDirectory & "\" & Path.GetFileName(Filepath) & "." & DateNow
+
+            If Not Directory.Exists(BackupDirectory) Then Directory.CreateDirectory(BackupDirectory)
+
+            File.Copy(Filepath, BackupFilepath, True)
+
+            '
+            ' Remove Old Backups
+            '
+            Dim Backups As New List(Of List(Of String))
+
+            ' hosts
+            Dim hosts As New List(Of String)
+            For Each hostsFile As String In Directory.GetFiles(BackupDirectory, "hosts.*", SearchOption.TopDirectoryOnly)
+                hosts.Add(hostsFile)
+            Next
+
+            Backups.Add(hosts)
+
+            ' httpd-vhosts.conf
+            Dim httpd_vhostsConf As New List(Of String)
+
+            For Each httpd_vhostsConfFile As String In Directory.GetFiles(BackupDirectory, "httpd-vhosts.conf.*", SearchOption.TopDirectoryOnly)
+                httpd_vhostsConf.Add(httpd_vhostsConfFile)
+            Next
+
+            Backups.Add(httpd_vhostsConf)
+
+
+            '
+            ' Delete Backups
+            '
+            For Each Backup As List(Of String) In Backups
+                If Backup.Count > 10 Then
+                    Do
+                        File.Delete(Backup(0))
+                        Backup.RemoveAt(0)
+
+                        Application.DoEvents()
+                    Loop Until Backup.Count <= 10
+                End If
+            Next
+        End If
+
+
+        '
+        ' Write To File
+        '
+        If IsArray(Contents) Then
+            File.WriteAllLines(Filepath, Contents)
+        Else
+            File.WriteAllText(Filepath, Contents)
+        End If
+
+        Return True
+    End Function
 End Module

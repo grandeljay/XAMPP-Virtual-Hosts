@@ -2,7 +2,11 @@
     Dim VirtualHosts As New List(Of ClassVirtualHost)
 
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        '
+        ' Get Existing Virtual Hosts
+        '
         VirtualHosts.AddRange(Functions.getVirtualHosts)
+
 
         '
         ' Show Virtual Hosts in Form

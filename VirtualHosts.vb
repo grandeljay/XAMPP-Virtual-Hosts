@@ -22,7 +22,7 @@ Module VirtualHosts
             VirtualHostToAdd.IPv6.Entry
         }
 
-        File.WriteAllLines(FileHosts, WriteLinesHosts)
+        Functions.WriteToFile(FileHosts, WriteLinesHosts, True)
 
 
         '
@@ -35,7 +35,7 @@ Module VirtualHosts
             VirtualHostToAdd.vHosts.Entry
         }
 
-        File.WriteAllLines(FileHttpdVhosts, WriteLinesVHosts)
+        Functions.WriteToFile(FileHttpdVhosts, WriteLinesVHosts, True)
 
 
         Return True
