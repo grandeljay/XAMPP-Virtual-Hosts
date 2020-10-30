@@ -8,11 +8,17 @@
         ' Show Virtual Hosts in Form
         '
         For Each VirtualHost As ClassVirtualHost In VirtualHosts
-            ComboBox1.Items.Add(VirtualHost.Host)
+            ComboBoxVirtualHosts.Items.Add(VirtualHost.Host)
         Next
+
+        If ComboBoxVirtualHosts.Items.Count > 0 Then ComboBoxVirtualHosts.SelectedIndex = 0
     End Sub
 
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
-        TextBox1.Text = VirtualHosts(ComboBox1.SelectedIndex).vHostsEntry.Raw
+    Private Sub ComboBoxVirtualHosts_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxVirtualHosts.SelectedIndexChanged
+        TextBoxVirtualHostEntryRaw.Text = VirtualHosts(ComboBoxVirtualHosts.SelectedIndex).vHosts.Raw
+    End Sub
+
+    Private Sub ButtonAddNewVirtualHost_Click(sender As Object, e As EventArgs) Handles ButtonAddNewVirtualHost.Click
+        FormVirtualHostNew.Show()
     End Sub
 End Class

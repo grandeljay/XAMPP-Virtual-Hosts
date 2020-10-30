@@ -1,7 +1,7 @@
 ﻿Public Class ClassVirtualHost
     Public Property IPv4 As New ClassVirtualHostIP
     Public Property IPv6 As New ClassVirtualHostIP
-    Public Property vHostsEntry As New ClassVirtualHostEntry
+    Public Property vHosts As New ClassVirtualHostEntry
 
     Public ReadOnly Property Host() As String
         Get

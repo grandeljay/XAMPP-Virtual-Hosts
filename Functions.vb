@@ -83,15 +83,12 @@ Module Functions
     End Function
 
     Function getVirtualHosts() As List(Of ClassVirtualHost)
-        Const FileHosts As String = "C:\Windows\System32\drivers\etc\hosts"
-        Const FileHttpdVhosts As String = "D:\XAMPP\apache\conf\extra\httpd-vhosts.conf"
-
-        Dim VirtualHosts As New List(Of ClassVirtualHost)
+        Dim VirtualHostsList As New List(Of ClassVirtualHost)
 
         '
         ' Hosts
         '
-        Dim FileHostsContents As String = Functions.getFileContents(FileHosts)
+        Dim FileHostsContents As String = Functions.getFileContents(VirtualHosts.FileHosts).Trim
 
         Dim ListCount As New List(Of Integer)
 
@@ -154,26 +151,26 @@ Module Functions
                 End If
             End If
 
-            VirtualHosts.Add(VirtualHost)
+            VirtualHostsList.Add(VirtualHost)
         Next
 
 
         '
         ' Virtual Hosts
         '
-        Dim FileHttpdVhostsContents As String = Functions.getFileContents(FileHttpdVhosts)
+        Dim FileHttpdVhostsContents As String = Functions.getFileContents(VirtualHosts.FileHttpdVhosts)
 
         Dim vHostsEntries As String() = Functions.getTextBetween(FileHttpdVhostsContents, "<VirtualHost *:80>", "</VirtualHost>")
 
         For Each vHostEntry As String In vHostsEntries
-            For Each VirtualHost As ClassVirtualHost In VirtualHosts
+            For Each VirtualHost As ClassVirtualHost In VirtualHostsList
                 If vHostEntry.Contains(" " & VirtualHost.Host) Then
-                    VirtualHost.vHostsEntry.Raw = vHostEntry
+                    VirtualHost.vHosts.Parse(vHostEntry)
                 End If
             Next
         Next
 
-        Return VirtualHosts
+        Return VirtualHostsList
     End Function
 
 End Module
