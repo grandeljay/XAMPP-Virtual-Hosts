@@ -102,10 +102,16 @@
       <DependentUpon>FormMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormVirtualHostNew.Designer.vb">
-      <DependentUpon>FormVirtualHostNew.vb</DependentUpon>
+    <Compile Include="FormVirtualHostAdd.Designer.vb">
+      <DependentUpon>FormVirtualHostAdd.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormVirtualHostNew.vb">
+    <Compile Include="FormVirtualHostAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVirtualHostRemove.Designer.vb">
+      <DependentUpon>FormVirtualHostRemove.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormVirtualHostRemove.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Functions.vb" />
@@ -131,8 +137,11 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormVirtualHostNew.resx">
-      <DependentUpon>FormVirtualHostNew.vb</DependentUpon>
+    <EmbeddedResource Include="FormVirtualHostAdd.resx">
+      <DependentUpon>FormVirtualHostAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVirtualHostRemove.resx">
+      <DependentUpon>FormVirtualHostRemove.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

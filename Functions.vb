@@ -178,7 +178,7 @@ Module Functions
             '
             ' Create Backup
             '
-            Dim DateNow As String = Date.Now.Year & "-" & Date.Now.Month & "-" & Date.Now.Day
+            Dim DateNow As String = Date.Now.Year & "-" & Date.Now.Month & "-" & Date.Now.Day & "-" & Date.Now.TimeOfDay.Hours & "-" & Date.Now.TimeOfDay.Minutes
             Dim BackupDirectory As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\" & Application.ProductName & "\Backups"
             Dim BackupFilepath As String = BackupDirectory & "\" & Path.GetFileName(Filepath) & "." & DateNow
 
@@ -235,5 +235,18 @@ Module Functions
         End If
 
         Return True
+    End Function
+
+    ''' <summary>
+    ''' Removes all unnecessary line breaks and trims Input.
+    ''' </summary>
+    ''' <param name="Input">The string you would like to process.</param>
+    ''' <returns>Trimmed Input without more than 1 empty line between paragraphs.</returns>
+    Public Function removeExtraLines(ByVal Input As String) As String
+        Do
+            Input = Input.Replace(Environment.NewLine & Environment.NewLine & Environment.NewLine, Environment.NewLine & Environment.NewLine)
+        Loop Until Not Input.Contains(Environment.NewLine & Environment.NewLine & Environment.NewLine)
+
+        Return Input.Trim
     End Function
 End Module

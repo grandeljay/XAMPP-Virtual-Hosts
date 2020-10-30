@@ -25,7 +25,10 @@ Partial Class FormMain
         Me.ComboBoxVirtualHosts = New System.Windows.Forms.ComboBox()
         Me.TextBoxVirtualHostEntryRaw = New System.Windows.Forms.TextBox()
         Me.GroupBoxViewVirtualHosts = New System.Windows.Forms.GroupBox()
-        Me.ButtonAddNewVirtualHost = New System.Windows.Forms.Button()
+        Me.ButtonAddVirtualHost = New System.Windows.Forms.Button()
+        Me.LabelSelect = New System.Windows.Forms.Label()
+        Me.LabelPreview = New System.Windows.Forms.Label()
+        Me.ButtonRemoveVirtualHost = New System.Windows.Forms.Button()
         Me.GroupBoxViewVirtualHosts.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -33,7 +36,7 @@ Partial Class FormMain
         '
         Me.ComboBoxVirtualHosts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxVirtualHosts.FormattingEnabled = True
-        Me.ComboBoxVirtualHosts.Location = New System.Drawing.Point(20, 38)
+        Me.ComboBoxVirtualHosts.Location = New System.Drawing.Point(20, 56)
         Me.ComboBoxVirtualHosts.Margin = New System.Windows.Forms.Padding(0, 0, 20, 20)
         Me.ComboBoxVirtualHosts.Name = "ComboBoxVirtualHosts"
         Me.ComboBoxVirtualHosts.Size = New System.Drawing.Size(320, 26)
@@ -43,12 +46,13 @@ Partial Class FormMain
         '
         Me.TextBoxVirtualHostEntryRaw.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBoxVirtualHostEntryRaw.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxVirtualHostEntryRaw.Location = New System.Drawing.Point(360, 38)
+        Me.TextBoxVirtualHostEntryRaw.Location = New System.Drawing.Point(360, 56)
         Me.TextBoxVirtualHostEntryRaw.Margin = New System.Windows.Forms.Padding(0)
         Me.TextBoxVirtualHostEntryRaw.Multiline = True
         Me.TextBoxVirtualHostEntryRaw.Name = "TextBoxVirtualHostEntryRaw"
+        Me.TextBoxVirtualHostEntryRaw.ReadOnly = True
         Me.TextBoxVirtualHostEntryRaw.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TextBoxVirtualHostEntryRaw.Size = New System.Drawing.Size(437, 236)
+        Me.TextBoxVirtualHostEntryRaw.Size = New System.Drawing.Size(450, 270)
         Me.TextBoxVirtualHostEntryRaw.TabIndex = 1
         Me.TextBoxVirtualHostEntryRaw.WordWrap = False
         '
@@ -56,30 +60,66 @@ Partial Class FormMain
         '
         Me.GroupBoxViewVirtualHosts.AutoSize = True
         Me.GroupBoxViewVirtualHosts.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBoxViewVirtualHosts.Controls.Add(Me.ButtonAddNewVirtualHost)
+        Me.GroupBoxViewVirtualHosts.Controls.Add(Me.ButtonRemoveVirtualHost)
+        Me.GroupBoxViewVirtualHosts.Controls.Add(Me.LabelPreview)
+        Me.GroupBoxViewVirtualHosts.Controls.Add(Me.LabelSelect)
+        Me.GroupBoxViewVirtualHosts.Controls.Add(Me.ButtonAddVirtualHost)
         Me.GroupBoxViewVirtualHosts.Controls.Add(Me.ComboBoxVirtualHosts)
         Me.GroupBoxViewVirtualHosts.Controls.Add(Me.TextBoxVirtualHostEntryRaw)
         Me.GroupBoxViewVirtualHosts.Location = New System.Drawing.Point(20, 20)
         Me.GroupBoxViewVirtualHosts.Margin = New System.Windows.Forms.Padding(0, 0, 0, 20)
         Me.GroupBoxViewVirtualHosts.Name = "GroupBoxViewVirtualHosts"
         Me.GroupBoxViewVirtualHosts.Padding = New System.Windows.Forms.Padding(20)
-        Me.GroupBoxViewVirtualHosts.Size = New System.Drawing.Size(817, 312)
+        Me.GroupBoxViewVirtualHosts.Size = New System.Drawing.Size(830, 364)
         Me.GroupBoxViewVirtualHosts.TabIndex = 2
         Me.GroupBoxViewVirtualHosts.TabStop = False
         Me.GroupBoxViewVirtualHosts.Text = "View Virtual Hosts"
         '
-        'ButtonAddNewVirtualHost
+        'ButtonAddVirtualHost
         '
-        Me.ButtonAddNewVirtualHost.AutoSize = True
-        Me.ButtonAddNewVirtualHost.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ButtonAddNewVirtualHost.Location = New System.Drawing.Point(20, 84)
-        Me.ButtonAddNewVirtualHost.Margin = New System.Windows.Forms.Padding(0)
-        Me.ButtonAddNewVirtualHost.Name = "ButtonAddNewVirtualHost"
-        Me.ButtonAddNewVirtualHost.Padding = New System.Windows.Forms.Padding(2)
-        Me.ButtonAddNewVirtualHost.Size = New System.Drawing.Size(150, 32)
-        Me.ButtonAddNewVirtualHost.TabIndex = 4
-        Me.ButtonAddNewVirtualHost.Text = "Add New Virtual Host"
-        Me.ButtonAddNewVirtualHost.UseVisualStyleBackColor = True
+        Me.ButtonAddVirtualHost.AutoSize = True
+        Me.ButtonAddVirtualHost.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ButtonAddVirtualHost.Location = New System.Drawing.Point(20, 102)
+        Me.ButtonAddVirtualHost.Margin = New System.Windows.Forms.Padding(0, 0, 2, 0)
+        Me.ButtonAddVirtualHost.Name = "ButtonAddVirtualHost"
+        Me.ButtonAddVirtualHost.Padding = New System.Windows.Forms.Padding(2)
+        Me.ButtonAddVirtualHost.Size = New System.Drawing.Size(120, 32)
+        Me.ButtonAddVirtualHost.TabIndex = 4
+        Me.ButtonAddVirtualHost.Text = "Add Virtual Host"
+        Me.ButtonAddVirtualHost.UseVisualStyleBackColor = True
+        '
+        'LabelSelect
+        '
+        Me.LabelSelect.AutoSize = True
+        Me.LabelSelect.Location = New System.Drawing.Point(17, 38)
+        Me.LabelSelect.Margin = New System.Windows.Forms.Padding(0)
+        Me.LabelSelect.Name = "LabelSelect"
+        Me.LabelSelect.Size = New System.Drawing.Size(43, 18)
+        Me.LabelSelect.TabIndex = 5
+        Me.LabelSelect.Text = "Select"
+        '
+        'LabelPreview
+        '
+        Me.LabelPreview.AutoSize = True
+        Me.LabelPreview.Location = New System.Drawing.Point(357, 38)
+        Me.LabelPreview.Margin = New System.Windows.Forms.Padding(0)
+        Me.LabelPreview.Name = "LabelPreview"
+        Me.LabelPreview.Size = New System.Drawing.Size(55, 18)
+        Me.LabelPreview.TabIndex = 6
+        Me.LabelPreview.Text = "Preview"
+        '
+        'ButtonRemoveVirtualHost
+        '
+        Me.ButtonRemoveVirtualHost.AutoSize = True
+        Me.ButtonRemoveVirtualHost.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ButtonRemoveVirtualHost.Location = New System.Drawing.Point(142, 102)
+        Me.ButtonRemoveVirtualHost.Margin = New System.Windows.Forms.Padding(0)
+        Me.ButtonRemoveVirtualHost.Name = "ButtonRemoveVirtualHost"
+        Me.ButtonRemoveVirtualHost.Padding = New System.Windows.Forms.Padding(2)
+        Me.ButtonRemoveVirtualHost.Size = New System.Drawing.Size(145, 32)
+        Me.ButtonRemoveVirtualHost.TabIndex = 7
+        Me.ButtonRemoveVirtualHost.Text = "Remove Virtual Host"
+        Me.ButtonRemoveVirtualHost.UseVisualStyleBackColor = True
         '
         'FormMain
         '
@@ -107,5 +147,8 @@ Partial Class FormMain
     Friend WithEvents ComboBoxVirtualHosts As ComboBox
     Friend WithEvents TextBoxVirtualHostEntryRaw As TextBox
     Friend WithEvents GroupBoxViewVirtualHosts As GroupBox
-    Friend WithEvents ButtonAddNewVirtualHost As Button
+    Friend WithEvents ButtonAddVirtualHost As Button
+    Friend WithEvents LabelPreview As Label
+    Friend WithEvents LabelSelect As Label
+    Friend WithEvents ButtonRemoveVirtualHost As Button
 End Class

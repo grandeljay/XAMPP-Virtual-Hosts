@@ -5,7 +5,8 @@ Create and manage Virtual Hosts for XAMPP.
 - User Friendly GUI to manage all your Virtuals Hosts
     - View Virtual Hosts
     - Add Virtual Hosts
-- automatic backups
+    - Delete Virtual Hosts
+- Automatic backups
 
 ## Screenshots
 ### Main Window
@@ -16,5 +17,5 @@ Create and manage Virtual Hosts for XAMPP.
 
 ## Roadmap
 For the future the following things are planned:
- - Delete Virtual Hosts
- - Restore backups
+- Restore backups
+- Determine invalid hosts

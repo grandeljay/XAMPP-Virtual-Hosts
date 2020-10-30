@@ -1,7 +1,7 @@
 ﻿Imports System.Text
 
 Public Class ClassVirtualHostEntry
-    Public Property Raw As String = ""
+    Public Property Raw As New List(Of String)
 
     Public Property Port As Integer = 80
 
@@ -23,11 +23,7 @@ Public Class ClassVirtualHostEntry
     End Property
 
     Public Function Parse(ByVal Input As String) As Boolean
-        If Raw.Trim.Length > 0 Then
-            Raw = Raw.Trim & Environment.NewLine & Environment.NewLine & Input
-        Else
-            Raw = Input
-        End If
+        Raw.Add(Input)
 
         Port = Functions.getRegexGroup(Input, "<VirtualHost.+?:(\d+)>")
         DocumentRoot = Functions.getRegexGroup(Input, "DocumentRoot.+?" & Chr(34) & "(.+?)" & Chr(34))

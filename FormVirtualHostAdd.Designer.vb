@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FormVirtualHostNew
+Partial Class FormVirtualHostAdd
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class FormVirtualHostNew
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.GroupBoxAddVirtualHost = New System.Windows.Forms.GroupBox()
         Me.LabelAbsolutePathExample = New System.Windows.Forms.Label()
         Me.LabelAbsolutePath = New System.Windows.Forms.Label()
         Me.TextBoxAbsolutePath = New System.Windows.Forms.TextBox()
@@ -31,27 +31,27 @@ Partial Class FormVirtualHostNew
         Me.TextBoxHostName = New System.Windows.Forms.TextBox()
         Me.ButtonSave = New System.Windows.Forms.Button()
         Me.ButtonClose = New System.Windows.Forms.Button()
-        Me.GroupBox2.SuspendLayout()
+        Me.GroupBoxAddVirtualHost.SuspendLayout()
         Me.SuspendLayout()
         '
-        'GroupBox2
+        'GroupBoxAddVirtualHost
         '
-        Me.GroupBox2.AutoSize = True
-        Me.GroupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox2.Controls.Add(Me.LabelAbsolutePathExample)
-        Me.GroupBox2.Controls.Add(Me.LabelAbsolutePath)
-        Me.GroupBox2.Controls.Add(Me.TextBoxAbsolutePath)
-        Me.GroupBox2.Controls.Add(Me.LabelHostNameExample)
-        Me.GroupBox2.Controls.Add(Me.LabelHostName)
-        Me.GroupBox2.Controls.Add(Me.TextBoxHostName)
-        Me.GroupBox2.Location = New System.Drawing.Point(20, 20)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(0, 0, 0, 20)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(20)
-        Me.GroupBox2.Size = New System.Drawing.Size(413, 220)
-        Me.GroupBox2.TabIndex = 4
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Add New Virtual Host"
+        Me.GroupBoxAddVirtualHost.AutoSize = True
+        Me.GroupBoxAddVirtualHost.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBoxAddVirtualHost.Controls.Add(Me.LabelAbsolutePathExample)
+        Me.GroupBoxAddVirtualHost.Controls.Add(Me.LabelAbsolutePath)
+        Me.GroupBoxAddVirtualHost.Controls.Add(Me.TextBoxAbsolutePath)
+        Me.GroupBoxAddVirtualHost.Controls.Add(Me.LabelHostNameExample)
+        Me.GroupBoxAddVirtualHost.Controls.Add(Me.LabelHostName)
+        Me.GroupBoxAddVirtualHost.Controls.Add(Me.TextBoxHostName)
+        Me.GroupBoxAddVirtualHost.Location = New System.Drawing.Point(20, 20)
+        Me.GroupBoxAddVirtualHost.Margin = New System.Windows.Forms.Padding(0, 0, 0, 20)
+        Me.GroupBoxAddVirtualHost.Name = "GroupBoxAddVirtualHost"
+        Me.GroupBoxAddVirtualHost.Padding = New System.Windows.Forms.Padding(20)
+        Me.GroupBoxAddVirtualHost.Size = New System.Drawing.Size(413, 220)
+        Me.GroupBoxAddVirtualHost.TabIndex = 4
+        Me.GroupBoxAddVirtualHost.TabStop = False
+        Me.GroupBoxAddVirtualHost.Text = "Add Virtual Host"
         '
         'LabelAbsolutePathExample
         '
@@ -141,7 +141,7 @@ Partial Class FormVirtualHostNew
         Me.ButtonClose.Text = "Close"
         Me.ButtonClose.UseVisualStyleBackColor = True
         '
-        'FormVirtualHostNew
+        'FormVirtualHostAdd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -150,22 +150,22 @@ Partial Class FormVirtualHostNew
         Me.ClientSize = New System.Drawing.Size(479, 320)
         Me.Controls.Add(Me.ButtonClose)
         Me.Controls.Add(Me.ButtonSave)
-        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBoxAddVirtualHost)
         Me.Font = New System.Drawing.Font("Open Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Name = "FormVirtualHostNew"
+        Me.Name = "FormVirtualHostAdd"
         Me.Padding = New System.Windows.Forms.Padding(20)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "New Virtual Host"
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
+        Me.Text = "Add Virtual Host"
+        Me.GroupBoxAddVirtualHost.ResumeLayout(False)
+        Me.GroupBoxAddVirtualHost.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents GroupBoxAddVirtualHost As GroupBox
     Friend WithEvents LabelAbsolutePathExample As Label
     Friend WithEvents LabelAbsolutePath As Label
     Friend WithEvents TextBoxAbsolutePath As TextBox
