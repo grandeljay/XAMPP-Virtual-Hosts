@@ -42,6 +42,7 @@ Partial Class FormMain
         'TextBoxVirtualHostEntryRaw
         '
         Me.TextBoxVirtualHostEntryRaw.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBoxVirtualHostEntryRaw.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBoxVirtualHostEntryRaw.Location = New System.Drawing.Point(360, 38)
         Me.TextBoxVirtualHostEntryRaw.Margin = New System.Windows.Forms.Padding(0)
         Me.TextBoxVirtualHostEntryRaw.Multiline = True

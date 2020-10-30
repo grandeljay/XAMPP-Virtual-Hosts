@@ -15,7 +15,7 @@
     End Sub
 
     Private Sub ComboBoxVirtualHosts_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxVirtualHosts.SelectedIndexChanged
-        TextBoxVirtualHostEntryRaw.Text = VirtualHosts(ComboBoxVirtualHosts.SelectedIndex).vHosts.Raw
+        TextBoxVirtualHostEntryRaw.Text = VirtualHosts(ComboBoxVirtualHosts.SelectedIndex).vHosts.Raw.Replace(vbTab, "    ")
     End Sub
 
     Private Sub ButtonAddNewVirtualHost_Click(sender As Object, e As EventArgs) Handles ButtonAddNewVirtualHost.Click
