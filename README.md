@@ -12,8 +12,11 @@ Create and manage Virtual Hosts for XAMPP.
 ### Main Window
 ![Main Window](/screenshots/main-window.png "Main Window")
 
-### New Virtual Host
-![New Virtual Host](/screenshots/new-virtual-host.png "New Virtual Host")
+### Add Virtual Host
+![Add Virtual Host](/screenshots/add-virtual-host.png "Add Virtual Host")
+
+### Remove Virtual Host
+![Remove Virtual Host](/screenshots/remove-virtual-host.png "Remove Virtual Host")
 
 ## Roadmap
 For the future the following things are planned:
