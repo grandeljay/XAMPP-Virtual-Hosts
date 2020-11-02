@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Net
 Imports System.Text.RegularExpressions
 
 Module Functions
@@ -92,25 +93,25 @@ Module Functions
 
         ' IPv4 Address
         Dim IPv4Addresses As New List(Of String)
-        IPv4Addresses.AddRange(Functions.getRegexGroups(FileHostsContents, "\n([0-9\.]+)", {1}))
+        IPv4Addresses.AddRange(Functions.GetRegexGroups(FileHostsContents, "\n([0-9\.]+)", {1}))
         ListCount.Add(IPv4Addresses.Count)
 
 
         ' IPv4 Host
         Dim IPv4Hosts As New List(Of String)
-        IPv4Hosts.AddRange(Functions.getRegexGroups(FileHostsContents, "\n[0-9\.]+\s+([a-z\.]+)", {1}))
+        IPv4Hosts.AddRange(Functions.GetRegexGroups(FileHostsContents, "\n[0-9\.]+\s+([a-z\.]+)", {1}))
         ListCount.Add(IPv4Hosts.Count)
 
 
         ' IPv6 Address
         Dim IPv6Addresses As New List(Of String)
-        IPv6Addresses.AddRange(Functions.getRegexGroups(FileHostsContents, "\n([0-9:a-f]+)\s+", {1}))
+        IPv6Addresses.AddRange(Functions.GetRegexGroups(FileHostsContents, "\n([0-9:a-f]+)\s+", {1}))
         ListCount.Add(IPv6Addresses.Count)
 
 
         ' IPv6 Host
         Dim IPv6Hosts As New List(Of String)
-        IPv6Hosts.AddRange(Functions.getRegexGroups(FileHostsContents, "\n[0-9:a-f]+\s+([a-z\.]+)", {1}))
+        IPv6Hosts.AddRange(Functions.GetRegexGroups(FileHostsContents, "\n[0-9:a-f]+\s+([a-z\.]+)", {1}))
         ListCount.Add(IPv6Hosts.Count)
 
 
@@ -155,9 +156,9 @@ Module Functions
         '
         ' Virtual Hosts
         '
-        Dim FileHttpdVhostsContents As String = Functions.getFileContents(My.Settings.FileHttpdVhostsConf)
+        Dim FileHttpdVhostsContents As String = Functions.GetFileContents(My.Settings.FileHttpdVhostsConf)
 
-        Dim vHostsEntries As String() = Functions.getTextBetween(FileHttpdVhostsContents, "<VirtualHost *:80>", "</VirtualHost>")
+        Dim vHostsEntries As String() = Functions.GetTextBetween(FileHttpdVhostsContents, "<VirtualHost *:80>", "</VirtualHost>")
 
         For Each vHostEntry As String In vHostsEntries
             For Each VirtualHost As ClassVirtualHost In VirtualHostsList
@@ -248,6 +249,15 @@ Module Functions
         Next
 
         Return ""
+    End Function
+
+    Public Function GetNewestVersion() As String
+        Dim HTML As String = New WebClient().DownloadString("https://github.com/grandeljay/XAMPP-Virtual-Hosts/releases/latest")
+
+        Dim RegexVersion As New Regex("<a href=" & Chr(34) & ".+?" & Chr(34) & ">v(\d+.\d+.\d+)<\/a>")
+        Dim RegexVersionMatch As Match = RegexVersion.Match(HTML)
+
+        Return RegexVersionMatch.Groups(1).Value
     End Function
 
     Public Function WriteToFile(ByVal Filepath As String, ByVal Contents As Object, Optional ByVal BackupOriginal As Boolean = False)

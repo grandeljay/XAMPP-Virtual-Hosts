@@ -1,8 +1,18 @@
 ﻿Imports System.ComponentModel
 
 Public Class FormMain
-    Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Public IgnoreUpdate As Boolean = False
 
+    Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim NewestVersion As Version = Version.Parse(Functions.GetNewestVersion)
+        Dim CurrentVersion As Version = Version.Parse(Application.ProductVersion)
+
+        If NewestVersion > CurrentVersion AndAlso Not IgnoreUpdate Then
+            FormUpdater.Show()
+            Me.Close()
+        End If
+
+        LabelVersion.Text = "Version " & Application.ProductVersion
     End Sub
 
     Public Sub FormMain_Shown(sender As Object, e As EventArgs) Handles Me.Shown
@@ -33,7 +43,7 @@ Public Class FormMain
     End Sub
 
     Private Sub ComboBoxVirtualHosts_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxVirtualHosts.SelectedIndexChanged
-        TextBoxVirtualHostEntryRaw.Text = String.Join(Environment.NewLine & Environment.NewLine, VirtualHosts.List(ComboBoxVirtualHosts.SelectedIndex).vHosts.Raw).Replace(vbTab, "    ")
+        TextBoxVirtualHostEntryRaw.Text = String.Join(Environment.NewLine & Environment.NewLine, VirtualHosts.List(ComboBoxVirtualHosts.SelectedIndex).VHosts.Raw).Replace(vbTab, "    ")
     End Sub
 
     Private Sub ButtonAddNewVirtualHost_Click(sender As Object, e As EventArgs) Handles ButtonAddVirtualHost.Click

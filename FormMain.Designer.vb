@@ -36,6 +36,7 @@ Partial Class FormMain
         Me.RemoveToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.WindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SpecifyPathsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LabelVersion = New System.Windows.Forms.Label()
         Me.GroupBoxViewVirtualHosts.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -163,13 +164,13 @@ Partial Class FormMain
         'AddToolStripMenuItem1
         '
         Me.AddToolStripMenuItem1.Name = "AddToolStripMenuItem1"
-        Me.AddToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.AddToolStripMenuItem1.Size = New System.Drawing.Size(125, 22)
         Me.AddToolStripMenuItem1.Text = "Add"
         '
         'RemoveToolStripMenuItem1
         '
         Me.RemoveToolStripMenuItem1.Name = "RemoveToolStripMenuItem1"
-        Me.RemoveToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.RemoveToolStripMenuItem1.Size = New System.Drawing.Size(125, 22)
         Me.RemoveToolStripMenuItem1.Text = "Remove"
         '
         'WindowToolStripMenuItem
@@ -185,6 +186,16 @@ Partial Class FormMain
         Me.SpecifyPathsToolStripMenuItem.Size = New System.Drawing.Size(155, 22)
         Me.SpecifyPathsToolStripMenuItem.Text = "Specify Paths"
         '
+        'LabelVersion
+        '
+        Me.LabelVersion.AutoSize = True
+        Me.LabelVersion.Location = New System.Drawing.Point(26, 430)
+        Me.LabelVersion.Margin = New System.Windows.Forms.Padding(0, 0, 0, 20)
+        Me.LabelVersion.Name = "LabelVersion"
+        Me.LabelVersion.Size = New System.Drawing.Size(53, 18)
+        Me.LabelVersion.TabIndex = 6
+        Me.LabelVersion.Text = "Version"
+        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 18.0!)
@@ -192,6 +203,7 @@ Partial Class FormMain
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(914, 472)
+        Me.Controls.Add(Me.LabelVersion)
         Me.Controls.Add(Me.GroupBoxViewVirtualHosts)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Font = New System.Drawing.Font("Open Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -225,4 +237,5 @@ Partial Class FormMain
     Friend WithEvents WindowToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SpecifyPathsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ButtonReload As Button
+    Friend WithEvents LabelVersion As Label
 End Class
