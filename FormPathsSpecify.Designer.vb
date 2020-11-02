@@ -24,10 +24,10 @@ Partial Class FormPathsSpecify
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBoxHosts = New System.Windows.Forms.GroupBox()
+        Me.LabelHostsDirectoryDescription = New System.Windows.Forms.Label()
         Me.PictureBoxHostsProgress = New System.Windows.Forms.PictureBox()
         Me.TextBoxHostsDirectory = New System.Windows.Forms.TextBox()
         Me.TimerUpdateDirectory = New System.Windows.Forms.Timer(Me.components)
-        Me.LabelHostsDirectoryDescription = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.LabelHttpdVhostsConfDirectoryDescription = New System.Windows.Forms.Label()
         Me.LabelHttpdVhostsConfDirectory = New System.Windows.Forms.Label()
@@ -57,6 +57,16 @@ Partial Class FormPathsSpecify
         Me.GroupBoxHosts.TabStop = False
         Me.GroupBoxHosts.Text = "Hosts"
         '
+        'LabelHostsDirectoryDescription
+        '
+        Me.LabelHostsDirectoryDescription.Location = New System.Drawing.Point(17, 63)
+        Me.LabelHostsDirectoryDescription.Margin = New System.Windows.Forms.Padding(0)
+        Me.LabelHostsDirectoryDescription.Name = "LabelHostsDirectoryDescription"
+        Me.LabelHostsDirectoryDescription.Size = New System.Drawing.Size(438, 36)
+        Me.LabelHostsDirectoryDescription.TabIndex = 3
+        Me.LabelHostsDirectoryDescription.Text = "Please specify the location of your hosts file. This process can not be automated" &
+    " for the hosts file."
+        '
         'PictureBoxHostsProgress
         '
         Me.PictureBoxHostsProgress.Location = New System.Drawing.Point(20, 38)
@@ -78,16 +88,6 @@ Partial Class FormPathsSpecify
         'TimerUpdateDirectory
         '
         Me.TimerUpdateDirectory.Interval = 1000
-        '
-        'LabelHostsDirectoryDescription
-        '
-        Me.LabelHostsDirectoryDescription.Location = New System.Drawing.Point(17, 63)
-        Me.LabelHostsDirectoryDescription.Margin = New System.Windows.Forms.Padding(0)
-        Me.LabelHostsDirectoryDescription.Name = "LabelHostsDirectoryDescription"
-        Me.LabelHostsDirectoryDescription.Size = New System.Drawing.Size(438, 36)
-        Me.LabelHostsDirectoryDescription.TabIndex = 3
-        Me.LabelHostsDirectoryDescription.Text = "Please specify the location of your hosts file. This process can not be automated" &
-    " for the hosts file."
         '
         'GroupBox1
         '
@@ -124,7 +124,7 @@ Partial Class FormPathsSpecify
         Me.LabelHttpdVhostsConfDirectory.Name = "LabelHttpdVhostsConfDirectory"
         Me.LabelHttpdVhostsConfDirectory.Size = New System.Drawing.Size(438, 18)
         Me.LabelHttpdVhostsConfDirectory.TabIndex = 2
-        Me.LabelHttpdVhostsConfDirectory.Text = "Getting Progress..."
+        Me.LabelHttpdVhostsConfDirectory.Text = "Getting progress..."
         '
         'PictureBoxHttpdVhostsConfProgress
         '

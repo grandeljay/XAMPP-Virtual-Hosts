@@ -37,6 +37,7 @@ Partial Class FormMain
         Me.WindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SpecifyPathsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LabelVersion = New System.Windows.Forms.Label()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBoxViewVirtualHosts.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -147,7 +148,7 @@ Partial Class FormMain
         'MenuStrip1
         '
         Me.MenuStrip1.Font = New System.Drawing.Font("Open Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VirtualHostToolStripMenuItem, Me.WindowToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VirtualHostToolStripMenuItem, Me.WindowToolStripMenuItem, Me.AboutToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(914, 26)
@@ -196,6 +197,12 @@ Partial Class FormMain
         Me.LabelVersion.TabIndex = 6
         Me.LabelVersion.Text = "Version"
         '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(57, 22)
+        Me.AboutToolStripMenuItem.Text = "About"
+        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 18.0!)
@@ -238,4 +245,5 @@ Partial Class FormMain
     Friend WithEvents SpecifyPathsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ButtonReload As Button
     Friend WithEvents LabelVersion As Label
+    Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -75,4 +75,8 @@ Public Class FormMain
     Private Sub ButtonReload_Click(sender As Object, e As EventArgs) Handles ButtonReload.Click
         FormMain_Shown(sender, e)
     End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        FormAbout.Show()
+    End Sub
 End Class

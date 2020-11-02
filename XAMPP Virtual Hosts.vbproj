@@ -96,6 +96,12 @@
     <Compile Include="ClassVirtualHost.vb" />
     <Compile Include="ClassVirtualHostEntry.vb" />
     <Compile Include="ClassVirtualHostIP.vb" />
+    <Compile Include="FormAbout.Designer.vb">
+      <DependentUpon>FormAbout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAbout.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormMain.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     <Compile Include="VirtualHosts.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormAbout.resx">
+      <DependentUpon>FormAbout.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.vb</DependentUpon>
     </EmbeddedResource>
