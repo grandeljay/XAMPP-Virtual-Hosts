@@ -1,10 +1,23 @@
-﻿Public Class FormMain
+﻿Imports System.ComponentModel
+
+Public Class FormMain
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Public Sub FormMain_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        '
+        ' Determine Hosts and httpd-vhosts.conf files
+        '
+        BackgroundOperation.SetHosts.Run()
+        BackgroundOperation.SetHttpdVhostsConf.Run()
+
+
         '
         ' Get Existing Virtual Hosts
         '
         VirtualHosts.List.Clear()
-        VirtualHosts.List.AddRange(Functions.getVirtualHosts)
+        VirtualHosts.List.AddRange(Functions.GetVirtualHosts)
 
 
         '
@@ -25,13 +38,31 @@
 
     Private Sub ButtonAddNewVirtualHost_Click(sender As Object, e As EventArgs) Handles ButtonAddVirtualHost.Click
         If FormVirtualHostAdd.ShowDialog() Then
-            FormMain_Load(Nothing, Nothing)
+            FormMain_Shown(sender, e)
         End If
     End Sub
 
     Private Sub ButtonRemoveVirtualHost_Click(sender As Object, e As EventArgs) Handles ButtonRemoveVirtualHost.Click
         If FormVirtualHostRemove.ShowDialog() Then
-            FormMain_Load(Nothing, Nothing)
+            FormMain_Shown(sender, e)
         End If
+    End Sub
+
+    Private Sub SpecifyPathsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SpecifyPathsToolStripMenuItem.Click
+        If FormPathsSpecify.ShowDialog() Then
+            FormMain_Shown(sender, e)
+        End If
+    End Sub
+
+    Private Sub AddToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AddToolStripMenuItem1.Click
+        ButtonAddNewVirtualHost_Click(sender, e)
+    End Sub
+
+    Private Sub RemoveToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles RemoveToolStripMenuItem1.Click
+        ButtonRemoveVirtualHost_Click(sender, e)
+    End Sub
+
+    Private Sub ButtonReload_Click(sender As Object, e As EventArgs) Handles ButtonReload.Click
+        FormMain_Shown(sender, e)
     End Sub
 End Class

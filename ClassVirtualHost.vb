@@ -2,7 +2,7 @@
     Public Property ID() As Integer
     Public Property IPv4 As New ClassVirtualHostIP
     Public Property IPv6 As New ClassVirtualHostIP
-    Public Property vHosts As New ClassVirtualHostEntry
+    Public Property VHosts As New ClassVirtualHostEntry
     Public Property Remove As Boolean
 
     Public ReadOnly Property Host() As String

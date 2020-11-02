@@ -1,14 +1,14 @@
 ﻿Imports System.IO
 
 Module VirtualHosts
+    Public Const Hosts As String = "hosts"
+    Public Const HttpdVhostsConf As String = "httpd-vhosts.conf"
+
     Public Property List As New List(Of ClassVirtualHost)
 
-    Public Const FileHosts As String = "C:\Windows\System32\drivers\etc\hosts"
-    Public Const FileHttpdVhosts As String = "D:\XAMPP\apache\conf\extra\httpd-vhosts.conf"
-
     Public Function Save() As Boolean
-        Dim FileContentsHosts As String = File.ReadAllText(FileHosts).Trim
-        Dim FileContentsHttpdVhosts As String = File.ReadAllText(FileHttpdVhosts).Trim
+        Dim FileContentsHosts As String = File.ReadAllText(My.Settings.FileHosts).Trim
+        Dim FileContentsHttpdVhosts As String = File.ReadAllText(My.Settings.FileHttpdVhostsConf).Trim
 
         For Each VirtualHost As ClassVirtualHost In List
             '
@@ -29,8 +29,8 @@ Module VirtualHosts
             End If
         Next
 
-        Functions.WriteToFile(FileHosts, FileContentsHosts, True)
-        Functions.WriteToFile(FileHttpdVhosts, FileContentsHttpdVhosts, True)
+        Functions.WriteToFile(My.Settings.FileHosts, FileContentsHosts, True)
+        Functions.WriteToFile(My.Settings.FileHttpdVhostsConf, FileContentsHttpdVhosts, True)
 
         Return True
     End Function
@@ -39,7 +39,7 @@ Module VirtualHosts
         '
         ' Write hosts
         '
-        Dim FileContentsHosts As String = File.ReadAllText(FileHosts).Trim
+        Dim FileContentsHosts As String = File.ReadAllText(My.Settings.FileHosts).Trim
         Dim WriteLinesHosts As String() = {
             FileContentsHosts,
             String.Empty,
@@ -47,20 +47,20 @@ Module VirtualHosts
             VirtualHostToAdd.IPv6.Entry
         }
 
-        Functions.WriteToFile(FileHosts, WriteLinesHosts, True)
+        Functions.WriteToFile(My.Settings.FileHosts, WriteLinesHosts, True)
 
 
         '
         ' Write httpd-vhosts.conf
         '
-        Dim FileContentsFileHttpdVhosts As String = File.ReadAllText(FileHttpdVhosts).Trim
+        Dim FileContentsFileHttpdVhosts As String = File.ReadAllText(My.Settings.FileHttpdVhostsConf).Trim
         Dim WriteLinesVHosts As String() = {
             FileContentsFileHttpdVhosts,
             String.Empty,
             VirtualHostToAdd.vHosts.Entry
         }
 
-        Functions.WriteToFile(FileHttpdVhosts, WriteLinesVHosts, True)
+        Functions.WriteToFile(My.Settings.FileHttpdVhostsConf, WriteLinesVHosts, True)
 
 
         Return Save()

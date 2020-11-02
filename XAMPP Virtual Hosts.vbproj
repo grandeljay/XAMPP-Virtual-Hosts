@@ -92,6 +92,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackgroundOperation.vb" />
     <Compile Include="ClassVirtualHost.vb" />
     <Compile Include="ClassVirtualHostEntry.vb" />
     <Compile Include="ClassVirtualHostIP.vb" />
@@ -100,6 +101,12 @@
     </Compile>
     <Compile Include="FormMain.Designer.vb">
       <DependentUpon>FormMain.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPathsSpecify.Designer.vb">
+      <DependentUpon>FormPathsSpecify.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPathsSpecify.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormVirtualHostAdd.Designer.vb">
@@ -136,6 +143,9 @@
   <ItemGroup>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPathsSpecify.resx">
+      <DependentUpon>FormPathsSpecify.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVirtualHostAdd.resx">
       <DependentUpon>FormVirtualHostAdd.vb</DependentUpon>

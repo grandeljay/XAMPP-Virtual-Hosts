@@ -2,7 +2,7 @@
 Imports System.Text.RegularExpressions
 
 Module Functions
-    Function getFileContents(ByVal Filepath As String) As String
+    Function GetFileContents(ByVal Filepath As String) As String
         If Not File.Exists(Filepath) Then Return ""
 
         Dim FilepathContents As String = File.ReadAllText(Filepath)
@@ -10,7 +10,7 @@ Module Functions
         Return FilepathContents
     End Function
 
-    Function getRegexGroups(ByVal Subject As String, ByVal Regex As String, Optional ByVal Groups As Integer() = Nothing) As String()
+    Function GetRegexGroups(ByVal Subject As String, ByVal Regex As String, Optional ByVal Groups As Integer() = Nothing) As String()
         Dim DoRegex As New Regex(Regex)
         Dim DoRegexMatch As MatchCollection = DoRegex.Matches(Subject)
         Dim DoRegexOutput As New List(Of String)
@@ -29,10 +29,10 @@ Module Functions
     End Function
 
 
-    Function getRegexGroup(ByVal Subject As String, ByVal Regex As String, Optional ByVal GroupIndex As Integer = 1) As String
+    Function GetRegexGroup(ByVal Subject As String, ByVal Regex As String, Optional ByVal GroupIndex As Integer = 1) As String
         Dim DoRegex As New Regex(Regex)
         Dim DoRegexMatch As Match = DoRegex.Match(Subject)
-        Dim DoRegexOutput As String = ""
+        Dim DoRegexOutput As String
 
         If GroupIndex >= DoRegexMatch.Groups.Count Then GroupIndex = DoRegexMatch.Groups.Count - 1
 
@@ -49,11 +49,9 @@ Module Functions
         Return DoRegexOutput
     End Function
 
-    Function getTextBetween(ByVal Subject As String, ByVal TextStart As String, ByVal TextEnd As String) As String()
-        Dim TextBetween As String = ""
-
-        Dim IndexStart As Integer = -1
-        Dim IndexEnd As Integer = -1
+    Function GetTextBetween(ByVal Subject As String, ByVal TextStart As String, ByVal TextEnd As String) As String()
+        Dim IndexStart As Integer
+        Dim IndexEnd As Integer
 
         Dim TextsBetween As New List(Of String)
 
@@ -75,20 +73,19 @@ Module Functions
                 TextsBetween.Add(TextToAdd)
 
                 IndexStart = IndexEnd
-                IndexEnd = -1
             End If
         Next
 
         Return TextsBetween.ToArray
     End Function
 
-    Function getVirtualHosts() As List(Of ClassVirtualHost)
+    Function GetVirtualHosts() As List(Of ClassVirtualHost)
         Dim VirtualHostsList As New List(Of ClassVirtualHost)
 
         '
         ' Hosts
         '
-        Dim FileHostsContents As String = Functions.getFileContents(VirtualHosts.FileHosts).Trim
+        Dim FileHostsContents As String = Functions.GetFileContents(My.Settings.FileHosts).Trim
 
         Dim ListCount As New List(Of Integer)
 
@@ -158,19 +155,99 @@ Module Functions
         '
         ' Virtual Hosts
         '
-        Dim FileHttpdVhostsContents As String = Functions.getFileContents(VirtualHosts.FileHttpdVhosts)
+        Dim FileHttpdVhostsContents As String = Functions.getFileContents(My.Settings.FileHttpdVhostsConf)
 
         Dim vHostsEntries As String() = Functions.getTextBetween(FileHttpdVhostsContents, "<VirtualHost *:80>", "</VirtualHost>")
 
         For Each vHostEntry As String In vHostsEntries
             For Each VirtualHost As ClassVirtualHost In VirtualHostsList
                 If vHostEntry.Contains(" " & VirtualHost.Host) Then
-                    VirtualHost.vHosts.Parse(vHostEntry)
+                    VirtualHost.VHosts.Parse(vHostEntry)
                 End If
             Next
         Next
 
         Return VirtualHostsList
+    End Function
+
+    ''' <summary>
+    ''' Determine where a file is.
+    ''' </summary>
+    ''' <param name="SearchFor">The file you want to locate (case insensitive). Substrings allowed.</param>
+    ''' <returns>The full file path.</returns>
+    Public Function GetFile(ByVal SearchFor As String) As String
+        For Each LogicalDrive As String In Environment.GetLogicalDrives
+            Dim SearchForFile As String = GetFileIndex(SearchFor, LogicalDrive)
+
+            If File.Exists(SearchForFile) Then Return SearchForFile
+        Next
+
+        Return ""
+    End Function
+
+    Private Function GetFileIndex(ByVal SearchFor As String, ByVal DirectoryToSearch As String, Optional ByVal SearchPattern As String = "*") As String
+        If SearchPattern = "*" Then
+            If Path.HasExtension(SearchFor) Then
+                SearchPattern = SearchFor
+            Else
+                SearchPattern = SearchFor & ".*"
+            End If
+        End If
+
+        For Each iFile As String In Directory.GetFiles(DirectoryToSearch, SearchPattern, SearchOption.TopDirectoryOnly)
+            If iFile.ToLower.Contains(SearchFor) Then
+                Return iFile
+            End If
+        Next
+
+        For Each iDirectory As String In Directory.GetDirectories(DirectoryToSearch, "*", SearchOption.TopDirectoryOnly)
+            Dim iDirectoryInfo As New DirectoryInfo(iDirectory)
+
+            If Not iDirectoryInfo.Attributes.HasFlag(FileAttributes.Hidden) AndAlso Directory.Exists(iDirectory) Then
+                Try
+                    GetFileIndex(SearchFor, iDirectory)
+                Catch UAE As System.UnauthorizedAccessException
+                    'Skip Directory
+                End Try
+            End If
+        Next
+
+        Return ""
+    End Function
+
+    ''' <summary>
+    ''' Determine where a directory is.
+    ''' </summary>
+    ''' <param name="SearchFor">The directory you want to locate (case insensitive). Substrings allowed.</param>
+    ''' <returns>The full directory path.</returns>
+    Public Function GetDirectory(ByVal SearchFor As String) As String
+        For Each LogicalDrive As String In Environment.GetLogicalDrives
+            Dim SearchForDirectory As String = GetDirectoryIndex(SearchFor, LogicalDrive)
+
+            If Directory.Exists(SearchForDirectory) Then Return SearchForDirectory
+        Next
+
+        Return ""
+    End Function
+
+    Private Function GetDirectoryIndex(ByVal SearchFor As String, ByVal DirectoryToSearch As String, Optional ByVal SearchPattern As String = "*") As String
+        For Each iDirectory As String In Directory.GetDirectories(DirectoryToSearch, SearchPattern, SearchOption.TopDirectoryOnly)
+            Dim iDirectoryInfo As New DirectoryInfo(iDirectory)
+
+            If iDirectory.ToLower.Contains(SearchFor.ToLower) Then
+                Return iDirectory
+            End If
+
+            If Not iDirectoryInfo.Attributes.HasFlag(FileAttributes.Hidden) Then
+                Try
+                    GetDirectoryIndex(SearchFor, iDirectory)
+                Catch UAE As System.UnauthorizedAccessException
+                    'Skip Directory
+                End Try
+            End If
+        Next
+
+        Return ""
     End Function
 
     Public Function WriteToFile(ByVal Filepath As String, ByVal Contents As Object, Optional ByVal BackupOriginal As Boolean = False)
@@ -242,7 +319,7 @@ Module Functions
     ''' </summary>
     ''' <param name="Input">The string you would like to process.</param>
     ''' <returns>Trimmed Input without more than 1 empty line between paragraphs.</returns>
-    Public Function removeExtraLines(ByVal Input As String) As String
+    Public Function RemoveExtraLines(ByVal Input As String) As String
         Do
             Input = Input.Replace(Environment.NewLine & Environment.NewLine & Environment.NewLine, Environment.NewLine & Environment.NewLine)
         Loop Until Not Input.Contains(Environment.NewLine & Environment.NewLine & Environment.NewLine)
