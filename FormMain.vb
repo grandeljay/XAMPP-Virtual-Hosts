@@ -24,18 +24,11 @@ Public Class FormMain
 
 
         '
-        ' Get Existing Virtual Hosts
-        '
-        VirtualHosts.List.Clear()
-        VirtualHosts.List.AddRange(Functions.GetVirtualHosts)
-
-
-        '
         ' Show Virtual Hosts in Form
         '
         ComboBoxVirtualHosts.Items.Clear()
 
-        For Each VirtualHost As ClassVirtualHost In VirtualHosts.List
+        For Each VirtualHost As ClassVirtualHost In VirtualHosts.GetVirtualHosts(False)
             ComboBoxVirtualHosts.Items.Add(VirtualHost.Host)
         Next
 
@@ -43,16 +36,16 @@ Public Class FormMain
     End Sub
 
     Private Sub ComboBoxVirtualHosts_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxVirtualHosts.SelectedIndexChanged
-        TextBoxVirtualHostEntryRaw.Text = String.Join(Environment.NewLine & Environment.NewLine, VirtualHosts.List(ComboBoxVirtualHosts.SelectedIndex).VHosts.Raw).Replace(vbTab, "    ")
+        TextBoxVirtualHostEntryRaw.Text = String.Join(Environment.NewLine & Environment.NewLine, VirtualHosts.GetVirtualHosts.Item(ComboBoxVirtualHosts.SelectedIndex).VHosts.Raw).Replace(vbTab, "    ")
     End Sub
 
-    Private Sub ButtonAddNewVirtualHost_Click(sender As Object, e As EventArgs) Handles ButtonAddVirtualHost.Click
+    Private Sub ButtonAddNewVirtualHost_Click(sender As Object, e As EventArgs) Handles ButtonVirtualHostAdd.Click
         If FormVirtualHostAdd.ShowDialog() Then
             FormMain_Shown(sender, e)
         End If
     End Sub
 
-    Private Sub ButtonRemoveVirtualHost_Click(sender As Object, e As EventArgs) Handles ButtonRemoveVirtualHost.Click
+    Private Sub ButtonRemoveVirtualHost_Click(sender As Object, e As EventArgs) Handles ButtonVirtualHostRemove.Click
         If FormVirtualHostRemove.ShowDialog() Then
             FormMain_Shown(sender, e)
         End If
@@ -75,8 +68,15 @@ Public Class FormMain
     Private Sub ButtonReload_Click(sender As Object, e As EventArgs) Handles ButtonReload.Click
         FormMain_Shown(sender, e)
     End Sub
+    Private Sub RestoreToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RestoreToolStripMenuItem.Click
+        ButtonVirtualHostRestore_Click(sender, e)
+    End Sub
 
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
         FormAbout.Show()
+    End Sub
+
+    Private Sub ButtonVirtualHostRestore_Click(sender As Object, e As EventArgs) Handles ButtonVirtualHostRestore.Click
+        FormVirtualHostRestore.Show()
     End Sub
 End Class

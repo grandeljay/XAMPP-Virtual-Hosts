@@ -7,7 +7,7 @@
         '
         ' Add Virtual Hosts
         '
-        For Each VirtualHost As ClassVirtualHost In VirtualHosts.List
+        For Each VirtualHost As ClassVirtualHost In VirtualHosts.GetVirtualHosts
             ComboBoxVirtualHosts.Items.Add(VirtualHost.Host)
         Next
 
@@ -25,7 +25,7 @@
 
     Private Sub ButtonSave_Click(sender As Object, e As EventArgs) Handles ButtonSave.Click
         Dim Index As Integer = ComboBoxVirtualHosts.SelectedIndex
-        Dim RemoveVirtualHost As ClassVirtualHost = Functions.getVirtualHosts().Item(Index)
+        Dim RemoveVirtualHost As ClassVirtualHost = VirtualHosts.GetVirtualHosts.Item(Index)
 
         If VirtualHosts.Remove(Index) Then
             'MessageBox.Show("Virtual Host " & Chr(34) & RemoveVirtualHost.Host & Chr(34) & " removed successfully!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)

@@ -26,18 +26,20 @@ Partial Class FormMain
         Me.TextBoxVirtualHostEntryRaw = New System.Windows.Forms.TextBox()
         Me.GroupBoxViewVirtualHosts = New System.Windows.Forms.GroupBox()
         Me.ButtonReload = New System.Windows.Forms.Button()
-        Me.ButtonRemoveVirtualHost = New System.Windows.Forms.Button()
+        Me.ButtonVirtualHostRemove = New System.Windows.Forms.Button()
         Me.LabelPreview = New System.Windows.Forms.Label()
         Me.LabelSelect = New System.Windows.Forms.Label()
-        Me.ButtonAddVirtualHost = New System.Windows.Forms.Button()
+        Me.ButtonVirtualHostAdd = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.VirtualHostToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.RemoveToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.WindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SpecifyPathsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LabelVersion = New System.Windows.Forms.Label()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LabelVersion = New System.Windows.Forms.Label()
+        Me.ButtonVirtualHostRestore = New System.Windows.Forms.Button()
+        Me.RestoreToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBoxViewVirtualHosts.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -70,11 +72,12 @@ Partial Class FormMain
         '
         Me.GroupBoxViewVirtualHosts.AutoSize = True
         Me.GroupBoxViewVirtualHosts.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBoxViewVirtualHosts.Controls.Add(Me.ButtonVirtualHostRestore)
         Me.GroupBoxViewVirtualHosts.Controls.Add(Me.ButtonReload)
-        Me.GroupBoxViewVirtualHosts.Controls.Add(Me.ButtonRemoveVirtualHost)
+        Me.GroupBoxViewVirtualHosts.Controls.Add(Me.ButtonVirtualHostRemove)
         Me.GroupBoxViewVirtualHosts.Controls.Add(Me.LabelPreview)
         Me.GroupBoxViewVirtualHosts.Controls.Add(Me.LabelSelect)
-        Me.GroupBoxViewVirtualHosts.Controls.Add(Me.ButtonAddVirtualHost)
+        Me.GroupBoxViewVirtualHosts.Controls.Add(Me.ButtonVirtualHostAdd)
         Me.GroupBoxViewVirtualHosts.Controls.Add(Me.ComboBoxVirtualHosts)
         Me.GroupBoxViewVirtualHosts.Controls.Add(Me.TextBoxVirtualHostEntryRaw)
         Me.GroupBoxViewVirtualHosts.Location = New System.Drawing.Point(29, 46)
@@ -90,7 +93,7 @@ Partial Class FormMain
         '
         Me.ButtonReload.AutoSize = True
         Me.ButtonReload.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ButtonReload.Location = New System.Drawing.Point(20, 294)
+        Me.ButtonReload.Location = New System.Drawing.Point(19, 294)
         Me.ButtonReload.Margin = New System.Windows.Forms.Padding(0, 0, 2, 0)
         Me.ButtonReload.Name = "ButtonReload"
         Me.ButtonReload.Padding = New System.Windows.Forms.Padding(2)
@@ -99,18 +102,18 @@ Partial Class FormMain
         Me.ButtonReload.Text = "Reload"
         Me.ButtonReload.UseVisualStyleBackColor = True
         '
-        'ButtonRemoveVirtualHost
+        'ButtonVirtualHostRemove
         '
-        Me.ButtonRemoveVirtualHost.AutoSize = True
-        Me.ButtonRemoveVirtualHost.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ButtonRemoveVirtualHost.Location = New System.Drawing.Point(142, 102)
-        Me.ButtonRemoveVirtualHost.Margin = New System.Windows.Forms.Padding(0, 0, 2, 0)
-        Me.ButtonRemoveVirtualHost.Name = "ButtonRemoveVirtualHost"
-        Me.ButtonRemoveVirtualHost.Padding = New System.Windows.Forms.Padding(2)
-        Me.ButtonRemoveVirtualHost.Size = New System.Drawing.Size(145, 32)
-        Me.ButtonRemoveVirtualHost.TabIndex = 7
-        Me.ButtonRemoveVirtualHost.Text = "Remove Virtual Host"
-        Me.ButtonRemoveVirtualHost.UseVisualStyleBackColor = True
+        Me.ButtonVirtualHostRemove.AutoSize = True
+        Me.ButtonVirtualHostRemove.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ButtonVirtualHostRemove.Location = New System.Drawing.Point(19, 140)
+        Me.ButtonVirtualHostRemove.Margin = New System.Windows.Forms.Padding(2)
+        Me.ButtonVirtualHostRemove.Name = "ButtonVirtualHostRemove"
+        Me.ButtonVirtualHostRemove.Padding = New System.Windows.Forms.Padding(2)
+        Me.ButtonVirtualHostRemove.Size = New System.Drawing.Size(145, 32)
+        Me.ButtonVirtualHostRemove.TabIndex = 7
+        Me.ButtonVirtualHostRemove.Text = "Remove Virtual Host"
+        Me.ButtonVirtualHostRemove.UseVisualStyleBackColor = True
         '
         'LabelPreview
         '
@@ -132,18 +135,18 @@ Partial Class FormMain
         Me.LabelSelect.TabIndex = 5
         Me.LabelSelect.Text = "Select"
         '
-        'ButtonAddVirtualHost
+        'ButtonVirtualHostAdd
         '
-        Me.ButtonAddVirtualHost.AutoSize = True
-        Me.ButtonAddVirtualHost.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ButtonAddVirtualHost.Location = New System.Drawing.Point(20, 102)
-        Me.ButtonAddVirtualHost.Margin = New System.Windows.Forms.Padding(0, 0, 2, 0)
-        Me.ButtonAddVirtualHost.Name = "ButtonAddVirtualHost"
-        Me.ButtonAddVirtualHost.Padding = New System.Windows.Forms.Padding(2)
-        Me.ButtonAddVirtualHost.Size = New System.Drawing.Size(120, 32)
-        Me.ButtonAddVirtualHost.TabIndex = 4
-        Me.ButtonAddVirtualHost.Text = "Add Virtual Host"
-        Me.ButtonAddVirtualHost.UseVisualStyleBackColor = True
+        Me.ButtonVirtualHostAdd.AutoSize = True
+        Me.ButtonVirtualHostAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ButtonVirtualHostAdd.Location = New System.Drawing.Point(19, 104)
+        Me.ButtonVirtualHostAdd.Margin = New System.Windows.Forms.Padding(2)
+        Me.ButtonVirtualHostAdd.Name = "ButtonVirtualHostAdd"
+        Me.ButtonVirtualHostAdd.Padding = New System.Windows.Forms.Padding(2)
+        Me.ButtonVirtualHostAdd.Size = New System.Drawing.Size(120, 32)
+        Me.ButtonVirtualHostAdd.TabIndex = 4
+        Me.ButtonVirtualHostAdd.Text = "Add Virtual Host"
+        Me.ButtonVirtualHostAdd.UseVisualStyleBackColor = True
         '
         'MenuStrip1
         '
@@ -157,7 +160,7 @@ Partial Class FormMain
         '
         'VirtualHostToolStripMenuItem
         '
-        Me.VirtualHostToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToolStripMenuItem1, Me.RemoveToolStripMenuItem1})
+        Me.VirtualHostToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToolStripMenuItem1, Me.RemoveToolStripMenuItem1, Me.RestoreToolStripMenuItem})
         Me.VirtualHostToolStripMenuItem.Name = "VirtualHostToolStripMenuItem"
         Me.VirtualHostToolStripMenuItem.Size = New System.Drawing.Size(91, 22)
         Me.VirtualHostToolStripMenuItem.Text = "Virtual Host"
@@ -165,13 +168,13 @@ Partial Class FormMain
         'AddToolStripMenuItem1
         '
         Me.AddToolStripMenuItem1.Name = "AddToolStripMenuItem1"
-        Me.AddToolStripMenuItem1.Size = New System.Drawing.Size(125, 22)
+        Me.AddToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.AddToolStripMenuItem1.Text = "Add"
         '
         'RemoveToolStripMenuItem1
         '
         Me.RemoveToolStripMenuItem1.Name = "RemoveToolStripMenuItem1"
-        Me.RemoveToolStripMenuItem1.Size = New System.Drawing.Size(125, 22)
+        Me.RemoveToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.RemoveToolStripMenuItem1.Text = "Remove"
         '
         'WindowToolStripMenuItem
@@ -187,6 +190,12 @@ Partial Class FormMain
         Me.SpecifyPathsToolStripMenuItem.Size = New System.Drawing.Size(155, 22)
         Me.SpecifyPathsToolStripMenuItem.Text = "Specify Paths"
         '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(57, 22)
+        Me.AboutToolStripMenuItem.Text = "About"
+        '
         'LabelVersion
         '
         Me.LabelVersion.AutoSize = True
@@ -197,11 +206,24 @@ Partial Class FormMain
         Me.LabelVersion.TabIndex = 6
         Me.LabelVersion.Text = "Version"
         '
-        'AboutToolStripMenuItem
+        'ButtonVirtualHostRestore
         '
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(57, 22)
-        Me.AboutToolStripMenuItem.Text = "About"
+        Me.ButtonVirtualHostRestore.AutoSize = True
+        Me.ButtonVirtualHostRestore.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ButtonVirtualHostRestore.Location = New System.Drawing.Point(19, 176)
+        Me.ButtonVirtualHostRestore.Margin = New System.Windows.Forms.Padding(2)
+        Me.ButtonVirtualHostRestore.Name = "ButtonVirtualHostRestore"
+        Me.ButtonVirtualHostRestore.Padding = New System.Windows.Forms.Padding(2)
+        Me.ButtonVirtualHostRestore.Size = New System.Drawing.Size(142, 32)
+        Me.ButtonVirtualHostRestore.TabIndex = 9
+        Me.ButtonVirtualHostRestore.Text = "Restore Virtual Host"
+        Me.ButtonVirtualHostRestore.UseVisualStyleBackColor = True
+        '
+        'RestoreToolStripMenuItem
+        '
+        Me.RestoreToolStripMenuItem.Name = "RestoreToolStripMenuItem"
+        Me.RestoreToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RestoreToolStripMenuItem.Text = "Restore"
         '
         'FormMain
         '
@@ -233,10 +255,10 @@ Partial Class FormMain
     Friend WithEvents ComboBoxVirtualHosts As ComboBox
     Friend WithEvents TextBoxVirtualHostEntryRaw As TextBox
     Friend WithEvents GroupBoxViewVirtualHosts As GroupBox
-    Friend WithEvents ButtonAddVirtualHost As Button
+    Friend WithEvents ButtonVirtualHostAdd As Button
     Friend WithEvents LabelPreview As Label
     Friend WithEvents LabelSelect As Label
-    Friend WithEvents ButtonRemoveVirtualHost As Button
+    Friend WithEvents ButtonVirtualHostRemove As Button
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents VirtualHostToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AddToolStripMenuItem1 As ToolStripMenuItem
@@ -246,4 +268,6 @@ Partial Class FormMain
     Friend WithEvents ButtonReload As Button
     Friend WithEvents LabelVersion As Label
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ButtonVirtualHostRestore As Button
+    Friend WithEvents RestoreToolStripMenuItem As ToolStripMenuItem
 End Class

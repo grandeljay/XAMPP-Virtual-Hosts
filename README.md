@@ -1,17 +1,19 @@
 # XAMPP Virtual Hosts
-Create and manage Virtual Hosts for XAMPP.
+Create and manage Virtual Hosts for XAMPP with a clean and user friendly interface.
 
 ## Note
-This project is still very young. There is no updater available yet. Please make sure to download the newest version here until there is an updater available.
+If you are experiencing any issues please let me know, by creating an [issue](https://github.com/grandeljay/XAMPP-Virtual-Hosts/issues/new). Your feedback is very appreciated.
 
 ## Features
 - User Friendly GUI to manage all your Virtuals Hosts
     - View Virtual Hosts
     - Add Virtual Hosts
     - Delete Virtual Hosts
-- Automation Of
-    - backups
+- Automation of
+    - creating backups
     - finding httpd-vhosts.conf (manual input/override possible)
+- Version checker / updater
+- Restore backups
 
 ## Requirements
 - XAMPP
@@ -30,8 +32,10 @@ This project is still very young. There is no updater available yet. Please make
 ### Specify Paths
 ![Specify Paths](/screenshots/specify-paths.png "Specify Paths")
 
+### Restore Backup
+![Restore Backup](/screenshots/restore-backup.png "Restore Backup")
+
 ## Roadmap
 The following things are planned for the future:
-- Version checker / updater
-- Restore backups
 - Determine invalid hosts
+- Check and prevent duplicate entries

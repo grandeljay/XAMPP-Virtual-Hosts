@@ -3,7 +3,7 @@ Imports System.Net
 Imports System.Text.RegularExpressions
 
 Module Functions
-    Function GetFileContents(ByVal Filepath As String) As String
+    Public Function GetFileContents(ByVal Filepath As String) As String
         If Not File.Exists(Filepath) Then Return ""
 
         Dim FilepathContents As String = File.ReadAllText(Filepath)
@@ -11,7 +11,7 @@ Module Functions
         Return FilepathContents
     End Function
 
-    Function GetRegexGroups(ByVal Subject As String, ByVal Regex As String, Optional ByVal Groups As Integer() = Nothing) As String()
+    Public Function GetRegexGroups(ByVal Subject As String, ByVal Regex As String, Optional ByVal Groups As Integer() = Nothing) As String()
         Dim DoRegex As New Regex(Regex)
         Dim DoRegexMatch As MatchCollection = DoRegex.Matches(Subject)
         Dim DoRegexOutput As New List(Of String)
@@ -29,8 +29,7 @@ Module Functions
         Return DoRegexOutput.ToArray
     End Function
 
-
-    Function GetRegexGroup(ByVal Subject As String, ByVal Regex As String, Optional ByVal GroupIndex As Integer = 1) As String
+    Public Function GetRegexGroup(ByVal Subject As String, ByVal Regex As String, Optional ByVal GroupIndex As Integer = 1) As String
         Dim DoRegex As New Regex(Regex)
         Dim DoRegexMatch As Match = DoRegex.Match(Subject)
         Dim DoRegexOutput As String
@@ -50,7 +49,7 @@ Module Functions
         Return DoRegexOutput
     End Function
 
-    Function GetTextBetween(ByVal Subject As String, ByVal TextStart As String, ByVal TextEnd As String) As String()
+    Public Function GetTextBetween(ByVal Subject As String, ByVal TextStart As String, ByVal TextEnd As String) As String()
         Dim IndexStart As Integer
         Dim IndexEnd As Integer
 
@@ -80,96 +79,6 @@ Module Functions
         Return TextsBetween.ToArray
     End Function
 
-    Function GetVirtualHosts() As List(Of ClassVirtualHost)
-        Dim VirtualHostsList As New List(Of ClassVirtualHost)
-
-        '
-        ' Hosts
-        '
-        Dim FileHostsContents As String = Functions.GetFileContents(My.Settings.FileHosts).Trim
-
-        Dim ListCount As New List(Of Integer)
-
-
-        ' IPv4 Address
-        Dim IPv4Addresses As New List(Of String)
-        IPv4Addresses.AddRange(Functions.GetRegexGroups(FileHostsContents, "\n([0-9\.]+)", {1}))
-        ListCount.Add(IPv4Addresses.Count)
-
-
-        ' IPv4 Host
-        Dim IPv4Hosts As New List(Of String)
-        IPv4Hosts.AddRange(Functions.GetRegexGroups(FileHostsContents, "\n[0-9\.]+\s+([a-z\.]+)", {1}))
-        ListCount.Add(IPv4Hosts.Count)
-
-
-        ' IPv6 Address
-        Dim IPv6Addresses As New List(Of String)
-        IPv6Addresses.AddRange(Functions.GetRegexGroups(FileHostsContents, "\n([0-9:a-f]+)\s+", {1}))
-        ListCount.Add(IPv6Addresses.Count)
-
-
-        ' IPv6 Host
-        Dim IPv6Hosts As New List(Of String)
-        IPv6Hosts.AddRange(Functions.GetRegexGroups(FileHostsContents, "\n[0-9:a-f]+\s+([a-z\.]+)", {1}))
-        ListCount.Add(IPv6Hosts.Count)
-
-
-        ' Add to Class
-        Dim IPv4Index As Integer = 0
-        Dim IPv6Index As Integer = 0
-        Dim i4 As Integer
-        Dim i6 As Integer
-
-        For i = 0 To ListCount.Max - 1
-            Dim VirtualHost As New ClassVirtualHost
-
-            i4 = i + IPv4Index
-            i6 = i + IPv6Index
-
-            If IPv4Hosts.Count > i4 AndAlso IPv6Hosts.Count > i6 AndAlso IPv4Hosts(i4) = IPv6Hosts(i6) Then
-                ' Add entries if there is an equal amount of IPv6 and IPv4 Entries
-                VirtualHost.IPv4.Address = IPv4Addresses(i4)
-                VirtualHost.IPv4.Host = IPv4Hosts(i4)
-                VirtualHost.IPv6.Address = IPv6Addresses(i6)
-                VirtualHost.IPv6.Host = IPv6Hosts(i6)
-            Else
-                ' Determine if IPv4 or IPv6 Entry is missing
-                ' offset the opposite index for the missing entry
-                If FileHostsContents.IndexOf(IPv4Hosts(i4)) < FileHostsContents.IndexOf(IPv6Hosts(i6)) Then
-                    VirtualHost.IPv4.Address = IPv4Addresses(i4)
-                    VirtualHost.IPv4.Host = IPv4Hosts(i4)
-
-                    IPv6Index -= 1
-                Else
-                    VirtualHost.IPv6.Address = IPv6Addresses(i6)
-                    VirtualHost.IPv6.Host = IPv6Hosts(i6)
-
-                    IPv4Index -= 1
-                End If
-            End If
-
-            VirtualHostsList.Add(VirtualHost)
-        Next
-
-
-        '
-        ' Virtual Hosts
-        '
-        Dim FileHttpdVhostsContents As String = Functions.GetFileContents(My.Settings.FileHttpdVhostsConf)
-
-        Dim vHostsEntries As String() = Functions.GetTextBetween(FileHttpdVhostsContents, "<VirtualHost *:80>", "</VirtualHost>")
-
-        For Each vHostEntry As String In vHostsEntries
-            For Each VirtualHost As ClassVirtualHost In VirtualHostsList
-                If vHostEntry.Contains(" " & VirtualHost.Host) Then
-                    VirtualHost.VHosts.Parse(vHostEntry)
-                End If
-            Next
-        Next
-
-        Return VirtualHostsList
-    End Function
 
     ''' <summary>
     ''' Determine where a file is.
@@ -260,57 +169,9 @@ Module Functions
         Return RegexVersionMatch.Groups(1).Value
     End Function
 
-    Public Function WriteToFile(ByVal Filepath As String, ByVal Contents As Object, Optional ByVal BackupOriginal As Boolean = False)
-        If BackupOriginal Then
-            '
-            ' Create Backup
-            '
-            Dim DateNow As String = Date.Now.Year & "-" & Date.Now.Month & "-" & Date.Now.Day & "-" & Date.Now.TimeOfDay.Hours & "-" & Date.Now.TimeOfDay.Minutes
-            Dim BackupDirectory As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\" & Application.ProductName & "\Backups"
-            Dim BackupFilepath As String = BackupDirectory & "\" & Path.GetFileName(Filepath) & "." & DateNow
 
-            If Not Directory.Exists(BackupDirectory) Then Directory.CreateDirectory(BackupDirectory)
-
-            File.Copy(Filepath, BackupFilepath, True)
-
-            '
-            ' Remove Old Backups
-            '
-            Dim Backups As New List(Of List(Of String))
-
-            ' hosts
-            Dim hosts As New List(Of String)
-            For Each hostsFile As String In Directory.GetFiles(BackupDirectory, "hosts.*", SearchOption.TopDirectoryOnly)
-                hosts.Add(hostsFile)
-            Next
-
-            Backups.Add(hosts)
-
-            ' httpd-vhosts.conf
-            Dim httpd_vhostsConf As New List(Of String)
-
-            For Each httpd_vhostsConfFile As String In Directory.GetFiles(BackupDirectory, "httpd-vhosts.conf.*", SearchOption.TopDirectoryOnly)
-                httpd_vhostsConf.Add(httpd_vhostsConfFile)
-            Next
-
-            Backups.Add(httpd_vhostsConf)
-
-
-            '
-            ' Delete Backups
-            '
-            For Each Backup As List(Of String) In Backups
-                If Backup.Count > 10 Then
-                    Do
-                        File.Delete(Backup(0))
-                        Backup.RemoveAt(0)
-
-                        Application.DoEvents()
-                    Loop Until Backup.Count <= 10
-                End If
-            Next
-        End If
-
+    Public Function WriteToFile(ByVal Filepath As String, ByVal Contents As Object, Optional ByVal BackupOriginal As Boolean = False) As Boolean
+        If BackupOriginal Then Backups.CreateNew(Filepath)
 
         '
         ' Write To File

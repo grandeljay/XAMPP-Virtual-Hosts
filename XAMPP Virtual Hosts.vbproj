@@ -93,6 +93,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackgroundOperation.vb" />
+    <Compile Include="Backups.vb" />
+    <Compile Include="ClassBackup.vb" />
     <Compile Include="ClassVirtualHost.vb" />
     <Compile Include="ClassVirtualHostEntry.vb" />
     <Compile Include="ClassVirtualHostIP.vb" />
@@ -125,6 +127,12 @@
       <DependentUpon>FormVirtualHostRemove.vb</DependentUpon>
     </Compile>
     <Compile Include="FormVirtualHostRemove.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVirtualHostRestore.Designer.vb">
+      <DependentUpon>FormVirtualHostRestore.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormVirtualHostRestore.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Functions.vb" />
@@ -167,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormVirtualHostRemove.resx">
       <DependentUpon>FormVirtualHostRemove.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVirtualHostRestore.resx">
+      <DependentUpon>FormVirtualHostRestore.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
