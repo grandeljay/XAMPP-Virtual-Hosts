@@ -28,13 +28,16 @@ Partial Class FormAbout
         Me.LinkLabelWebsite = New System.Windows.Forms.LinkLabel()
         Me.LabelCompany = New System.Windows.Forms.Label()
         Me.LabelProductVersion = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBoxAbout.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LabelProductName
         '
         Me.LabelProductName.AutoSize = True
-        Me.LabelProductName.Location = New System.Drawing.Point(23, 38)
+        Me.LabelProductName.Location = New System.Drawing.Point(140, 38)
+        Me.LabelProductName.Margin = New System.Windows.Forms.Padding(0, 0, 0, 2)
         Me.LabelProductName.Name = "LabelProductName"
         Me.LabelProductName.Size = New System.Drawing.Size(124, 18)
         Me.LabelProductName.TabIndex = 0
@@ -44,6 +47,7 @@ Partial Class FormAbout
         '
         Me.GroupBoxAbout.AutoSize = True
         Me.GroupBoxAbout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBoxAbout.Controls.Add(Me.PictureBox1)
         Me.GroupBoxAbout.Controls.Add(Me.LinkLabelWebsite)
         Me.GroupBoxAbout.Controls.Add(Me.LabelCompany)
         Me.GroupBoxAbout.Controls.Add(Me.LabelProductVersion)
@@ -52,7 +56,7 @@ Partial Class FormAbout
         Me.GroupBoxAbout.Margin = New System.Windows.Forms.Padding(0)
         Me.GroupBoxAbout.Name = "GroupBoxAbout"
         Me.GroupBoxAbout.Padding = New System.Windows.Forms.Padding(20)
-        Me.GroupBoxAbout.Size = New System.Drawing.Size(179, 148)
+        Me.GroupBoxAbout.Size = New System.Drawing.Size(293, 176)
         Me.GroupBoxAbout.TabIndex = 1
         Me.GroupBoxAbout.TabStop = False
         Me.GroupBoxAbout.Text = "About"
@@ -63,7 +67,8 @@ Partial Class FormAbout
         Me.LinkLabelWebsite.AutoSize = True
         Me.LinkLabelWebsite.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
         Me.LinkLabelWebsite.LinkColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.LinkLabelWebsite.Location = New System.Drawing.Point(23, 92)
+        Me.LinkLabelWebsite.Location = New System.Drawing.Point(140, 98)
+        Me.LinkLabelWebsite.Margin = New System.Windows.Forms.Padding(0, 0, 0, 2)
         Me.LinkLabelWebsite.Name = "LinkLabelWebsite"
         Me.LinkLabelWebsite.Size = New System.Drawing.Size(113, 18)
         Me.LinkLabelWebsite.TabIndex = 3
@@ -74,7 +79,8 @@ Partial Class FormAbout
         'LabelCompany
         '
         Me.LabelCompany.AutoSize = True
-        Me.LabelCompany.Location = New System.Drawing.Point(23, 74)
+        Me.LabelCompany.Location = New System.Drawing.Point(140, 78)
+        Me.LabelCompany.Margin = New System.Windows.Forms.Padding(0, 0, 0, 2)
         Me.LabelCompany.Name = "LabelCompany"
         Me.LabelCompany.Size = New System.Drawing.Size(98, 18)
         Me.LabelCompany.TabIndex = 2
@@ -83,11 +89,23 @@ Partial Class FormAbout
         'LabelProductVersion
         '
         Me.LabelProductVersion.AutoSize = True
-        Me.LabelProductVersion.Location = New System.Drawing.Point(23, 56)
+        Me.LabelProductVersion.Location = New System.Drawing.Point(140, 58)
+        Me.LabelProductVersion.Margin = New System.Windows.Forms.Padding(0, 0, 0, 2)
         Me.LabelProductVersion.Name = "LabelProductVersion"
         Me.LabelProductVersion.Size = New System.Drawing.Size(133, 18)
         Me.LabelProductVersion.TabIndex = 1
         Me.LabelProductVersion.Text = "LabelProductVersion"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.XAMPP_Virtual_Hosts.My.Resources.Resources.logo
+        Me.PictureBox1.Location = New System.Drawing.Point(20, 38)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(0, 0, 20, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(100, 100)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 4
+        Me.PictureBox1.TabStop = False
         '
         'FormAbout
         '
@@ -108,6 +126,7 @@ Partial Class FormAbout
         Me.Text = "About"
         Me.GroupBoxAbout.ResumeLayout(False)
         Me.GroupBoxAbout.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -118,4 +137,5 @@ Partial Class FormAbout
     Friend WithEvents LabelProductVersion As Label
     Friend WithEvents LabelCompany As Label
     Friend WithEvents LinkLabelWebsite As LinkLabel
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
