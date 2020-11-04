@@ -23,6 +23,7 @@ Partial Class FormPathsSpecify
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormPathsSpecify))
         Me.GroupBoxHosts = New System.Windows.Forms.GroupBox()
         Me.LabelHostsDirectoryDescription = New System.Windows.Forms.Label()
         Me.PictureBoxHostsProgress = New System.Windows.Forms.PictureBox()
@@ -183,6 +184,7 @@ Partial Class FormPathsSpecify
         Me.Controls.Add(Me.GroupBoxHosts)
         Me.Font = New System.Drawing.Font("Open Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.Name = "FormPathsSpecify"

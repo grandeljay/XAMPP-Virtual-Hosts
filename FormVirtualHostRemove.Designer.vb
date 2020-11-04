@@ -22,9 +22,10 @@ Partial Class FormVirtualHostRemove
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormVirtualHostRemove))
         Me.GroupBoxRemoveVirtualHost = New System.Windows.Forms.GroupBox()
-        Me.LabelSelect = New System.Windows.Forms.Label()
         Me.ComboBoxVirtualHosts = New System.Windows.Forms.ComboBox()
+        Me.LabelSelect = New System.Windows.Forms.Label()
         Me.ButtonClose = New System.Windows.Forms.Button()
         Me.ButtonSave = New System.Windows.Forms.Button()
         Me.GroupBoxRemoveVirtualHost.SuspendLayout()
@@ -45,16 +46,6 @@ Partial Class FormVirtualHostRemove
         Me.GroupBoxRemoveVirtualHost.TabStop = False
         Me.GroupBoxRemoveVirtualHost.Text = "Remove Virtual Host"
         '
-        'LabelSelect
-        '
-        Me.LabelSelect.AutoSize = True
-        Me.LabelSelect.Location = New System.Drawing.Point(17, 38)
-        Me.LabelSelect.Margin = New System.Windows.Forms.Padding(0)
-        Me.LabelSelect.Name = "LabelSelect"
-        Me.LabelSelect.Size = New System.Drawing.Size(43, 18)
-        Me.LabelSelect.TabIndex = 2
-        Me.LabelSelect.Text = "Select"
-        '
         'ComboBoxVirtualHosts
         '
         Me.ComboBoxVirtualHosts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -64,6 +55,16 @@ Partial Class FormVirtualHostRemove
         Me.ComboBoxVirtualHosts.Name = "ComboBoxVirtualHosts"
         Me.ComboBoxVirtualHosts.Size = New System.Drawing.Size(320, 26)
         Me.ComboBoxVirtualHosts.TabIndex = 3
+        '
+        'LabelSelect
+        '
+        Me.LabelSelect.AutoSize = True
+        Me.LabelSelect.Location = New System.Drawing.Point(17, 38)
+        Me.LabelSelect.Margin = New System.Windows.Forms.Padding(0)
+        Me.LabelSelect.Name = "LabelSelect"
+        Me.LabelSelect.Size = New System.Drawing.Size(43, 18)
+        Me.LabelSelect.TabIndex = 2
+        Me.LabelSelect.Text = "Select"
         '
         'ButtonClose
         '
@@ -103,6 +104,7 @@ Partial Class FormVirtualHostRemove
         Me.Controls.Add(Me.GroupBoxRemoveVirtualHost)
         Me.Font = New System.Drawing.Font("Open Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.Name = "FormVirtualHostRemove"

@@ -22,6 +22,7 @@ Partial Class FormVirtualHostAdd
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormVirtualHostAdd))
         Me.GroupBoxAddVirtualHost = New System.Windows.Forms.GroupBox()
         Me.LabelAbsolutePathExample = New System.Windows.Forms.Label()
         Me.LabelAbsolutePath = New System.Windows.Forms.Label()
@@ -153,6 +154,7 @@ Partial Class FormVirtualHostAdd
         Me.Controls.Add(Me.GroupBoxAddVirtualHost)
         Me.Font = New System.Drawing.Font("Open Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FormVirtualHostAdd"
         Me.Padding = New System.Windows.Forms.Padding(20)

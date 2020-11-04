@@ -22,13 +22,14 @@ Partial Class FormUpdater
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormUpdater))
         Me.GroupBoxUpdate = New System.Windows.Forms.GroupBox()
-        Me.ProgressBarUpdate = New System.Windows.Forms.ProgressBar()
-        Me.LabelDirectory = New System.Windows.Forms.Label()
-        Me.TextBoxDirectory = New System.Windows.Forms.TextBox()
-        Me.LabelProgress = New System.Windows.Forms.Label()
-        Me.ButtonDownload = New System.Windows.Forms.Button()
         Me.ButtonLaunch = New System.Windows.Forms.Button()
+        Me.ButtonDownload = New System.Windows.Forms.Button()
+        Me.LabelProgress = New System.Windows.Forms.Label()
+        Me.TextBoxDirectory = New System.Windows.Forms.TextBox()
+        Me.LabelDirectory = New System.Windows.Forms.Label()
+        Me.ProgressBarUpdate = New System.Windows.Forms.ProgressBar()
         Me.ButtonClose = New System.Windows.Forms.Button()
         Me.GroupBoxUpdate.SuspendLayout()
         Me.SuspendLayout()
@@ -52,41 +53,19 @@ Partial Class FormUpdater
         Me.GroupBoxUpdate.TabStop = False
         Me.GroupBoxUpdate.Text = "Update Available"
         '
-        'ProgressBarUpdate
+        'ButtonLaunch
         '
-        Me.ProgressBarUpdate.Location = New System.Drawing.Point(20, 153)
-        Me.ProgressBarUpdate.Margin = New System.Windows.Forms.Padding(0)
-        Me.ProgressBarUpdate.Name = "ProgressBarUpdate"
-        Me.ProgressBarUpdate.Size = New System.Drawing.Size(399, 23)
-        Me.ProgressBarUpdate.TabIndex = 1
-        '
-        'LabelDirectory
-        '
-        Me.LabelDirectory.AutoSize = True
-        Me.LabelDirectory.Location = New System.Drawing.Point(17, 38)
-        Me.LabelDirectory.Margin = New System.Windows.Forms.Padding(0)
-        Me.LabelDirectory.Name = "LabelDirectory"
-        Me.LabelDirectory.Size = New System.Drawing.Size(386, 18)
-        Me.LabelDirectory.TabIndex = 1
-        Me.LabelDirectory.Text = "There is an update available. Where would you like to save it to?"
-        '
-        'TextBoxDirectory
-        '
-        Me.TextBoxDirectory.Location = New System.Drawing.Point(20, 56)
-        Me.TextBoxDirectory.Margin = New System.Windows.Forms.Padding(0)
-        Me.TextBoxDirectory.Name = "TextBoxDirectory"
-        Me.TextBoxDirectory.Size = New System.Drawing.Size(399, 25)
-        Me.TextBoxDirectory.TabIndex = 2
-        '
-        'LabelProgress
-        '
-        Me.LabelProgress.AutoSize = True
-        Me.LabelProgress.Location = New System.Drawing.Point(17, 135)
-        Me.LabelProgress.Margin = New System.Windows.Forms.Padding(0)
-        Me.LabelProgress.Name = "LabelProgress"
-        Me.LabelProgress.Size = New System.Drawing.Size(60, 18)
-        Me.LabelProgress.TabIndex = 3
-        Me.LabelProgress.Text = "Progress"
+        Me.ButtonLaunch.AutoSize = True
+        Me.ButtonLaunch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ButtonLaunch.Enabled = False
+        Me.ButtonLaunch.Location = New System.Drawing.Point(20, 178)
+        Me.ButtonLaunch.Margin = New System.Windows.Forms.Padding(2)
+        Me.ButtonLaunch.Name = "ButtonLaunch"
+        Me.ButtonLaunch.Padding = New System.Windows.Forms.Padding(2)
+        Me.ButtonLaunch.Size = New System.Drawing.Size(66, 32)
+        Me.ButtonLaunch.TabIndex = 10
+        Me.ButtonLaunch.Text = "Launch"
+        Me.ButtonLaunch.UseVisualStyleBackColor = True
         '
         'ButtonDownload
         '
@@ -101,19 +80,41 @@ Partial Class FormUpdater
         Me.ButtonDownload.Text = "Download"
         Me.ButtonDownload.UseVisualStyleBackColor = True
         '
-        'ButtonLaunch
+        'LabelProgress
         '
-        Me.ButtonLaunch.AutoSize = True
-        Me.ButtonLaunch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ButtonLaunch.Enabled = False
-        Me.ButtonLaunch.Location = New System.Drawing.Point(20, 178)
-        Me.ButtonLaunch.Margin = New System.Windows.Forms.Padding(2)
-        Me.ButtonLaunch.Name = "ButtonLaunch"
-        Me.ButtonLaunch.Padding = New System.Windows.Forms.Padding(2)
-        Me.ButtonLaunch.Size = New System.Drawing.Size(66, 32)
-        Me.ButtonLaunch.TabIndex = 10
-        Me.ButtonLaunch.Text = "Launch"
-        Me.ButtonLaunch.UseVisualStyleBackColor = True
+        Me.LabelProgress.AutoSize = True
+        Me.LabelProgress.Location = New System.Drawing.Point(17, 135)
+        Me.LabelProgress.Margin = New System.Windows.Forms.Padding(0)
+        Me.LabelProgress.Name = "LabelProgress"
+        Me.LabelProgress.Size = New System.Drawing.Size(60, 18)
+        Me.LabelProgress.TabIndex = 3
+        Me.LabelProgress.Text = "Progress"
+        '
+        'TextBoxDirectory
+        '
+        Me.TextBoxDirectory.Location = New System.Drawing.Point(20, 56)
+        Me.TextBoxDirectory.Margin = New System.Windows.Forms.Padding(0)
+        Me.TextBoxDirectory.Name = "TextBoxDirectory"
+        Me.TextBoxDirectory.Size = New System.Drawing.Size(399, 25)
+        Me.TextBoxDirectory.TabIndex = 2
+        '
+        'LabelDirectory
+        '
+        Me.LabelDirectory.AutoSize = True
+        Me.LabelDirectory.Location = New System.Drawing.Point(17, 38)
+        Me.LabelDirectory.Margin = New System.Windows.Forms.Padding(0)
+        Me.LabelDirectory.Name = "LabelDirectory"
+        Me.LabelDirectory.Size = New System.Drawing.Size(386, 18)
+        Me.LabelDirectory.TabIndex = 1
+        Me.LabelDirectory.Text = "There is an update available. Where would you like to save it to?"
+        '
+        'ProgressBarUpdate
+        '
+        Me.ProgressBarUpdate.Location = New System.Drawing.Point(20, 153)
+        Me.ProgressBarUpdate.Margin = New System.Windows.Forms.Padding(0)
+        Me.ProgressBarUpdate.Name = "ProgressBarUpdate"
+        Me.ProgressBarUpdate.Size = New System.Drawing.Size(399, 23)
+        Me.ProgressBarUpdate.TabIndex = 1
         '
         'ButtonClose
         '
@@ -139,6 +140,7 @@ Partial Class FormUpdater
         Me.Controls.Add(Me.GroupBoxUpdate)
         Me.Font = New System.Drawing.Font("Open Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.Name = "FormUpdater"

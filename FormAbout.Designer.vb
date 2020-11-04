@@ -22,11 +22,12 @@ Partial Class FormAbout
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormAbout))
         Me.LabelProductName = New System.Windows.Forms.Label()
         Me.GroupBoxAbout = New System.Windows.Forms.GroupBox()
-        Me.LabelProductVersion = New System.Windows.Forms.Label()
-        Me.LabelCompany = New System.Windows.Forms.Label()
         Me.LinkLabelWebsite = New System.Windows.Forms.LinkLabel()
+        Me.LabelCompany = New System.Windows.Forms.Label()
+        Me.LabelProductVersion = New System.Windows.Forms.Label()
         Me.GroupBoxAbout.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -56,24 +57,6 @@ Partial Class FormAbout
         Me.GroupBoxAbout.TabStop = False
         Me.GroupBoxAbout.Text = "About"
         '
-        'LabelProductVersion
-        '
-        Me.LabelProductVersion.AutoSize = True
-        Me.LabelProductVersion.Location = New System.Drawing.Point(23, 56)
-        Me.LabelProductVersion.Name = "LabelProductVersion"
-        Me.LabelProductVersion.Size = New System.Drawing.Size(133, 18)
-        Me.LabelProductVersion.TabIndex = 1
-        Me.LabelProductVersion.Text = "LabelProductVersion"
-        '
-        'LabelCompany
-        '
-        Me.LabelCompany.AutoSize = True
-        Me.LabelCompany.Location = New System.Drawing.Point(23, 74)
-        Me.LabelCompany.Name = "LabelCompany"
-        Me.LabelCompany.Size = New System.Drawing.Size(98, 18)
-        Me.LabelCompany.TabIndex = 2
-        Me.LabelCompany.Text = "LabelCompany"
-        '
         'LinkLabelWebsite
         '
         Me.LinkLabelWebsite.ActiveLinkColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -88,6 +71,24 @@ Partial Class FormAbout
         Me.LinkLabelWebsite.Text = "LinkLabelWebsite"
         Me.LinkLabelWebsite.VisitedLinkColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
         '
+        'LabelCompany
+        '
+        Me.LabelCompany.AutoSize = True
+        Me.LabelCompany.Location = New System.Drawing.Point(23, 74)
+        Me.LabelCompany.Name = "LabelCompany"
+        Me.LabelCompany.Size = New System.Drawing.Size(98, 18)
+        Me.LabelCompany.TabIndex = 2
+        Me.LabelCompany.Text = "LabelCompany"
+        '
+        'LabelProductVersion
+        '
+        Me.LabelProductVersion.AutoSize = True
+        Me.LabelProductVersion.Location = New System.Drawing.Point(23, 56)
+        Me.LabelProductVersion.Name = "LabelProductVersion"
+        Me.LabelProductVersion.Size = New System.Drawing.Size(133, 18)
+        Me.LabelProductVersion.TabIndex = 1
+        Me.LabelProductVersion.Text = "LabelProductVersion"
+        '
         'FormAbout
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 18.0!)
@@ -98,6 +99,7 @@ Partial Class FormAbout
         Me.Controls.Add(Me.GroupBoxAbout)
         Me.Font = New System.Drawing.Font("Open Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.Name = "FormAbout"

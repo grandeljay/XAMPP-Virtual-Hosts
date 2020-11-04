@@ -22,6 +22,7 @@ Partial Class FormVirtualHostRestore
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormVirtualHostRestore))
         Me.GroupBoxRestore = New System.Windows.Forms.GroupBox()
         Me.LabelSelectBackup = New System.Windows.Forms.Label()
         Me.ComboBoxVirtualHosts = New System.Windows.Forms.ComboBox()
@@ -134,6 +135,7 @@ Partial Class FormVirtualHostRestore
         Me.Controls.Add(Me.GroupBoxRestore)
         Me.Font = New System.Drawing.Font("Open Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.Name = "FormVirtualHostRestore"
