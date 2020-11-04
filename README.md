@@ -1,4 +1,4 @@
-![XAMPP Virtual Hosts](/assets/logo.png "XAMPP Virtual Hosts")
+![XAMPP Virtual Hosts](/assets/logo-github.png "XAMPP Virtual Hosts")
 
 # XAMPP Virtual Hosts
 Create and manage Virtual Hosts for XAMPP with a clean and user friendly interface.
