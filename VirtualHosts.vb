@@ -86,7 +86,7 @@ Module VirtualHosts
     End Function
 
     Public Function Parse(ByVal FileContents_hosts As String, ByVal FileContents_httpd_vhosts_conf As String) As List(Of ClassVirtualHost)
-        Dim VirtualHosts As New List(Of ClassVirtualHost)
+        Dim VirtualHostsList As New List(Of ClassVirtualHost)
 
         '
         ' Hosts
@@ -147,7 +147,7 @@ Module VirtualHosts
                 End If
             End If
 
-            VirtualHosts.Add(VirtualHost)
+            VirtualHostsList.Add(VirtualHost)
         Next
 
 
@@ -161,7 +161,7 @@ Module VirtualHosts
         For Each vHostEntry As String In vHostsEntries
             Dim vHostIsOrphan As Boolean = True
 
-            For Each VirtualHost As ClassVirtualHost In VirtualHosts
+            For Each VirtualHost As ClassVirtualHost In VirtualHostsList
                 If vHostEntry.Contains(" " & VirtualHost.Host) Then
                     VirtualHost.VHosts.Parse(vHostEntry)
 
@@ -175,19 +175,19 @@ Module VirtualHosts
                 VirtualHost.VHosts.Parse(vHostEntry)
                 VirtualHost.IPv4.Host = VirtualHost.VHosts.ServerName
                 VirtualHost.IPv6.Host = VirtualHost.VHosts.ServerName
-                VirtualHost.Errors.Add(New Exception("No entry found in the hosts file for " & Chr(34) & VirtualHost.VHosts.ServerName & Chr(34) & "."))
-                VirtualHosts.Add(VirtualHost)
+                VirtualHost.Errors.Add(New Exception("No entry found in the " & VirtualHosts.Hosts & " file for " & Chr(34) & VirtualHost.VHosts.ServerName & Chr(34) & "."))
+                VirtualHostsList.Add(VirtualHost)
             End If
 
         Next
 
         ' host Orphan
-        For Each VirtualHost As ClassVirtualHost In VirtualHosts
+        For Each VirtualHost As ClassVirtualHost In VirtualHostsList
             If VirtualHost.VHosts.Raw.Count <= 0 Then
-                VirtualHost.Errors.Add(New Exception("No entry found in the httpd-vhosts.conf file for " & Chr(34) & VirtualHost.Host & Chr(34) & "."))
+                VirtualHost.Errors.Add(New Exception("No entry found in the " & VirtualHosts.HttpdVhostsConf & " file for " & Chr(34) & VirtualHost.Host & Chr(34) & "."))
             End If
         Next
 
-        Return VirtualHosts
+        Return VirtualHostsList
     End Function
 End Module

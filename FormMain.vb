@@ -42,9 +42,21 @@ Public Class FormMain
         TextBoxVirtualHostEntryRaw.Text = String.Join(Environment.NewLine & Environment.NewLine, VirtualHostSelection.VHosts.Raw).Replace(vbTab, "    ")
 
         If VirtualHostSelection.Errors.Count > 0 Then
-            LabelStatus.Text = VirtualHostSelection.Errors.First.Message
+            LinkLabelStatus.Text = VirtualHostSelection.Errors.First.Message
+
+            If LinkLabelStatus.Text.Contains(VirtualHosts.Hosts) Then
+                Dim LinkStart As Integer = LinkLabelStatus.Text.IndexOf(VirtualHosts.Hosts)
+                LinkLabelStatus.LinkArea = New LinkArea(LinkStart, VirtualHosts.Hosts.Length)
+            End If
+
+            If LinkLabelStatus.Text.Contains(VirtualHosts.HttpdVhostsConf) Then
+                Dim LinkStart As Integer = LinkLabelStatus.Text.IndexOf(VirtualHosts.HttpdVhostsConf)
+                LinkLabelStatus.LinkArea = New LinkArea(LinkStart, VirtualHosts.HttpdVhostsConf.Length)
+            End If
         Else
-            LabelStatus.Text = "No issues found for " & Chr(34) & VirtualHostSelection.Host & Chr(34) & "."
+            LinkLabelStatus.Text = "No issues found for " & Chr(34) & VirtualHostSelection.Host & Chr(34) & "."
+
+            LinkLabelStatus.LinkArea = New LinkArea(0, 0)
         End If
     End Sub
 
@@ -87,5 +99,12 @@ Public Class FormMain
 
     Private Sub ButtonVirtualHostRestore_Click(sender As Object, e As EventArgs) Handles ButtonVirtualHostRestore.Click
         FormVirtualHostRestore.Show()
+    End Sub
+
+    Private Sub LinkLabelStatus_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelStatus.LinkClicked
+        If Not LinkLabelStatus.LinkArea.IsEmpty Then
+            If LinkLabelStatus.Text.Contains(VirtualHosts.Hosts) Then Process.Start(My.Settings.FileHosts)
+            If LinkLabelStatus.Text.Contains(VirtualHosts.HttpdVhostsConf) Then Process.Start(My.Settings.FileHttpdVhostsConf)
+        End If
     End Sub
 End Class

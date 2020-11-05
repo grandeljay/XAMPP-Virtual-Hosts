@@ -40,9 +40,9 @@ Partial Class FormMain
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LabelVersion = New System.Windows.Forms.Label()
         Me.GroupBoxStatus = New System.Windows.Forms.GroupBox()
-        Me.LabelStatus = New System.Windows.Forms.Label()
         Me.LabelPreview = New System.Windows.Forms.Label()
         Me.TextBoxVirtualHostEntryRaw = New System.Windows.Forms.TextBox()
+        Me.LinkLabelStatus = New System.Windows.Forms.LinkLabel()
         Me.GroupBoxViewVirtualHosts.SuspendLayout()
         Me.MenuStripMain.SuspendLayout()
         Me.GroupBoxStatus.SuspendLayout()
@@ -207,7 +207,7 @@ Partial Class FormMain
         '
         'GroupBoxStatus
         '
-        Me.GroupBoxStatus.Controls.Add(Me.LabelStatus)
+        Me.GroupBoxStatus.Controls.Add(Me.LinkLabelStatus)
         Me.GroupBoxStatus.Location = New System.Drawing.Point(919, 46)
         Me.GroupBoxStatus.Margin = New System.Windows.Forms.Padding(0, 0, 20, 20)
         Me.GroupBoxStatus.Name = "GroupBoxStatus"
@@ -216,15 +216,6 @@ Partial Class FormMain
         Me.GroupBoxStatus.TabIndex = 10
         Me.GroupBoxStatus.TabStop = False
         Me.GroupBoxStatus.Text = "Status"
-        '
-        'LabelStatus
-        '
-        Me.LabelStatus.Location = New System.Drawing.Point(20, 38)
-        Me.LabelStatus.Margin = New System.Windows.Forms.Padding(0)
-        Me.LabelStatus.Name = "LabelStatus"
-        Me.LabelStatus.Size = New System.Drawing.Size(210, 306)
-        Me.LabelStatus.TabIndex = 0
-        Me.LabelStatus.Text = "LabelStatus"
         '
         'LabelPreview
         '
@@ -249,6 +240,19 @@ Partial Class FormMain
         Me.TextBoxVirtualHostEntryRaw.Size = New System.Drawing.Size(490, 270)
         Me.TextBoxVirtualHostEntryRaw.TabIndex = 13
         Me.TextBoxVirtualHostEntryRaw.WordWrap = False
+        '
+        'LinkLabelStatus
+        '
+        Me.LinkLabelStatus.ActiveLinkColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.LinkLabelStatus.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.LinkLabelStatus.LinkColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.LinkLabelStatus.Location = New System.Drawing.Point(23, 38)
+        Me.LinkLabelStatus.Name = "LinkLabelStatus"
+        Me.LinkLabelStatus.Size = New System.Drawing.Size(204, 306)
+        Me.LinkLabelStatus.TabIndex = 1
+        Me.LinkLabelStatus.TabStop = True
+        Me.LinkLabelStatus.Text = "LinkLabelStatus"
+        Me.LinkLabelStatus.VisitedLinkColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(255, Byte), Integer))
         '
         'FormMain
         '
@@ -297,7 +301,7 @@ Partial Class FormMain
     Friend WithEvents ButtonVirtualHostRestore As Button
     Friend WithEvents RestoreToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GroupBoxStatus As GroupBox
-    Friend WithEvents LabelStatus As Label
     Friend WithEvents LabelPreview As Label
     Friend WithEvents TextBoxVirtualHostEntryRaw As TextBox
+    Friend WithEvents LinkLabelStatus As LinkLabel
 End Class
