@@ -77,6 +77,18 @@ Namespace My
                 Me("FileHttpdVhostsConf") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property DirectoryXAMPP() As String
+            Get
+                Return CType(Me("DirectoryXAMPP"),String)
+            End Get
+            Set
+                Me("DirectoryXAMPP") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

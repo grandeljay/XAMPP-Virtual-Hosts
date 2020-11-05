@@ -26,20 +26,32 @@ Partial Class FormPathsSpecify
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormPathsSpecify))
         Me.GroupBoxHosts = New System.Windows.Forms.GroupBox()
         Me.LabelHostsDirectoryDescription = New System.Windows.Forms.Label()
-        Me.PictureBoxHostsProgress = New System.Windows.Forms.PictureBox()
-        Me.TextBoxHostsDirectory = New System.Windows.Forms.TextBox()
-        Me.TimerUpdateDirectory = New System.Windows.Forms.Timer(Me.components)
+        Me.PictureBoxProgressHosts = New System.Windows.Forms.PictureBox()
+        Me.TextBoxDirectoryHosts = New System.Windows.Forms.TextBox()
+        Me.TimerDirectoryHttpdVhostsConf = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.LabelHttpdVhostsConfDirectoryDescription = New System.Windows.Forms.Label()
-        Me.LabelHttpdVhostsConfDirectory = New System.Windows.Forms.Label()
-        Me.PictureBoxHttpdVhostsConfProgress = New System.Windows.Forms.PictureBox()
-        Me.TextBoxHttpdVhostsConfDirectory = New System.Windows.Forms.TextBox()
+        Me.LabelProgressHttpdVhostsConf = New System.Windows.Forms.Label()
+        Me.PictureBoxProgressHttpdVhostsConf = New System.Windows.Forms.PictureBox()
+        Me.TextBoxDirectoryHttpdVhostsConf = New System.Windows.Forms.TextBox()
         Me.ButtonSaveAndClose = New System.Windows.Forms.Button()
         Me.ButtonClose = New System.Windows.Forms.Button()
+        Me.FlowLayoutPanelMain = New System.Windows.Forms.FlowLayoutPanel()
+        Me.PanelControls = New System.Windows.Forms.Panel()
+        Me.GroupBoxXAMPP = New System.Windows.Forms.GroupBox()
+        Me.LabelXAMPPDescription = New System.Windows.Forms.Label()
+        Me.LabelProgressXAMPP = New System.Windows.Forms.Label()
+        Me.PictureBoxProgressXAMPP = New System.Windows.Forms.PictureBox()
+        Me.TextBoxDirectoryXAMPP = New System.Windows.Forms.TextBox()
+        Me.TimerDirectoryXAMPP = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBoxHosts.SuspendLayout()
-        CType(Me.PictureBoxHostsProgress, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBoxProgressHosts, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.PictureBoxHttpdVhostsConfProgress, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBoxProgressHttpdVhostsConf, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FlowLayoutPanelMain.SuspendLayout()
+        Me.PanelControls.SuspendLayout()
+        Me.GroupBoxXAMPP.SuspendLayout()
+        CType(Me.PictureBoxProgressXAMPP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBoxHosts
@@ -47,9 +59,9 @@ Partial Class FormPathsSpecify
         Me.GroupBoxHosts.AutoSize = True
         Me.GroupBoxHosts.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.GroupBoxHosts.Controls.Add(Me.LabelHostsDirectoryDescription)
-        Me.GroupBoxHosts.Controls.Add(Me.PictureBoxHostsProgress)
-        Me.GroupBoxHosts.Controls.Add(Me.TextBoxHostsDirectory)
-        Me.GroupBoxHosts.Location = New System.Drawing.Point(20, 20)
+        Me.GroupBoxHosts.Controls.Add(Me.PictureBoxProgressHosts)
+        Me.GroupBoxHosts.Controls.Add(Me.TextBoxDirectoryHosts)
+        Me.GroupBoxHosts.Location = New System.Drawing.Point(0, 0)
         Me.GroupBoxHosts.Margin = New System.Windows.Forms.Padding(0, 0, 0, 20)
         Me.GroupBoxHosts.Name = "GroupBoxHosts"
         Me.GroupBoxHosts.Padding = New System.Windows.Forms.Padding(20)
@@ -68,37 +80,38 @@ Partial Class FormPathsSpecify
         Me.LabelHostsDirectoryDescription.Text = "Please specify the location of your hosts file. This process can not be automated" &
     " for the hosts file."
         '
-        'PictureBoxHostsProgress
+        'PictureBoxProgressHosts
         '
-        Me.PictureBoxHostsProgress.Location = New System.Drawing.Point(20, 38)
-        Me.PictureBoxHostsProgress.Margin = New System.Windows.Forms.Padding(0)
-        Me.PictureBoxHostsProgress.Name = "PictureBoxHostsProgress"
-        Me.PictureBoxHostsProgress.Size = New System.Drawing.Size(25, 25)
-        Me.PictureBoxHostsProgress.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBoxHostsProgress.TabIndex = 1
-        Me.PictureBoxHostsProgress.TabStop = False
+        Me.PictureBoxProgressHosts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBoxProgressHosts.Location = New System.Drawing.Point(20, 38)
+        Me.PictureBoxProgressHosts.Margin = New System.Windows.Forms.Padding(0, 0, 2, 0)
+        Me.PictureBoxProgressHosts.Name = "PictureBoxProgressHosts"
+        Me.PictureBoxProgressHosts.Size = New System.Drawing.Size(25, 25)
+        Me.PictureBoxProgressHosts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBoxProgressHosts.TabIndex = 1
+        Me.PictureBoxProgressHosts.TabStop = False
         '
-        'TextBoxHostsDirectory
+        'TextBoxDirectoryHosts
         '
-        Me.TextBoxHostsDirectory.Location = New System.Drawing.Point(45, 38)
-        Me.TextBoxHostsDirectory.Margin = New System.Windows.Forms.Padding(0)
-        Me.TextBoxHostsDirectory.Name = "TextBoxHostsDirectory"
-        Me.TextBoxHostsDirectory.Size = New System.Drawing.Size(410, 25)
-        Me.TextBoxHostsDirectory.TabIndex = 0
+        Me.TextBoxDirectoryHosts.Location = New System.Drawing.Point(47, 38)
+        Me.TextBoxDirectoryHosts.Margin = New System.Windows.Forms.Padding(0)
+        Me.TextBoxDirectoryHosts.Name = "TextBoxDirectoryHosts"
+        Me.TextBoxDirectoryHosts.Size = New System.Drawing.Size(408, 25)
+        Me.TextBoxDirectoryHosts.TabIndex = 0
         '
-        'TimerUpdateDirectory
+        'TimerDirectoryHttpdVhostsConf
         '
-        Me.TimerUpdateDirectory.Interval = 1000
+        Me.TimerDirectoryHttpdVhostsConf.Interval = 1000
         '
         'GroupBox1
         '
         Me.GroupBox1.AutoSize = True
         Me.GroupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.GroupBox1.Controls.Add(Me.LabelHttpdVhostsConfDirectoryDescription)
-        Me.GroupBox1.Controls.Add(Me.LabelHttpdVhostsConfDirectory)
-        Me.GroupBox1.Controls.Add(Me.PictureBoxHttpdVhostsConfProgress)
-        Me.GroupBox1.Controls.Add(Me.TextBoxHttpdVhostsConfDirectory)
-        Me.GroupBox1.Location = New System.Drawing.Point(20, 177)
+        Me.GroupBox1.Controls.Add(Me.LabelProgressHttpdVhostsConf)
+        Me.GroupBox1.Controls.Add(Me.PictureBoxProgressHttpdVhostsConf)
+        Me.GroupBox1.Controls.Add(Me.TextBoxDirectoryHttpdVhostsConf)
+        Me.GroupBox1.Location = New System.Drawing.Point(0, 350)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(0, 0, 0, 20)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(20)
@@ -117,39 +130,41 @@ Partial Class FormPathsSpecify
         Me.LabelHttpdVhostsConfDirectoryDescription.Text = "Please specify the location of your httpd-vhosts.conf file. This is optional, you" &
     " could also just wait until it is automatically found."
         '
-        'LabelHttpdVhostsConfDirectory
+        'LabelProgressHttpdVhostsConf
         '
-        Me.LabelHttpdVhostsConfDirectory.ForeColor = System.Drawing.Color.Gray
-        Me.LabelHttpdVhostsConfDirectory.Location = New System.Drawing.Point(17, 117)
-        Me.LabelHttpdVhostsConfDirectory.Margin = New System.Windows.Forms.Padding(0)
-        Me.LabelHttpdVhostsConfDirectory.Name = "LabelHttpdVhostsConfDirectory"
-        Me.LabelHttpdVhostsConfDirectory.Size = New System.Drawing.Size(438, 18)
-        Me.LabelHttpdVhostsConfDirectory.TabIndex = 2
-        Me.LabelHttpdVhostsConfDirectory.Text = "Getting progress..."
+        Me.LabelProgressHttpdVhostsConf.ForeColor = System.Drawing.Color.Gray
+        Me.LabelProgressHttpdVhostsConf.Location = New System.Drawing.Point(17, 117)
+        Me.LabelProgressHttpdVhostsConf.Margin = New System.Windows.Forms.Padding(0)
+        Me.LabelProgressHttpdVhostsConf.Name = "LabelProgressHttpdVhostsConf"
+        Me.LabelProgressHttpdVhostsConf.Size = New System.Drawing.Size(438, 18)
+        Me.LabelProgressHttpdVhostsConf.TabIndex = 2
+        Me.LabelProgressHttpdVhostsConf.Text = "Getting progress..."
+        Me.LabelProgressHttpdVhostsConf.Visible = False
         '
-        'PictureBoxHttpdVhostsConfProgress
+        'PictureBoxProgressHttpdVhostsConf
         '
-        Me.PictureBoxHttpdVhostsConfProgress.Location = New System.Drawing.Point(20, 38)
-        Me.PictureBoxHttpdVhostsConfProgress.Margin = New System.Windows.Forms.Padding(0)
-        Me.PictureBoxHttpdVhostsConfProgress.Name = "PictureBoxHttpdVhostsConfProgress"
-        Me.PictureBoxHttpdVhostsConfProgress.Size = New System.Drawing.Size(25, 25)
-        Me.PictureBoxHttpdVhostsConfProgress.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBoxHttpdVhostsConfProgress.TabIndex = 1
-        Me.PictureBoxHttpdVhostsConfProgress.TabStop = False
+        Me.PictureBoxProgressHttpdVhostsConf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBoxProgressHttpdVhostsConf.Location = New System.Drawing.Point(20, 38)
+        Me.PictureBoxProgressHttpdVhostsConf.Margin = New System.Windows.Forms.Padding(0, 0, 2, 0)
+        Me.PictureBoxProgressHttpdVhostsConf.Name = "PictureBoxProgressHttpdVhostsConf"
+        Me.PictureBoxProgressHttpdVhostsConf.Size = New System.Drawing.Size(25, 25)
+        Me.PictureBoxProgressHttpdVhostsConf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBoxProgressHttpdVhostsConf.TabIndex = 1
+        Me.PictureBoxProgressHttpdVhostsConf.TabStop = False
         '
-        'TextBoxHttpdVhostsConfDirectory
+        'TextBoxDirectoryHttpdVhostsConf
         '
-        Me.TextBoxHttpdVhostsConfDirectory.Location = New System.Drawing.Point(45, 38)
-        Me.TextBoxHttpdVhostsConfDirectory.Margin = New System.Windows.Forms.Padding(0)
-        Me.TextBoxHttpdVhostsConfDirectory.Name = "TextBoxHttpdVhostsConfDirectory"
-        Me.TextBoxHttpdVhostsConfDirectory.Size = New System.Drawing.Size(410, 25)
-        Me.TextBoxHttpdVhostsConfDirectory.TabIndex = 0
+        Me.TextBoxDirectoryHttpdVhostsConf.Location = New System.Drawing.Point(47, 38)
+        Me.TextBoxDirectoryHttpdVhostsConf.Margin = New System.Windows.Forms.Padding(0)
+        Me.TextBoxDirectoryHttpdVhostsConf.Name = "TextBoxDirectoryHttpdVhostsConf"
+        Me.TextBoxDirectoryHttpdVhostsConf.Size = New System.Drawing.Size(408, 25)
+        Me.TextBoxDirectoryHttpdVhostsConf.TabIndex = 0
         '
         'ButtonSaveAndClose
         '
         Me.ButtonSaveAndClose.AutoSize = True
         Me.ButtonSaveAndClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ButtonSaveAndClose.Location = New System.Drawing.Point(20, 370)
+        Me.ButtonSaveAndClose.Location = New System.Drawing.Point(20, 0)
         Me.ButtonSaveAndClose.Margin = New System.Windows.Forms.Padding(0, 0, 2, 0)
         Me.ButtonSaveAndClose.Name = "ButtonSaveAndClose"
         Me.ButtonSaveAndClose.Padding = New System.Windows.Forms.Padding(2)
@@ -162,7 +177,7 @@ Partial Class FormPathsSpecify
         '
         Me.ButtonClose.AutoSize = True
         Me.ButtonClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ButtonClose.Location = New System.Drawing.Point(441, 370)
+        Me.ButtonClose.Location = New System.Drawing.Point(401, 0)
         Me.ButtonClose.Margin = New System.Windows.Forms.Padding(0, 0, 2, 0)
         Me.ButtonClose.Name = "ButtonClose"
         Me.ButtonClose.Padding = New System.Windows.Forms.Padding(2)
@@ -171,17 +186,101 @@ Partial Class FormPathsSpecify
         Me.ButtonClose.Text = "Close"
         Me.ButtonClose.UseVisualStyleBackColor = True
         '
+        'FlowLayoutPanelMain
+        '
+        Me.FlowLayoutPanelMain.AutoSize = True
+        Me.FlowLayoutPanelMain.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.FlowLayoutPanelMain.Controls.Add(Me.GroupBoxHosts)
+        Me.FlowLayoutPanelMain.Controls.Add(Me.GroupBoxXAMPP)
+        Me.FlowLayoutPanelMain.Controls.Add(Me.GroupBox1)
+        Me.FlowLayoutPanelMain.Controls.Add(Me.PanelControls)
+        Me.FlowLayoutPanelMain.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
+        Me.FlowLayoutPanelMain.Location = New System.Drawing.Point(23, 23)
+        Me.FlowLayoutPanelMain.Name = "FlowLayoutPanelMain"
+        Me.FlowLayoutPanelMain.Size = New System.Drawing.Size(475, 575)
+        Me.FlowLayoutPanelMain.TabIndex = 11
+        '
+        'PanelControls
+        '
+        Me.PanelControls.AutoSize = True
+        Me.PanelControls.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.PanelControls.Controls.Add(Me.ButtonSaveAndClose)
+        Me.PanelControls.Controls.Add(Me.ButtonClose)
+        Me.PanelControls.Location = New System.Drawing.Point(0, 543)
+        Me.PanelControls.Margin = New System.Windows.Forms.Padding(0)
+        Me.PanelControls.Name = "PanelControls"
+        Me.PanelControls.Size = New System.Drawing.Size(457, 32)
+        Me.PanelControls.TabIndex = 12
+        '
+        'GroupBoxXAMPP
+        '
+        Me.GroupBoxXAMPP.AutoSize = True
+        Me.GroupBoxXAMPP.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBoxXAMPP.Controls.Add(Me.LabelXAMPPDescription)
+        Me.GroupBoxXAMPP.Controls.Add(Me.LabelProgressXAMPP)
+        Me.GroupBoxXAMPP.Controls.Add(Me.PictureBoxProgressXAMPP)
+        Me.GroupBoxXAMPP.Controls.Add(Me.TextBoxDirectoryXAMPP)
+        Me.GroupBoxXAMPP.Location = New System.Drawing.Point(0, 157)
+        Me.GroupBoxXAMPP.Margin = New System.Windows.Forms.Padding(0, 0, 0, 20)
+        Me.GroupBoxXAMPP.Name = "GroupBoxXAMPP"
+        Me.GroupBoxXAMPP.Padding = New System.Windows.Forms.Padding(20)
+        Me.GroupBoxXAMPP.Size = New System.Drawing.Size(475, 173)
+        Me.GroupBoxXAMPP.TabIndex = 4
+        Me.GroupBoxXAMPP.TabStop = False
+        Me.GroupBoxXAMPP.Text = "XAMPP"
+        '
+        'LabelXAMPPDescription
+        '
+        Me.LabelXAMPPDescription.Location = New System.Drawing.Point(17, 63)
+        Me.LabelXAMPPDescription.Margin = New System.Windows.Forms.Padding(0)
+        Me.LabelXAMPPDescription.Name = "LabelXAMPPDescription"
+        Me.LabelXAMPPDescription.Size = New System.Drawing.Size(438, 36)
+        Me.LabelXAMPPDescription.TabIndex = 3
+        Me.LabelXAMPPDescription.Text = "Please specify the location of your XAMPP installation directory. This is optiona" &
+    "l, you could also just wait until it is automatically found."
+        '
+        'LabelProgressXAMPP
+        '
+        Me.LabelProgressXAMPP.ForeColor = System.Drawing.Color.Gray
+        Me.LabelProgressXAMPP.Location = New System.Drawing.Point(17, 117)
+        Me.LabelProgressXAMPP.Margin = New System.Windows.Forms.Padding(0)
+        Me.LabelProgressXAMPP.Name = "LabelProgressXAMPP"
+        Me.LabelProgressXAMPP.Size = New System.Drawing.Size(438, 18)
+        Me.LabelProgressXAMPP.TabIndex = 2
+        Me.LabelProgressXAMPP.Text = "Getting progress..."
+        Me.LabelProgressXAMPP.Visible = False
+        '
+        'PictureBoxProgressXAMPP
+        '
+        Me.PictureBoxProgressXAMPP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBoxProgressXAMPP.Location = New System.Drawing.Point(20, 38)
+        Me.PictureBoxProgressXAMPP.Margin = New System.Windows.Forms.Padding(0, 0, 2, 0)
+        Me.PictureBoxProgressXAMPP.Name = "PictureBoxProgressXAMPP"
+        Me.PictureBoxProgressXAMPP.Size = New System.Drawing.Size(25, 25)
+        Me.PictureBoxProgressXAMPP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBoxProgressXAMPP.TabIndex = 1
+        Me.PictureBoxProgressXAMPP.TabStop = False
+        '
+        'TextBoxDirectoryXAMPP
+        '
+        Me.TextBoxDirectoryXAMPP.Location = New System.Drawing.Point(47, 38)
+        Me.TextBoxDirectoryXAMPP.Margin = New System.Windows.Forms.Padding(0)
+        Me.TextBoxDirectoryXAMPP.Name = "TextBoxDirectoryXAMPP"
+        Me.TextBoxDirectoryXAMPP.Size = New System.Drawing.Size(408, 25)
+        Me.TextBoxDirectoryXAMPP.TabIndex = 0
+        '
+        'TimerDirectoryXAMPP
+        '
+        Me.TimerDirectoryXAMPP.Interval = 1000
+        '
         'FormPathsSpecify
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(736, 506)
-        Me.Controls.Add(Me.ButtonClose)
-        Me.Controls.Add(Me.ButtonSaveAndClose)
-        Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.GroupBoxHosts)
+        Me.ClientSize = New System.Drawing.Size(962, 663)
+        Me.Controls.Add(Me.FlowLayoutPanelMain)
         Me.Font = New System.Drawing.Font("Open Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -193,25 +292,40 @@ Partial Class FormPathsSpecify
         Me.Text = "Specify Paths"
         Me.GroupBoxHosts.ResumeLayout(False)
         Me.GroupBoxHosts.PerformLayout()
-        CType(Me.PictureBoxHostsProgress, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBoxProgressHosts, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.PictureBoxHttpdVhostsConfProgress, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBoxProgressHttpdVhostsConf, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.FlowLayoutPanelMain.ResumeLayout(False)
+        Me.FlowLayoutPanelMain.PerformLayout()
+        Me.PanelControls.ResumeLayout(False)
+        Me.PanelControls.PerformLayout()
+        Me.GroupBoxXAMPP.ResumeLayout(False)
+        Me.GroupBoxXAMPP.PerformLayout()
+        CType(Me.PictureBoxProgressXAMPP, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents GroupBoxHosts As GroupBox
-    Friend WithEvents TextBoxHostsDirectory As TextBox
-    Friend WithEvents PictureBoxHostsProgress As PictureBox
-    Friend WithEvents TimerUpdateDirectory As Timer
+    Friend WithEvents TextBoxDirectoryHosts As TextBox
+    Friend WithEvents PictureBoxProgressHosts As PictureBox
+    Friend WithEvents TimerDirectoryHttpdVhostsConf As Timer
     Friend WithEvents LabelHostsDirectoryDescription As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents LabelHttpdVhostsConfDirectoryDescription As Label
-    Friend WithEvents LabelHttpdVhostsConfDirectory As Label
-    Friend WithEvents PictureBoxHttpdVhostsConfProgress As PictureBox
-    Friend WithEvents TextBoxHttpdVhostsConfDirectory As TextBox
+    Friend WithEvents LabelProgressHttpdVhostsConf As Label
+    Friend WithEvents PictureBoxProgressHttpdVhostsConf As PictureBox
+    Friend WithEvents TextBoxDirectoryHttpdVhostsConf As TextBox
     Friend WithEvents ButtonSaveAndClose As Button
     Friend WithEvents ButtonClose As Button
+    Friend WithEvents FlowLayoutPanelMain As FlowLayoutPanel
+    Friend WithEvents PanelControls As Panel
+    Friend WithEvents GroupBoxXAMPP As GroupBox
+    Friend WithEvents LabelXAMPPDescription As Label
+    Friend WithEvents LabelProgressXAMPP As Label
+    Friend WithEvents PictureBoxProgressXAMPP As PictureBox
+    Friend WithEvents TextBoxDirectoryXAMPP As TextBox
+    Friend WithEvents TimerDirectoryXAMPP As Timer
 End Class

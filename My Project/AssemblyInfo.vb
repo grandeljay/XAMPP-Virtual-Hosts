@@ -10,7 +10,7 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("XAMPP Virtual Hosts")>
-<Assembly: AssemblyDescription("Create and manage Virtual Hosts for XAMPP.")>
+<Assembly: AssemblyDescription("Create and manage Virtual Hosts for XAMPP with a clean and user friendly interface.")>
 <Assembly: AssemblyCompany("grandeljay")>
 <Assembly: AssemblyProduct("XAMPP Virtual Hosts")>
 <Assembly: AssemblyCopyright("Copyright © Jay 2020")>
@@ -32,6 +32,6 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("0.5.0.0")>
-<Assembly: AssemblyFileVersion("0.5.0.0")>
+<Assembly: AssemblyVersion("0.6.0.0")>
+<Assembly: AssemblyFileVersion("0.6.0.0")>
 <Assembly: NeutralResourcesLanguage("en")>

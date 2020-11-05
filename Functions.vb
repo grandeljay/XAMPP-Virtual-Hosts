@@ -197,4 +197,17 @@ Module Functions
 
         Return Input.Trim
     End Function
+
+    Public Function SanitiseDomain(ByVal Domain As String) As String
+        Domain = Domain.ToLower.Trim
+        Domain = Regex.Replace(Domain, "[^a-z\-\.0-9]", "-")
+
+        Do
+            Domain = Domain.Replace("--", "-")
+        Loop Until Not Domain.Contains("--")
+
+        Domain = Domain.Trim("-")
+
+        Return Domain
+    End Function
 End Module

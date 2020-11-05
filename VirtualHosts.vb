@@ -2,6 +2,7 @@
 
 Module VirtualHosts
     Public Const Hosts As String = "hosts"
+    Public Const XAMPP As String = "XAMPP"
     Public Const HttpdVhostsConf As String = "httpd-vhosts.conf"
 
     Private Property VirtualHostsList As New List(Of ClassVirtualHost)
@@ -28,8 +29,8 @@ Module VirtualHosts
             '
             If VirtualHost.Remove Then
                 ' hosts             
-                FileContentsHosts = FileContentsHosts.Replace(VirtualHost.IPv4.Entry, "")
-                FileContentsHosts = FileContentsHosts.Replace(VirtualHost.IPv6.Entry, "")
+                If VirtualHost.IPv4.Entry.Trim.Length > 0 Then FileContentsHosts = FileContentsHosts.Replace(VirtualHost.IPv4.Entry, "")
+                If VirtualHost.IPv6.Entry.Trim.Length > 0 Then FileContentsHosts = FileContentsHosts.Replace(VirtualHost.IPv6.Entry, "")
                 FileContentsHosts = RemoveExtraLines(FileContentsHosts)
 
                 ' httpd-vhosts.conf
@@ -99,7 +100,7 @@ Module VirtualHosts
 
         ' IPv4 Host
         Dim IPv4Hosts As New List(Of String)
-        IPv4Hosts.AddRange(Functions.GetRegexGroups(FileContents_hosts, "\n[0-9\.]+\s+([a-z\.]+)", {1}))
+        IPv4Hosts.AddRange(Functions.GetRegexGroups(FileContents_hosts, "\n[0-9\.]+\s+([a-z\.\-]+)", {1}))
         ListCount.Add(IPv4Hosts.Count)
 
         ' IPv6 Address
@@ -109,7 +110,7 @@ Module VirtualHosts
 
         ' IPv6 Host
         Dim IPv6Hosts As New List(Of String)
-        IPv6Hosts.AddRange(Functions.GetRegexGroups(FileContents_hosts, "\n[0-9:a-f]+\s+([a-z\.]+)", {1}))
+        IPv6Hosts.AddRange(Functions.GetRegexGroups(FileContents_hosts, "\n[0-9:a-f]+\s+([a-z\.\-]+)", {1}))
         ListCount.Add(IPv6Hosts.Count)
 
         ' Add to Class

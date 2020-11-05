@@ -20,6 +20,7 @@ Public Class FormMain
         ' Determine Hosts and httpd-vhosts.conf files
         '
         BackgroundOperation.SetHosts.Run()
+        BackgroundOperation.SetXAMPP.Run()
         BackgroundOperation.SetHttpdVhostsConf.Run()
 
 

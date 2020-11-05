@@ -8,5 +8,8 @@
     <Setting Name="FileHttpdVhostsConf" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="DirectoryXAMPP" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
