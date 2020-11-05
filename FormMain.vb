@@ -37,7 +37,15 @@ Public Class FormMain
     End Sub
 
     Private Sub ComboBoxVirtualHosts_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxVirtualHosts.SelectedIndexChanged
-        TextBoxVirtualHostEntryRaw.Text = String.Join(Environment.NewLine & Environment.NewLine, VirtualHosts.GetVirtualHosts.Item(ComboBoxVirtualHosts.SelectedIndex).VHosts.Raw).Replace(vbTab, "    ")
+        Dim VirtualHostSelection As ClassVirtualHost = VirtualHosts.GetVirtualHosts.Item(ComboBoxVirtualHosts.SelectedIndex)
+
+        TextBoxVirtualHostEntryRaw.Text = String.Join(Environment.NewLine & Environment.NewLine, VirtualHostSelection.VHosts.Raw).Replace(vbTab, "    ")
+
+        If VirtualHostSelection.Errors.Count > 0 Then
+            LabelStatus.Text = VirtualHostSelection.Errors.First.Message
+        Else
+            LabelStatus.Text = "No issues found for " & Chr(34) & VirtualHostSelection.Host & Chr(34) & "."
+        End If
     End Sub
 
     Private Sub ButtonAddNewVirtualHost_Click(sender As Object, e As EventArgs) Handles ButtonVirtualHostAdd.Click

@@ -4,6 +4,8 @@
     Public Property IPv6 As New ClassVirtualHostIP
     Public Property VHosts As New ClassVirtualHostEntry
     Public Property Remove As Boolean
+    Public Property IsOrphan As Boolean
+    Public Property Errors As New List(Of Exception)
 
     Public ReadOnly Property Host() As String
         Get

@@ -24,25 +24,28 @@ Partial Class FormMain
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
         Me.ComboBoxVirtualHosts = New System.Windows.Forms.ComboBox()
-        Me.TextBoxVirtualHostEntryRaw = New System.Windows.Forms.TextBox()
         Me.GroupBoxViewVirtualHosts = New System.Windows.Forms.GroupBox()
+        Me.ButtonVirtualHostRestore = New System.Windows.Forms.Button()
         Me.ButtonReload = New System.Windows.Forms.Button()
         Me.ButtonVirtualHostRemove = New System.Windows.Forms.Button()
-        Me.LabelPreview = New System.Windows.Forms.Label()
         Me.LabelSelect = New System.Windows.Forms.Label()
         Me.ButtonVirtualHostAdd = New System.Windows.Forms.Button()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.MenuStripMain = New System.Windows.Forms.MenuStrip()
         Me.VirtualHostToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.RemoveToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RestoreToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SpecifyPathsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LabelVersion = New System.Windows.Forms.Label()
-        Me.ButtonVirtualHostRestore = New System.Windows.Forms.Button()
-        Me.RestoreToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GroupBoxStatus = New System.Windows.Forms.GroupBox()
+        Me.LabelStatus = New System.Windows.Forms.Label()
+        Me.LabelPreview = New System.Windows.Forms.Label()
+        Me.TextBoxVirtualHostEntryRaw = New System.Windows.Forms.TextBox()
         Me.GroupBoxViewVirtualHosts.SuspendLayout()
-        Me.MenuStrip1.SuspendLayout()
+        Me.MenuStripMain.SuspendLayout()
+        Me.GroupBoxStatus.SuspendLayout()
         Me.SuspendLayout()
         '
         'ComboBoxVirtualHosts
@@ -55,40 +58,39 @@ Partial Class FormMain
         Me.ComboBoxVirtualHosts.Size = New System.Drawing.Size(320, 26)
         Me.ComboBoxVirtualHosts.TabIndex = 0
         '
-        'TextBoxVirtualHostEntryRaw
-        '
-        Me.TextBoxVirtualHostEntryRaw.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBoxVirtualHostEntryRaw.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxVirtualHostEntryRaw.Location = New System.Drawing.Point(360, 56)
-        Me.TextBoxVirtualHostEntryRaw.Margin = New System.Windows.Forms.Padding(0)
-        Me.TextBoxVirtualHostEntryRaw.Multiline = True
-        Me.TextBoxVirtualHostEntryRaw.Name = "TextBoxVirtualHostEntryRaw"
-        Me.TextBoxVirtualHostEntryRaw.ReadOnly = True
-        Me.TextBoxVirtualHostEntryRaw.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TextBoxVirtualHostEntryRaw.Size = New System.Drawing.Size(450, 270)
-        Me.TextBoxVirtualHostEntryRaw.TabIndex = 1
-        Me.TextBoxVirtualHostEntryRaw.WordWrap = False
-        '
         'GroupBoxViewVirtualHosts
         '
         Me.GroupBoxViewVirtualHosts.AutoSize = True
         Me.GroupBoxViewVirtualHosts.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBoxViewVirtualHosts.Controls.Add(Me.LabelPreview)
+        Me.GroupBoxViewVirtualHosts.Controls.Add(Me.TextBoxVirtualHostEntryRaw)
         Me.GroupBoxViewVirtualHosts.Controls.Add(Me.ButtonVirtualHostRestore)
         Me.GroupBoxViewVirtualHosts.Controls.Add(Me.ButtonReload)
         Me.GroupBoxViewVirtualHosts.Controls.Add(Me.ButtonVirtualHostRemove)
-        Me.GroupBoxViewVirtualHosts.Controls.Add(Me.LabelPreview)
         Me.GroupBoxViewVirtualHosts.Controls.Add(Me.LabelSelect)
         Me.GroupBoxViewVirtualHosts.Controls.Add(Me.ButtonVirtualHostAdd)
         Me.GroupBoxViewVirtualHosts.Controls.Add(Me.ComboBoxVirtualHosts)
-        Me.GroupBoxViewVirtualHosts.Controls.Add(Me.TextBoxVirtualHostEntryRaw)
         Me.GroupBoxViewVirtualHosts.Location = New System.Drawing.Point(29, 46)
         Me.GroupBoxViewVirtualHosts.Margin = New System.Windows.Forms.Padding(20)
         Me.GroupBoxViewVirtualHosts.Name = "GroupBoxViewVirtualHosts"
         Me.GroupBoxViewVirtualHosts.Padding = New System.Windows.Forms.Padding(20)
-        Me.GroupBoxViewVirtualHosts.Size = New System.Drawing.Size(830, 364)
+        Me.GroupBoxViewVirtualHosts.Size = New System.Drawing.Size(870, 364)
         Me.GroupBoxViewVirtualHosts.TabIndex = 2
         Me.GroupBoxViewVirtualHosts.TabStop = False
         Me.GroupBoxViewVirtualHosts.Text = "View Virtual Hosts"
+        '
+        'ButtonVirtualHostRestore
+        '
+        Me.ButtonVirtualHostRestore.AutoSize = True
+        Me.ButtonVirtualHostRestore.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ButtonVirtualHostRestore.Location = New System.Drawing.Point(19, 176)
+        Me.ButtonVirtualHostRestore.Margin = New System.Windows.Forms.Padding(2)
+        Me.ButtonVirtualHostRestore.Name = "ButtonVirtualHostRestore"
+        Me.ButtonVirtualHostRestore.Padding = New System.Windows.Forms.Padding(2)
+        Me.ButtonVirtualHostRestore.Size = New System.Drawing.Size(142, 32)
+        Me.ButtonVirtualHostRestore.TabIndex = 9
+        Me.ButtonVirtualHostRestore.Text = "Restore Virtual Host"
+        Me.ButtonVirtualHostRestore.UseVisualStyleBackColor = True
         '
         'ButtonReload
         '
@@ -116,16 +118,6 @@ Partial Class FormMain
         Me.ButtonVirtualHostRemove.Text = "Remove Virtual Host"
         Me.ButtonVirtualHostRemove.UseVisualStyleBackColor = True
         '
-        'LabelPreview
-        '
-        Me.LabelPreview.AutoSize = True
-        Me.LabelPreview.Location = New System.Drawing.Point(357, 38)
-        Me.LabelPreview.Margin = New System.Windows.Forms.Padding(0)
-        Me.LabelPreview.Name = "LabelPreview"
-        Me.LabelPreview.Size = New System.Drawing.Size(55, 18)
-        Me.LabelPreview.TabIndex = 6
-        Me.LabelPreview.Text = "Preview"
-        '
         'LabelSelect
         '
         Me.LabelSelect.AutoSize = True
@@ -149,15 +141,15 @@ Partial Class FormMain
         Me.ButtonVirtualHostAdd.Text = "Add Virtual Host"
         Me.ButtonVirtualHostAdd.UseVisualStyleBackColor = True
         '
-        'MenuStrip1
+        'MenuStripMain
         '
-        Me.MenuStrip1.Font = New System.Drawing.Font("Open Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VirtualHostToolStripMenuItem, Me.WindowToolStripMenuItem, Me.AboutToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(914, 26)
-        Me.MenuStrip1.TabIndex = 3
-        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.MenuStripMain.Font = New System.Drawing.Font("Open Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MenuStripMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VirtualHostToolStripMenuItem, Me.WindowToolStripMenuItem, Me.AboutToolStripMenuItem})
+        Me.MenuStripMain.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStripMain.Name = "MenuStripMain"
+        Me.MenuStripMain.Size = New System.Drawing.Size(1192, 26)
+        Me.MenuStripMain.TabIndex = 3
+        Me.MenuStripMain.Text = "MenuStrip1"
         '
         'VirtualHostToolStripMenuItem
         '
@@ -178,6 +170,12 @@ Partial Class FormMain
         Me.RemoveToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.RemoveToolStripMenuItem1.Text = "Remove"
         '
+        'RestoreToolStripMenuItem
+        '
+        Me.RestoreToolStripMenuItem.Name = "RestoreToolStripMenuItem"
+        Me.RestoreToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RestoreToolStripMenuItem.Text = "Restore"
+        '
         'WindowToolStripMenuItem
         '
         Me.WindowToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SpecifyPathsToolStripMenuItem})
@@ -188,7 +186,7 @@ Partial Class FormMain
         'SpecifyPathsToolStripMenuItem
         '
         Me.SpecifyPathsToolStripMenuItem.Name = "SpecifyPathsToolStripMenuItem"
-        Me.SpecifyPathsToolStripMenuItem.Size = New System.Drawing.Size(155, 22)
+        Me.SpecifyPathsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SpecifyPathsToolStripMenuItem.Text = "Specify Paths"
         '
         'AboutToolStripMenuItem
@@ -200,31 +198,57 @@ Partial Class FormMain
         'LabelVersion
         '
         Me.LabelVersion.AutoSize = True
-        Me.LabelVersion.Location = New System.Drawing.Point(26, 430)
+        Me.LabelVersion.Location = New System.Drawing.Point(46, 430)
         Me.LabelVersion.Margin = New System.Windows.Forms.Padding(0, 0, 0, 20)
         Me.LabelVersion.Name = "LabelVersion"
         Me.LabelVersion.Size = New System.Drawing.Size(53, 18)
         Me.LabelVersion.TabIndex = 6
         Me.LabelVersion.Text = "Version"
         '
-        'ButtonVirtualHostRestore
+        'GroupBoxStatus
         '
-        Me.ButtonVirtualHostRestore.AutoSize = True
-        Me.ButtonVirtualHostRestore.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ButtonVirtualHostRestore.Location = New System.Drawing.Point(19, 176)
-        Me.ButtonVirtualHostRestore.Margin = New System.Windows.Forms.Padding(2)
-        Me.ButtonVirtualHostRestore.Name = "ButtonVirtualHostRestore"
-        Me.ButtonVirtualHostRestore.Padding = New System.Windows.Forms.Padding(2)
-        Me.ButtonVirtualHostRestore.Size = New System.Drawing.Size(142, 32)
-        Me.ButtonVirtualHostRestore.TabIndex = 9
-        Me.ButtonVirtualHostRestore.Text = "Restore Virtual Host"
-        Me.ButtonVirtualHostRestore.UseVisualStyleBackColor = True
+        Me.GroupBoxStatus.Controls.Add(Me.LabelStatus)
+        Me.GroupBoxStatus.Location = New System.Drawing.Point(919, 46)
+        Me.GroupBoxStatus.Margin = New System.Windows.Forms.Padding(0, 0, 20, 20)
+        Me.GroupBoxStatus.Name = "GroupBoxStatus"
+        Me.GroupBoxStatus.Padding = New System.Windows.Forms.Padding(20)
+        Me.GroupBoxStatus.Size = New System.Drawing.Size(250, 364)
+        Me.GroupBoxStatus.TabIndex = 10
+        Me.GroupBoxStatus.TabStop = False
+        Me.GroupBoxStatus.Text = "Status"
         '
-        'RestoreToolStripMenuItem
+        'LabelStatus
         '
-        Me.RestoreToolStripMenuItem.Name = "RestoreToolStripMenuItem"
-        Me.RestoreToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.RestoreToolStripMenuItem.Text = "Restore"
+        Me.LabelStatus.Location = New System.Drawing.Point(20, 38)
+        Me.LabelStatus.Margin = New System.Windows.Forms.Padding(0)
+        Me.LabelStatus.Name = "LabelStatus"
+        Me.LabelStatus.Size = New System.Drawing.Size(210, 306)
+        Me.LabelStatus.TabIndex = 0
+        Me.LabelStatus.Text = "LabelStatus"
+        '
+        'LabelPreview
+        '
+        Me.LabelPreview.AutoSize = True
+        Me.LabelPreview.Location = New System.Drawing.Point(357, 38)
+        Me.LabelPreview.Margin = New System.Windows.Forms.Padding(0)
+        Me.LabelPreview.Name = "LabelPreview"
+        Me.LabelPreview.Size = New System.Drawing.Size(55, 18)
+        Me.LabelPreview.TabIndex = 12
+        Me.LabelPreview.Text = "Preview"
+        '
+        'TextBoxVirtualHostEntryRaw
+        '
+        Me.TextBoxVirtualHostEntryRaw.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBoxVirtualHostEntryRaw.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxVirtualHostEntryRaw.Location = New System.Drawing.Point(360, 56)
+        Me.TextBoxVirtualHostEntryRaw.Margin = New System.Windows.Forms.Padding(0)
+        Me.TextBoxVirtualHostEntryRaw.Multiline = True
+        Me.TextBoxVirtualHostEntryRaw.Name = "TextBoxVirtualHostEntryRaw"
+        Me.TextBoxVirtualHostEntryRaw.ReadOnly = True
+        Me.TextBoxVirtualHostEntryRaw.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.TextBoxVirtualHostEntryRaw.Size = New System.Drawing.Size(490, 270)
+        Me.TextBoxVirtualHostEntryRaw.TabIndex = 13
+        Me.TextBoxVirtualHostEntryRaw.WordWrap = False
         '
         'FormMain
         '
@@ -232,14 +256,15 @@ Partial Class FormMain
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(914, 472)
-        Me.Controls.Add(Me.LabelVersion)
+        Me.ClientSize = New System.Drawing.Size(1192, 632)
+        Me.Controls.Add(Me.GroupBoxStatus)
         Me.Controls.Add(Me.GroupBoxViewVirtualHosts)
-        Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.LabelVersion)
+        Me.Controls.Add(Me.MenuStripMain)
         Me.Font = New System.Drawing.Font("Open Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MainMenuStrip = Me.MenuStrip1
+        Me.MainMenuStrip = Me.MenuStripMain
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.Name = "FormMain"
@@ -247,21 +272,20 @@ Partial Class FormMain
         Me.Text = "XAMPP Virtual Hosts"
         Me.GroupBoxViewVirtualHosts.ResumeLayout(False)
         Me.GroupBoxViewVirtualHosts.PerformLayout()
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
+        Me.MenuStripMain.ResumeLayout(False)
+        Me.MenuStripMain.PerformLayout()
+        Me.GroupBoxStatus.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents ComboBoxVirtualHosts As ComboBox
-    Friend WithEvents TextBoxVirtualHostEntryRaw As TextBox
     Friend WithEvents GroupBoxViewVirtualHosts As GroupBox
     Friend WithEvents ButtonVirtualHostAdd As Button
-    Friend WithEvents LabelPreview As Label
     Friend WithEvents LabelSelect As Label
     Friend WithEvents ButtonVirtualHostRemove As Button
-    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents MenuStripMain As MenuStrip
     Friend WithEvents VirtualHostToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AddToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents RemoveToolStripMenuItem1 As ToolStripMenuItem
@@ -272,4 +296,8 @@ Partial Class FormMain
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ButtonVirtualHostRestore As Button
     Friend WithEvents RestoreToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GroupBoxStatus As GroupBox
+    Friend WithEvents LabelStatus As Label
+    Friend WithEvents LabelPreview As Label
+    Friend WithEvents TextBoxVirtualHostEntryRaw As TextBox
 End Class

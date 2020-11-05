@@ -13,9 +13,10 @@ If you are experiencing any issues please let me know, by creating an [issue](ht
     - Delete Virtual Hosts
 - Automation of
     - creating backups
-    - finding httpd-vhosts.conf (manual input/override possible)
+    - finding XAMPP and httpd-vhosts.conf (manual input/override possible)
 - Version checker / updater
 - Restore backups
+- Determine invalid hosts
 
 ## Requirements
 - XAMPP
@@ -39,5 +40,4 @@ If you are experiencing any issues please let me know, by creating an [issue](ht
 
 ## Roadmap
 The following things are planned for the future:
-- Determine invalid hosts
 - Check and prevent duplicate entries

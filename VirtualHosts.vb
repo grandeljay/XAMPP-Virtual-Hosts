@@ -155,13 +155,37 @@ Module VirtualHosts
         ' httpd-vhosts.conf
         '
         Dim vHostsEntries As String() = Functions.GetTextBetween(FileContents_httpd_vhosts_conf, "<VirtualHost *:80>", "</VirtualHost>")
+        Dim vHostsEntriesOrphans As New List(Of String)
+        Dim VirtualHostsOrphans As New List(Of String)
 
         For Each vHostEntry As String In vHostsEntries
+            Dim vHostIsOrphan As Boolean = True
+
             For Each VirtualHost As ClassVirtualHost In VirtualHosts
                 If vHostEntry.Contains(" " & VirtualHost.Host) Then
                     VirtualHost.VHosts.Parse(vHostEntry)
+
+                    vHostIsOrphan = False
                 End If
             Next
+
+            ' vHost Orphan
+            If vHostIsOrphan Then
+                Dim VirtualHost As New ClassVirtualHost
+                VirtualHost.VHosts.Parse(vHostEntry)
+                VirtualHost.IPv4.Host = VirtualHost.VHosts.ServerName
+                VirtualHost.IPv6.Host = VirtualHost.VHosts.ServerName
+                VirtualHost.Errors.Add(New Exception("No entry found in the hosts file for " & Chr(34) & VirtualHost.VHosts.ServerName & Chr(34) & "."))
+                VirtualHosts.Add(VirtualHost)
+            End If
+
+        Next
+
+        ' host Orphan
+        For Each VirtualHost As ClassVirtualHost In VirtualHosts
+            If VirtualHost.VHosts.Raw.Count <= 0 Then
+                VirtualHost.Errors.Add(New Exception("No entry found in the httpd-vhosts.conf file for " & Chr(34) & VirtualHost.Host & Chr(34) & "."))
+            End If
         Next
 
         Return VirtualHosts
