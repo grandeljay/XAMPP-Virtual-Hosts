@@ -1,4 +1,5 @@
 ﻿Imports System.ComponentModel
+Imports System.IO
 
 Public Class FormMain
     Public IgnoreUpdate As Boolean = False
@@ -56,7 +57,8 @@ Public Class FormMain
         Else
             LinkLabelStatus.Text = "No issues found for " & Chr(34) & VirtualHostSelection.Host & Chr(34) & "."
 
-            LinkLabelStatus.LinkArea = New LinkArea(0, 0)
+            Dim LinkStart As Integer = LinkLabelStatus.Text.IndexOf(VirtualHostSelection.Host)
+            LinkLabelStatus.LinkArea = New LinkArea(LinkStart, VirtualHostSelection.Host.Length)
         End If
     End Sub
 
@@ -102,9 +104,31 @@ Public Class FormMain
     End Sub
 
     Private Sub LinkLabelStatus_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelStatus.LinkClicked
-        If Not LinkLabelStatus.LinkArea.IsEmpty Then
-            If LinkLabelStatus.Text.Contains(VirtualHosts.Hosts) Then Process.Start(My.Settings.FileHosts)
-            If LinkLabelStatus.Text.Contains(VirtualHosts.HttpdVhostsConf) Then Process.Start(My.Settings.FileHttpdVhostsConf)
-        End If
+        Dim LinkedText As String = LinkLabelStatus.Text.Substring(LinkLabelStatus.LinkArea.Start, LinkLabelStatus.LinkArea.Length)
+
+        Select Case LinkedText
+            Case VirtualHosts.Hosts : Process.Start(My.Settings.FileHosts)
+            Case VirtualHosts.HttpdVhostsConf : Process.Start(My.Settings.FileHttpdVhostsConf)
+            Case Else
+                '
+                ' To do: determine if host is using SSL or not
+                '
+                If LinkedText.Trim.Length > 0 Then Process.Start("http://" & LinkedText)
+        End Select
+    End Sub
+
+    Private Sub HostsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HostsToolStripMenuItem.Click
+        If File.Exists(My.Settings.FileHosts) Then Process.Start(My.Settings.FileHosts)
+
+    End Sub
+
+    Private Sub HttpdvhostsvonfToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HttpdvhostsvonfToolStripMenuItem.Click
+        If File.Exists(My.Settings.FileHttpdVhostsConf) Then Process.Start(My.Settings.FileHttpdVhostsConf)
+    End Sub
+
+    Private Sub HtdocsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HtdocsToolStripMenuItem.Click
+        Dim htdocs As String = My.Settings.DirectoryXAMPP.TrimEnd("\") & "\htdocs"
+
+        If Directory.Exists(htdocs) Then Process.Start(htdocs)
     End Sub
 End Class
