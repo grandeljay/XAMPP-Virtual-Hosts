@@ -95,22 +95,22 @@ Module VirtualHosts
 
         ' IPv4 Address
         Dim IPv4Addresses As New List(Of String)
-        IPv4Addresses.AddRange(Functions.GetRegexGroups(FileContents_hosts, "\n([0-9\.]+)", {1}))
+        IPv4Addresses.AddRange(Regex.GetGroups(FileContents_hosts, "\n([0-9\.]+)", {1}))
         ListCount.Add(IPv4Addresses.Count)
 
         ' IPv4 Host
         Dim IPv4Hosts As New List(Of String)
-        IPv4Hosts.AddRange(Functions.GetRegexGroups(FileContents_hosts, "\n[0-9\.]+\s+([a-z\.\-]+)", {1}))
+        IPv4Hosts.AddRange(Regex.GetGroups(FileContents_hosts, "\n[0-9\.]+\s+([a-z\.\-]+)", {1}))
         ListCount.Add(IPv4Hosts.Count)
 
         ' IPv6 Address
         Dim IPv6Addresses As New List(Of String)
-        IPv6Addresses.AddRange(Functions.GetRegexGroups(FileContents_hosts, "\n([0-9:a-f]+)\s+", {1}))
+        IPv6Addresses.AddRange(Regex.GetGroups(FileContents_hosts, "\n([0-9:a-f]+)\s+", {1}))
         ListCount.Add(IPv6Addresses.Count)
 
         ' IPv6 Host
         Dim IPv6Hosts As New List(Of String)
-        IPv6Hosts.AddRange(Functions.GetRegexGroups(FileContents_hosts, "\n[0-9:a-f]+\s+([a-z\.\-]+)", {1}))
+        IPv6Hosts.AddRange(Regex.GetGroups(FileContents_hosts, "\n[0-9:a-f]+\s+([a-z\.\-]+)", {1}))
         ListCount.Add(IPv6Hosts.Count)
 
         ' Add to Class

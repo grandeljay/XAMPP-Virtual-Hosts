@@ -1,6 +1,6 @@
 ﻿Imports System.IO
 Imports System.Net
-Imports System.Text.RegularExpressions
+
 
 Module Functions
     Public Function GetFileContents(ByVal Filepath As String) As String
@@ -11,43 +11,6 @@ Module Functions
         Return FilepathContents
     End Function
 
-    Public Function GetRegexGroups(ByVal Subject As String, ByVal Regex As String, Optional ByVal Groups As Integer() = Nothing) As String()
-        Dim DoRegex As New Regex(Regex)
-        Dim DoRegexMatch As MatchCollection = DoRegex.Matches(Subject)
-        Dim DoRegexOutput As New List(Of String)
-
-        For i = 0 To DoRegexMatch.Count - 1
-            If Groups Is Nothing OrElse Groups.Count > i AndAlso (Groups(i) = Nothing OrElse Groups(i) <= 0) Then
-                DoRegexOutput.Add(DoRegexMatch(i).Value)
-            Else
-                For Each iGroup As Integer In Groups
-                    DoRegexOutput.Add(DoRegexMatch(i).Groups(iGroup).Value)
-                Next
-            End If
-        Next
-
-        Return DoRegexOutput.ToArray
-    End Function
-
-    Public Function GetRegexGroup(ByVal Subject As String, ByVal Regex As String, Optional ByVal GroupIndex As Integer = 1) As String
-        Dim DoRegex As New Regex(Regex)
-        Dim DoRegexMatch As Match = DoRegex.Match(Subject)
-        Dim DoRegexOutput As String
-
-        If GroupIndex >= DoRegexMatch.Groups.Count Then GroupIndex = DoRegexMatch.Groups.Count - 1
-
-        If DoRegexMatch.Groups.Count > 0 Then
-            DoRegexOutput = DoRegexMatch.Groups(GroupIndex).Value
-        Else
-            DoRegexOutput = DoRegexMatch.Value
-        End If
-
-        If Not DoRegexMatch.Success Then
-            DoRegexOutput = "Regex operation: " & Regex & " failed."
-        End If
-
-        Return DoRegexOutput
-    End Function
 
     Public Function GetTextBetween(ByVal Subject As String, ByVal TextStart As String, ByVal TextEnd As String) As String()
         Dim IndexStart As Integer
@@ -163,10 +126,12 @@ Module Functions
     Public Function GetNewestVersion() As String
         Dim HTML As String = New WebClient().DownloadString("https://github.com/grandeljay/XAMPP-Virtual-Hosts/releases/latest")
 
-        Dim RegexVersion As New Regex("<a href=" & Chr(34) & ".+?" & Chr(34) & ">v(\d+.\d+.\d+)<\/a>")
-        Dim RegexVersionMatch As Match = RegexVersion.Match(HTML)
+        'Dim RegexVersion As New System.Text.RegularExpressions.Regex("<a href=" & Chr(34) & ".+?" & Chr(34) & ">v(\d+.\d+.\d+)<\/a>")
+        'Dim RegexVersionMatch As System.Text.RegularExpressions.Match = RegexVersion.Match(HTML)
 
-        Return RegexVersionMatch.Groups(1).Value
+        'Return RegexVersionMatch.Groups(1).Value
+
+        Return Regex.GetGroup(HTML, "<a href=" & Chr(34) & ".+?" & Chr(34) & ">v(\d+.\d+.\d+)<\/a>")
     End Function
 
 
@@ -200,7 +165,7 @@ Module Functions
 
     Public Function SanitiseDomain(ByVal Domain As String) As String
         Domain = Domain.ToLower.Trim
-        Domain = Regex.Replace(Domain, "[^a-z\-\.0-9]", "-")
+        Domain = System.Text.RegularExpressions.Regex.Replace(Domain, "[^a-z\-\.0-9]", "-")
 
         Do
             Domain = Domain.Replace("--", "-")

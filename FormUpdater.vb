@@ -20,7 +20,7 @@ Public Class FormUpdater
 
             Dim HTML As String = New System.Net.WebClient().DownloadString("https://github.com/grandeljay/XAMPP-Virtual-Hosts/releases/latest")
 
-            Dim DownloadString As New Uri("https://github.com" & GetRegexGroups(HTML, "\/grandeljay\/XAMPP-Virtual-Hosts\/releases\/download\/v\d+\.\d+\.\d+\/XAMPP-Virtual-Hosts\.exe").First)
+            Dim DownloadString As New Uri("https://github.com" & Regex.GetGroups(HTML, "\/grandeljay\/XAMPP-Virtual-Hosts\/releases\/download\/v\d+\.\d+\.\d+\/XAMPP-Virtual-Hosts\.exe").First)
             Dim Downloader As New WebClient
             AddHandler Downloader.DownloadProgressChanged, AddressOf Downloader_ProgressChanged
             AddHandler Downloader.DownloadFileCompleted, AddressOf Downloader_DownloadFileCompleted

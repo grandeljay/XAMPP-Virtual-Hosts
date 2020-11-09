@@ -41,3 +41,5 @@ If you are experiencing any issues please let me know, by creating an [issue](ht
 ## Roadmap
 The following things are planned for the future:
 - Check and prevent duplicate entries
+- Edit Virtual Host
+    - View/Add/Edit/Remove properties from Host

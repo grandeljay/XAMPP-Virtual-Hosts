@@ -2,12 +2,10 @@
 
 Public Class ClassVirtualHostEntry
     Public Property Raw As New List(Of String)
-
     Public Property Port As Integer = 80
-
     Public Property DocumentRoot As String
-
     Public Property ServerName As String
+    Public Property SSL As Boolean
 
     Public ReadOnly Property Entry() As String
         Get
@@ -25,9 +23,10 @@ Public Class ClassVirtualHostEntry
     Public Function Parse(ByVal Input As String) As Boolean
         Raw.Add(Input)
 
-        Port = Functions.getRegexGroup(Input, "<VirtualHost.+?:(\d+)>")
-        DocumentRoot = Functions.getRegexGroup(Input, "DocumentRoot.+?" & Chr(34) & "(.+?)" & Chr(34))
-        ServerName = Functions.getRegexGroup(Input, "\s+ServerName.+?([a-z0-9\.]+)")
+        Port = Regex.GetGroup(Input, "<VirtualHost.+?:(\d+)>")
+        DocumentRoot = Regex.GetGroup(Input, "DocumentRoot.+?" & Chr(34) & "(.+?)" & Chr(34))
+        ServerName = Regex.GetGroup(Input, "\s+ServerName.+?([a-z0-9\.\-]+)")
+        SSL = Regex.IsValid(String.Join(Environment.NewLine, Raw), "<VirtualHost " & ServerName & ":443>")
 
         Return True
     End Function

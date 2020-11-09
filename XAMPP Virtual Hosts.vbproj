@@ -160,6 +160,7 @@
     <Compile Include="FormUpdater.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Regex.vb" />
     <Compile Include="VirtualHosts.vb" />
   </ItemGroup>
   <ItemGroup>
