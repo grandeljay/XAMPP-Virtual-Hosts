@@ -10,6 +10,8 @@ If you are experiencing any issues please let me know, by creating an [issue](ht
 - User Friendly GUI to manage all your Virtuals Hosts
     - View Virtual Hosts
     - Add Virtual Hosts
+    - Edit Virtual Host
+        - View/Add/Edit/Remove properties from Host
     - Delete Virtual Hosts
 - Automation of
     - creating backups
@@ -41,5 +43,3 @@ If you are experiencing any issues please let me know, by creating an [issue](ht
 ## Roadmap
 The following things are planned for the future:
 - Check and prevent duplicate entries
-- Edit Virtual Host
-    - View/Add/Edit/Remove properties from Host

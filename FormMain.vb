@@ -38,10 +38,27 @@ Public Class FormMain
     End Sub
 
     Private Sub ComboBoxVirtualHosts_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxVirtualHosts.SelectedIndexChanged
-        Dim VirtualHostSelection As ClassVirtualHost = VirtualHosts.GetVirtualHosts.Item(ComboBoxVirtualHosts.SelectedIndex)
+        '
+        ' Selection
+        '
+        Dim ValidSelection As Boolean = ComboBoxVirtualHosts.SelectedIndex > -1
 
+        ButtonVirtualHostEdit.Enabled = ValidSelection
+
+        If ValidSelection Then VirtualHosts.SelectedIndex = ComboBoxVirtualHosts.SelectedIndex
+
+        Dim VirtualHostSelection As ClassVirtualHost = VirtualHosts.GetVirtualHosts.Item(VirtualHosts.SelectedIndex)
+
+
+        '
+        ' httpd-vhosts.conf Preview
+        '
         TextBoxVirtualHostEntryRaw.Text = String.Join(Environment.NewLine & Environment.NewLine, VirtualHostSelection.VHosts.Raw).Replace(vbTab, "    ")
 
+
+        '
+        ' Status
+        '        
         If VirtualHostSelection.Errors.Count > 0 Then
             LinkLabelStatus.Text = VirtualHostSelection.Errors.First.Message
 
@@ -82,6 +99,10 @@ Public Class FormMain
 
     Private Sub AddToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AddToolStripMenuItem1.Click
         ButtonAddNewVirtualHost_Click(sender, e)
+    End Sub
+
+    Private Sub EditToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditToolStripMenuItem.Click
+        ButtonVirtualHostEdit_Click(sender, e)
     End Sub
 
     Private Sub RemoveToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles RemoveToolStripMenuItem1.Click
@@ -131,4 +152,9 @@ Public Class FormMain
 
         If Directory.Exists(htdocs) Then Process.Start(htdocs)
     End Sub
+
+    Private Sub ButtonVirtualHostEdit_Click(sender As Object, e As EventArgs) Handles ButtonVirtualHostEdit.Click
+        FormVirtualHostEdit.Show()
+    End Sub
+
 End Class

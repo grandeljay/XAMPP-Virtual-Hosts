@@ -33,6 +33,11 @@ Partial Class FormMain
         Me.LabelSelect = New System.Windows.Forms.Label()
         Me.ButtonVirtualHostAdd = New System.Windows.Forms.Button()
         Me.MenuStripMain = New System.Windows.Forms.MenuStrip()
+        Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HostsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HttpdvhostsvonfToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.HtdocsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VirtualHostToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.RemoveToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -43,11 +48,8 @@ Partial Class FormMain
         Me.LabelVersion = New System.Windows.Forms.Label()
         Me.GroupBoxStatus = New System.Windows.Forms.GroupBox()
         Me.LinkLabelStatus = New System.Windows.Forms.LinkLabel()
-        Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HostsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HttpdvhostsvonfToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HtdocsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ButtonVirtualHostEdit = New System.Windows.Forms.Button()
         Me.GroupBoxViewVirtualHosts.SuspendLayout()
         Me.MenuStripMain.SuspendLayout()
         Me.GroupBoxStatus.SuspendLayout()
@@ -67,6 +69,7 @@ Partial Class FormMain
         '
         Me.GroupBoxViewVirtualHosts.AutoSize = True
         Me.GroupBoxViewVirtualHosts.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBoxViewVirtualHosts.Controls.Add(Me.ButtonVirtualHostEdit)
         Me.GroupBoxViewVirtualHosts.Controls.Add(Me.LabelPreview)
         Me.GroupBoxViewVirtualHosts.Controls.Add(Me.TextBoxVirtualHostEntryRaw)
         Me.GroupBoxViewVirtualHosts.Controls.Add(Me.ButtonVirtualHostRestore)
@@ -112,7 +115,7 @@ Partial Class FormMain
         '
         Me.ButtonVirtualHostRestore.AutoSize = True
         Me.ButtonVirtualHostRestore.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ButtonVirtualHostRestore.Location = New System.Drawing.Point(19, 176)
+        Me.ButtonVirtualHostRestore.Location = New System.Drawing.Point(19, 212)
         Me.ButtonVirtualHostRestore.Margin = New System.Windows.Forms.Padding(2)
         Me.ButtonVirtualHostRestore.Name = "ButtonVirtualHostRestore"
         Me.ButtonVirtualHostRestore.Padding = New System.Windows.Forms.Padding(2)
@@ -138,7 +141,7 @@ Partial Class FormMain
         '
         Me.ButtonVirtualHostRemove.AutoSize = True
         Me.ButtonVirtualHostRemove.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ButtonVirtualHostRemove.Location = New System.Drawing.Point(19, 140)
+        Me.ButtonVirtualHostRemove.Location = New System.Drawing.Point(19, 176)
         Me.ButtonVirtualHostRemove.Margin = New System.Windows.Forms.Padding(2)
         Me.ButtonVirtualHostRemove.Name = "ButtonVirtualHostRemove"
         Me.ButtonVirtualHostRemove.Padding = New System.Windows.Forms.Padding(2)
@@ -180,9 +183,39 @@ Partial Class FormMain
         Me.MenuStripMain.TabIndex = 3
         Me.MenuStripMain.Text = "MenuStrip1"
         '
+        'OpenToolStripMenuItem
+        '
+        Me.OpenToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HostsToolStripMenuItem, Me.HttpdvhostsvonfToolStripMenuItem, Me.ToolStripSeparator1, Me.HtdocsToolStripMenuItem})
+        Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
+        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(53, 22)
+        Me.OpenToolStripMenuItem.Text = "Open"
+        '
+        'HostsToolStripMenuItem
+        '
+        Me.HostsToolStripMenuItem.Name = "HostsToolStripMenuItem"
+        Me.HostsToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
+        Me.HostsToolStripMenuItem.Text = "hosts"
+        '
+        'HttpdvhostsvonfToolStripMenuItem
+        '
+        Me.HttpdvhostsvonfToolStripMenuItem.Name = "HttpdvhostsvonfToolStripMenuItem"
+        Me.HttpdvhostsvonfToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
+        Me.HttpdvhostsvonfToolStripMenuItem.Text = "httpd-vhosts.vonf"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(181, 6)
+        '
+        'HtdocsToolStripMenuItem
+        '
+        Me.HtdocsToolStripMenuItem.Name = "HtdocsToolStripMenuItem"
+        Me.HtdocsToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
+        Me.HtdocsToolStripMenuItem.Text = "htdocs"
+        '
         'VirtualHostToolStripMenuItem
         '
-        Me.VirtualHostToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToolStripMenuItem1, Me.RemoveToolStripMenuItem1, Me.RestoreToolStripMenuItem})
+        Me.VirtualHostToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToolStripMenuItem1, Me.EditToolStripMenuItem, Me.RemoveToolStripMenuItem1, Me.RestoreToolStripMenuItem})
         Me.VirtualHostToolStripMenuItem.Name = "VirtualHostToolStripMenuItem"
         Me.VirtualHostToolStripMenuItem.Size = New System.Drawing.Size(91, 22)
         Me.VirtualHostToolStripMenuItem.Text = "Virtual Host"
@@ -190,19 +223,19 @@ Partial Class FormMain
         'AddToolStripMenuItem1
         '
         Me.AddToolStripMenuItem1.Name = "AddToolStripMenuItem1"
-        Me.AddToolStripMenuItem1.Size = New System.Drawing.Size(125, 22)
+        Me.AddToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.AddToolStripMenuItem1.Text = "Add"
         '
         'RemoveToolStripMenuItem1
         '
         Me.RemoveToolStripMenuItem1.Name = "RemoveToolStripMenuItem1"
-        Me.RemoveToolStripMenuItem1.Size = New System.Drawing.Size(125, 22)
+        Me.RemoveToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.RemoveToolStripMenuItem1.Text = "Remove"
         '
         'RestoreToolStripMenuItem
         '
         Me.RestoreToolStripMenuItem.Name = "RestoreToolStripMenuItem"
-        Me.RestoreToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
+        Me.RestoreToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.RestoreToolStripMenuItem.Text = "Restore"
         '
         'WindowToolStripMenuItem
@@ -259,35 +292,24 @@ Partial Class FormMain
         Me.LinkLabelStatus.Text = "LinkLabelStatus"
         Me.LinkLabelStatus.VisitedLinkColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(255, Byte), Integer))
         '
-        'OpenToolStripMenuItem
+        'EditToolStripMenuItem
         '
-        Me.OpenToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HostsToolStripMenuItem, Me.HttpdvhostsvonfToolStripMenuItem, Me.ToolStripSeparator1, Me.HtdocsToolStripMenuItem})
-        Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(53, 22)
-        Me.OpenToolStripMenuItem.Text = "Open"
+        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EditToolStripMenuItem.Text = "Edit"
         '
-        'HostsToolStripMenuItem
+        'ButtonVirtualHostEdit
         '
-        Me.HostsToolStripMenuItem.Name = "HostsToolStripMenuItem"
-        Me.HostsToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
-        Me.HostsToolStripMenuItem.Text = "hosts"
-        '
-        'HttpdvhostsvonfToolStripMenuItem
-        '
-        Me.HttpdvhostsvonfToolStripMenuItem.Name = "HttpdvhostsvonfToolStripMenuItem"
-        Me.HttpdvhostsvonfToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
-        Me.HttpdvhostsvonfToolStripMenuItem.Text = "httpd-vhosts.vonf"
-        '
-        'HtdocsToolStripMenuItem
-        '
-        Me.HtdocsToolStripMenuItem.Name = "HtdocsToolStripMenuItem"
-        Me.HtdocsToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
-        Me.HtdocsToolStripMenuItem.Text = "htdocs"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(181, 6)
+        Me.ButtonVirtualHostEdit.AutoSize = True
+        Me.ButtonVirtualHostEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ButtonVirtualHostEdit.Location = New System.Drawing.Point(19, 140)
+        Me.ButtonVirtualHostEdit.Margin = New System.Windows.Forms.Padding(2)
+        Me.ButtonVirtualHostEdit.Name = "ButtonVirtualHostEdit"
+        Me.ButtonVirtualHostEdit.Padding = New System.Windows.Forms.Padding(2)
+        Me.ButtonVirtualHostEdit.Size = New System.Drawing.Size(119, 32)
+        Me.ButtonVirtualHostEdit.TabIndex = 14
+        Me.ButtonVirtualHostEdit.Text = "Edit Virtual Host"
+        Me.ButtonVirtualHostEdit.UseVisualStyleBackColor = True
         '
         'FormMain
         '
@@ -344,4 +366,6 @@ Partial Class FormMain
     Friend WithEvents HttpdvhostsvonfToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents HtdocsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ButtonVirtualHostEdit As Button
+    Friend WithEvents EditToolStripMenuItem As ToolStripMenuItem
 End Class

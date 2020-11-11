@@ -61,6 +61,86 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to # Copyright (c) 1993-2009 Microsoft Corp.
+        '''#
+        '''# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+        '''#
+        '''# This file contains the mappings of IP addresses to host names. Each
+        '''# entry should be kept on an individual line. The IP address should
+        '''# be placed in the first column followed by the corresponding host name.
+        '''# The IP address and the host name should be separated by at least one
+        '''# space.
+        '''#
+        '''# Additionally, comments (such as these) may be inserted on individual
+        '''# lines or following th [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property FileHostsHeader() As String
+            Get
+                Return ResourceManager.GetString("FileHostsHeader", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to # Virtual Hosts
+        '''#
+        '''# Required modules: mod_log_config
+        '''
+        '''# If you want to maintain multiple domains/hostnames on your
+        '''# machine you can setup VirtualHost containers for them. Most configurations
+        '''# use only name-based virtual hosts so the server doesn&apos;t need to worry about
+        '''# IP addresses. This is indicated by the asterisks in the directives below.
+        '''#
+        '''# Please see the documentation at
+        '''# &lt;URL:http://httpd.apache.org/docs/2.4/vhosts/&gt;
+        '''# for further details before you try to setup virtual hosts.
+        '''#
+        '''# You [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property FileHttpdVHostsConfHeader() As String
+            Get
+                Return ResourceManager.GetString("FileHttpdVHostsConfHeader", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to &lt;VirtualHost XAMPP_HOST:XAMPP_PORT&gt;
+        '''	DocumentRoot &quot;XAMPP_DOCUMENTROOT&quot;
+        '''	ServerName XAMPP_HOST
+        '''
+        '''	&lt;Directory &quot;XAMPP_DOCUMENTROOT&quot;&gt;
+        '''		Order allow,deny
+        '''		Allow from all
+        '''	&lt;/Directory&gt;
+        '''&lt;/VirtualHost&gt;.
+        '''</summary>
+        Friend ReadOnly Property httpd_vhost_conf() As String
+            Get
+                Return ResourceManager.GetString("httpd-vhost.conf", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to &lt;VirtualHost XAMPP_HOST:XAMPP_PORT&gt;
+        '''	DocumentRoot &quot;XAMPP_DOCUMENTROOT&quot;
+        '''	ServerName XAMPP_HOST
+        '''
+        '''	SSLEngine On
+        '''	SSLCertificateFile &quot;XAMPP_CERTIFICATE&quot;
+        '''	SSLCertificateKeyFile &quot;XAMPP_CERTIFICATEKEY&quot;
+        '''
+        '''	&lt;Directory &quot;XAMPP_DOCUMENTROOT&quot;&gt;
+        '''		Order allow,deny
+        '''		Allow from all
+        '''	&lt;/Directory&gt;
+        '''&lt;/VirtualHost&gt;.
+        '''</summary>
+        Friend ReadOnly Property httpd_vhosts_conf__SSL_() As String
+            Get
+                Return ResourceManager.GetString("httpd-vhosts.conf (SSL)", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property logo() As System.Drawing.Bitmap

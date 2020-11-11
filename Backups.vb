@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 
 Module Backups
-    ReadOnly DirectoryBackup As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\" & Application.ProductName & "\Backups"
+    Public ReadOnly DirectoryBackup As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\" & Application.ProductName & "\Backups"
 
     ReadOnly BackupsList As New List(Of ClassBackup)
 

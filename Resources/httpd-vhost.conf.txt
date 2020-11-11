@@ -1,0 +1,9 @@
+<VirtualHost XAMPP_HOST:XAMPP_PORT>
+	DocumentRoot "XAMPP_DOCUMENTROOT"
+	ServerName XAMPP_HOST
+
+	<Directory "XAMPP_DOCUMENTROOT">
+		Order allow,deny
+		Allow from all
+	</Directory>
+</VirtualHost>

@@ -1,4 +1,15 @@
 ﻿Module Regex
+    ''' <summary>
+    ''' In a specified input string, replaces all string that match a specified regular epression with a specified replacement string.
+    ''' </summary>
+    ''' <param name="Subject"></param>
+    ''' <param name="Pattern"></param>
+    ''' <param name="Replacement"></param>
+    ''' <returns>A new string that is identical to the input string, except that the replacement string takes the place of each matched string. If pattern is not matched in the current instance, the method return the current instance unchanged.</returns>
+    Public Function Replace(ByVal Subject As String, ByVal Pattern As String, ByVal Replacement As String) As String
+        Return System.Text.RegularExpressions.Regex.Replace(Subject, Pattern, Replacement)
+    End Function
+
     Public Function IsValid(ByVal Subject As String, ByVal Regex As String) As Boolean
         If GetGroups(Subject, Regex).Count > 0 Then Return True
 
@@ -37,7 +48,7 @@
         End If
 
         If Not DoRegexMatch.Success Then
-            DoRegexOutput = "Regex operation: " & Regex & " failed."
+            DoRegexOutput = ""
         End If
 
         Return DoRegexOutput

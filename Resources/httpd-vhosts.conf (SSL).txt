@@ -1,0 +1,13 @@
+<VirtualHost XAMPP_HOST:XAMPP_PORT>
+	DocumentRoot "XAMPP_DOCUMENTROOT"
+	ServerName XAMPP_HOST
+
+	SSLEngine On
+	SSLCertificateFile "XAMPP_CERTIFICATE"
+	SSLCertificateKeyFile "XAMPP_CERTIFICATEKEY"
+
+	<Directory "XAMPP_DOCUMENTROOT">
+		Order allow,deny
+		Allow from all
+	</Directory>
+</VirtualHost>

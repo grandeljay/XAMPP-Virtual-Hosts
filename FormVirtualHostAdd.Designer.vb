@@ -120,7 +120,7 @@ Partial Class FormVirtualHostAdd
         '
         Me.ButtonSave.AutoSize = True
         Me.ButtonSave.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ButtonSave.Location = New System.Drawing.Point(20, 260)
+        Me.ButtonSave.Location = New System.Drawing.Point(40, 260)
         Me.ButtonSave.Margin = New System.Windows.Forms.Padding(0, 0, 2, 0)
         Me.ButtonSave.Name = "ButtonSave"
         Me.ButtonSave.Padding = New System.Windows.Forms.Padding(2)
@@ -133,7 +133,7 @@ Partial Class FormVirtualHostAdd
         '
         Me.ButtonClose.AutoSize = True
         Me.ButtonClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ButtonClose.Location = New System.Drawing.Point(379, 260)
+        Me.ButtonClose.Location = New System.Drawing.Point(359, 260)
         Me.ButtonClose.Margin = New System.Windows.Forms.Padding(0)
         Me.ButtonClose.Name = "ButtonClose"
         Me.ButtonClose.Padding = New System.Windows.Forms.Padding(2)
