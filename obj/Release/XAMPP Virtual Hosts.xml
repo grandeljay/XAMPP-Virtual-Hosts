@@ -1,0 +1,125 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+XAMPP Virtual Hosts
+</name>
+</assembly>
+<members>
+<member name="T:XAMPP_Virtual_Hosts.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:XAMPP_Virtual_Hosts.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:XAMPP_Virtual_Hosts.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:XAMPP_Virtual_Hosts.My.Resources.Resources.FileHostsHeader">
+<summary>
+  Looks up a localized string similar to # Copyright (c) 1993-2009 Microsoft Corp.
+#
+# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+#
+# This file contains the mappings of IP addresses to host names. Each
+# entry should be kept on an individual line. The IP address should
+# be placed in the first column followed by the corresponding host name.
+# The IP address and the host name should be separated by at least one
+# space.
+#
+# Additionally, comments (such as these) may be inserted on individual
+# lines or following th [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:XAMPP_Virtual_Hosts.My.Resources.Resources.FileHttpdVHostsConfHeader">
+<summary>
+  Looks up a localized string similar to # Virtual Hosts
+#
+# Required modules: mod_log_config
+
+# If you want to maintain multiple domains/hostnames on your
+# machine you can setup VirtualHost containers for them. Most configurations
+# use only name-based virtual hosts so the server doesn&apos;t need to worry about
+# IP addresses. This is indicated by the asterisks in the directives below.
+#
+# Please see the documentation at
+# &lt;URL:http://httpd.apache.org/docs/2.4/vhosts/&gt;
+# for further details before you try to setup virtual hosts.
+#
+# You [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:XAMPP_Virtual_Hosts.My.Resources.Resources.httpd_vhost_conf">
+<summary>
+  Looks up a localized string similar to &lt;VirtualHost XAMPP_HOST:XAMPP_PORT&gt;
+	DocumentRoot &quot;XAMPP_DOCUMENTROOT&quot;
+	ServerName XAMPP_HOST
+
+	&lt;Directory &quot;XAMPP_DOCUMENTROOT&quot;&gt;
+		Order allow,deny
+		Allow from all
+	&lt;/Directory&gt;
+&lt;/VirtualHost&gt;.
+</summary>
+</member>
+<member name="P:XAMPP_Virtual_Hosts.My.Resources.Resources.httpd_vhosts_conf__SSL_">
+<summary>
+  Looks up a localized string similar to &lt;VirtualHost XAMPP_HOST:XAMPP_PORT&gt;
+	DocumentRoot &quot;XAMPP_DOCUMENTROOT&quot;
+	ServerName XAMPP_HOST
+
+	SSLEngine On
+	SSLCertificateFile &quot;XAMPP_CERTIFICATE&quot;
+	SSLCertificateKeyFile &quot;XAMPP_CERTIFICATEKEY&quot;
+
+	&lt;Directory &quot;XAMPP_DOCUMENTROOT&quot;&gt;
+		Order allow,deny
+		Allow from all
+	&lt;/Directory&gt;
+&lt;/VirtualHost&gt;.
+</summary>
+</member>
+<member name="P:XAMPP_Virtual_Hosts.My.Resources.Resources.logo">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="M:XAMPP_Virtual_Hosts.Functions.GetFile(System.String)">
+ <summary>
+ Determine where a file is.
+ </summary>
+ <param name="SearchFor">The file you want to locate (case insensitive). Substrings allowed.</param>
+ <returns>The full file path.</returns>
+</member>
+<member name="M:XAMPP_Virtual_Hosts.Functions.GetDirectory(System.String)">
+ <summary>
+ Determine where a directory is.
+ </summary>
+ <param name="SearchFor">The directory you want to locate (case insensitive). Substrings allowed.</param>
+ <returns>The full directory path.</returns>
+</member>
+<member name="M:XAMPP_Virtual_Hosts.Functions.RemoveExtraLines(System.String)">
+ <summary>
+ Removes all unnecessary line breaks and trims Input.
+ </summary>
+ <param name="Input">The string you would like to process.</param>
+ <returns>Trimmed Input without more than 1 empty line between paragraphs.</returns>
+</member>
+<member name="M:XAMPP_Virtual_Hosts.Regex.Replace(System.String,System.String,System.String)">
+ <summary>
+ In a specified input string, replaces all string that match a specified regular epression with a specified replacement string.
+ </summary>
+ <param name="Subject"></param>
+ <param name="Pattern"></param>
+ <param name="Replacement"></param>
+ <returns>A new string that is identical to the input string, except that the replacement string takes the place of each matched string. If pattern is not matched in the current instance, the method return the current instance unchanged.</returns>
+</member>
+</members>
+</doc>

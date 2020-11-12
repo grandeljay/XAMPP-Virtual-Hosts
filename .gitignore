@@ -1,3 +1,4 @@
 .vs
+*.code-workspace
 bin/Debug
 obj/Debug

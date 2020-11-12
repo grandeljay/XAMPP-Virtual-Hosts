@@ -1,0 +1,14 @@
+C:\Users\j.trees\source\repos\XAMPP-Virtual-Hosts\bin\x64\Publish\XAMPP Virtual Hosts.exe.config
+C:\Users\j.trees\source\repos\XAMPP-Virtual-Hosts\bin\x64\Publish\XAMPP Virtual Hosts.exe
+C:\Users\j.trees\source\repos\XAMPP-Virtual-Hosts\obj\x64\Publish\XAMPP_Virtual_Hosts.FormAbout.resources
+C:\Users\j.trees\source\repos\XAMPP-Virtual-Hosts\obj\x64\Publish\XAMPP_Virtual_Hosts.FormMain.resources
+C:\Users\j.trees\source\repos\XAMPP-Virtual-Hosts\obj\x64\Publish\XAMPP_Virtual_Hosts.FormPathsSpecify.resources
+C:\Users\j.trees\source\repos\XAMPP-Virtual-Hosts\obj\x64\Publish\XAMPP_Virtual_Hosts.FormVirtualHostAdd.resources
+C:\Users\j.trees\source\repos\XAMPP-Virtual-Hosts\obj\x64\Publish\XAMPP_Virtual_Hosts.FormVirtualHostEdit.resources
+C:\Users\j.trees\source\repos\XAMPP-Virtual-Hosts\obj\x64\Publish\XAMPP_Virtual_Hosts.FormVirtualHostRemove.resources
+C:\Users\j.trees\source\repos\XAMPP-Virtual-Hosts\obj\x64\Publish\XAMPP_Virtual_Hosts.FormVirtualHostRestore.resources
+C:\Users\j.trees\source\repos\XAMPP-Virtual-Hosts\obj\x64\Publish\XAMPP_Virtual_Hosts.Resources.resources
+C:\Users\j.trees\source\repos\XAMPP-Virtual-Hosts\obj\x64\Publish\XAMPP_Virtual_Hosts.FormUpdater.resources
+C:\Users\j.trees\source\repos\XAMPP-Virtual-Hosts\obj\x64\Publish\XAMPP Virtual Hosts.vbproj.GenerateResource.cache
+C:\Users\j.trees\source\repos\XAMPP-Virtual-Hosts\obj\x64\Publish\XAMPP Virtual Hosts.vbproj.CoreCompileInputs.cache
+C:\Users\j.trees\source\repos\XAMPP-Virtual-Hosts\obj\x64\Publish\XAMPP Virtual Hosts.exe

@@ -122,7 +122,7 @@ Module BackgroundOperation
         Public Shared BackgroundWorker As New BackgroundWorker
         Public Shared ProgressDirectory As String
 
-        Private Shared DirectoryMustContain As String() = {
+        Private Shared ReadOnly DirectoryMustContain As String() = {
             "service.exe",
             "uninstall.exe",
             "xampp_start.exe",
