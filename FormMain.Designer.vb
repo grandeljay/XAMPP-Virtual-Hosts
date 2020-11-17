@@ -25,6 +25,7 @@ Partial Class FormMain
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
         Me.ComboBoxVirtualHosts = New System.Windows.Forms.ComboBox()
         Me.GroupBoxViewVirtualHosts = New System.Windows.Forms.GroupBox()
+        Me.ButtonVirtualHostEdit = New System.Windows.Forms.Button()
         Me.LabelPreview = New System.Windows.Forms.Label()
         Me.TextBoxVirtualHostEntryRaw = New System.Windows.Forms.TextBox()
         Me.ButtonVirtualHostRestore = New System.Windows.Forms.Button()
@@ -40,16 +41,17 @@ Partial Class FormMain
         Me.HtdocsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VirtualHostToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RemoveToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.RestoreToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.WindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SpecifyPathsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LabelVersion = New System.Windows.Forms.Label()
         Me.GroupBoxStatus = New System.Windows.Forms.GroupBox()
         Me.LinkLabelStatus = New System.Windows.Forms.LinkLabel()
-        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ButtonVirtualHostEdit = New System.Windows.Forms.Button()
         Me.GroupBoxViewVirtualHosts.SuspendLayout()
         Me.MenuStripMain.SuspendLayout()
         Me.GroupBoxStatus.SuspendLayout()
@@ -86,6 +88,19 @@ Partial Class FormMain
         Me.GroupBoxViewVirtualHosts.TabIndex = 2
         Me.GroupBoxViewVirtualHosts.TabStop = False
         Me.GroupBoxViewVirtualHosts.Text = "View Virtual Hosts"
+        '
+        'ButtonVirtualHostEdit
+        '
+        Me.ButtonVirtualHostEdit.AutoSize = True
+        Me.ButtonVirtualHostEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ButtonVirtualHostEdit.Location = New System.Drawing.Point(19, 140)
+        Me.ButtonVirtualHostEdit.Margin = New System.Windows.Forms.Padding(2)
+        Me.ButtonVirtualHostEdit.Name = "ButtonVirtualHostEdit"
+        Me.ButtonVirtualHostEdit.Padding = New System.Windows.Forms.Padding(2)
+        Me.ButtonVirtualHostEdit.Size = New System.Drawing.Size(119, 32)
+        Me.ButtonVirtualHostEdit.TabIndex = 14
+        Me.ButtonVirtualHostEdit.Text = "Edit Virtual Host"
+        Me.ButtonVirtualHostEdit.UseVisualStyleBackColor = True
         '
         'LabelPreview
         '
@@ -176,7 +191,7 @@ Partial Class FormMain
         'MenuStripMain
         '
         Me.MenuStripMain.Font = New System.Drawing.Font("Open Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStripMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripMenuItem, Me.VirtualHostToolStripMenuItem, Me.WindowToolStripMenuItem, Me.AboutToolStripMenuItem})
+        Me.MenuStripMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripMenuItem, Me.VirtualHostToolStripMenuItem, Me.DatabaseToolStripMenuItem, Me.SettingsToolStripMenuItem, Me.AboutToolStripMenuItem})
         Me.MenuStripMain.Location = New System.Drawing.Point(0, 0)
         Me.MenuStripMain.Name = "MenuStripMain"
         Me.MenuStripMain.Size = New System.Drawing.Size(1192, 26)
@@ -223,27 +238,46 @@ Partial Class FormMain
         'AddToolStripMenuItem1
         '
         Me.AddToolStripMenuItem1.Name = "AddToolStripMenuItem1"
-        Me.AddToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.AddToolStripMenuItem1.Size = New System.Drawing.Size(125, 22)
         Me.AddToolStripMenuItem1.Text = "Add"
+        '
+        'EditToolStripMenuItem
+        '
+        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
+        Me.EditToolStripMenuItem.Text = "Edit"
         '
         'RemoveToolStripMenuItem1
         '
         Me.RemoveToolStripMenuItem1.Name = "RemoveToolStripMenuItem1"
-        Me.RemoveToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.RemoveToolStripMenuItem1.Size = New System.Drawing.Size(125, 22)
         Me.RemoveToolStripMenuItem1.Text = "Remove"
         '
         'RestoreToolStripMenuItem
         '
         Me.RestoreToolStripMenuItem.Name = "RestoreToolStripMenuItem"
-        Me.RestoreToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RestoreToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.RestoreToolStripMenuItem.Text = "Restore"
         '
-        'WindowToolStripMenuItem
+        'DatabaseToolStripMenuItem
         '
-        Me.WindowToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SpecifyPathsToolStripMenuItem})
-        Me.WindowToolStripMenuItem.Name = "WindowToolStripMenuItem"
-        Me.WindowToolStripMenuItem.Size = New System.Drawing.Size(69, 22)
-        Me.WindowToolStripMenuItem.Text = "Window"
+        Me.DatabaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportToolStripMenuItem})
+        Me.DatabaseToolStripMenuItem.Name = "DatabaseToolStripMenuItem"
+        Me.DatabaseToolStripMenuItem.Size = New System.Drawing.Size(76, 22)
+        Me.DatabaseToolStripMenuItem.Text = "Database"
+        '
+        'ImportToolStripMenuItem
+        '
+        Me.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem"
+        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ImportToolStripMenuItem.Text = "Import"
+        '
+        'SettingsToolStripMenuItem
+        '
+        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SpecifyPathsToolStripMenuItem})
+        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(68, 22)
+        Me.SettingsToolStripMenuItem.Text = "Settings"
         '
         'SpecifyPathsToolStripMenuItem
         '
@@ -292,25 +326,6 @@ Partial Class FormMain
         Me.LinkLabelStatus.Text = "LinkLabelStatus"
         Me.LinkLabelStatus.VisitedLinkColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(255, Byte), Integer))
         '
-        'EditToolStripMenuItem
-        '
-        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.EditToolStripMenuItem.Text = "Edit"
-        '
-        'ButtonVirtualHostEdit
-        '
-        Me.ButtonVirtualHostEdit.AutoSize = True
-        Me.ButtonVirtualHostEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ButtonVirtualHostEdit.Location = New System.Drawing.Point(19, 140)
-        Me.ButtonVirtualHostEdit.Margin = New System.Windows.Forms.Padding(2)
-        Me.ButtonVirtualHostEdit.Name = "ButtonVirtualHostEdit"
-        Me.ButtonVirtualHostEdit.Padding = New System.Windows.Forms.Padding(2)
-        Me.ButtonVirtualHostEdit.Size = New System.Drawing.Size(119, 32)
-        Me.ButtonVirtualHostEdit.TabIndex = 14
-        Me.ButtonVirtualHostEdit.Text = "Edit Virtual Host"
-        Me.ButtonVirtualHostEdit.UseVisualStyleBackColor = True
-        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 18.0!)
@@ -350,7 +365,7 @@ Partial Class FormMain
     Friend WithEvents VirtualHostToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AddToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents RemoveToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents WindowToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SpecifyPathsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ButtonReload As Button
     Friend WithEvents LabelVersion As Label
@@ -368,4 +383,6 @@ Partial Class FormMain
     Friend WithEvents HtdocsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ButtonVirtualHostEdit As Button
     Friend WithEvents EditToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DatabaseToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ImportToolStripMenuItem As ToolStripMenuItem
 End Class

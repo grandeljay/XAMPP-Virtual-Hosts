@@ -157,4 +157,7 @@ Public Class FormMain
         FormVirtualHostEdit.Show()
     End Sub
 
+    Private Sub ImportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportToolStripMenuItem.Click
+        FormDatabaseImport.Show()
+    End Sub
 End Class

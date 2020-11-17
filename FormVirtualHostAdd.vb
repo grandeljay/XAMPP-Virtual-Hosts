@@ -16,8 +16,10 @@ Public Class FormVirtualHostAdd
         ' Create Specified Directory
         ' If it does not exist
         '
-        Dim CreateDirectory As DialogResult = MessageBox.Show("The directory " & Chr(34) & TextBoxAbsolutePath.Text & Chr(34) & " does not exist." & Environment.NewLine & Environment.NewLine & "Would you like to create it?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If CreateDirectory = DialogResult.Yes Then Directory.CreateDirectory(TextBoxAbsolutePath.Text)
+        If Not Directory.Exists(TextBoxAbsolutePath.Text) Then
+            Dim CreateDirectory As DialogResult = MessageBox.Show("The directory " & Chr(34) & TextBoxAbsolutePath.Text & Chr(34) & " does not exist." & Environment.NewLine & Environment.NewLine & "Would you like to create it?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If CreateDirectory = DialogResult.Yes Then Directory.CreateDirectory(TextBoxAbsolutePath.Text)
+        End If
 
 
         '

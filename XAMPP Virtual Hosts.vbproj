@@ -139,6 +139,12 @@
     <Compile Include="FormAbout.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormDatabaseImport.Designer.vb">
+      <DependentUpon>FormDatabaseImport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormDatabaseImport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormMain.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +211,9 @@
   <ItemGroup>
     <EmbeddedResource Include="FormAbout.resx">
       <DependentUpon>FormAbout.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDatabaseImport.resx">
+      <DependentUpon>FormDatabaseImport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.vb</DependentUpon>
