@@ -6,8 +6,20 @@
     End Sub
 
     Private Sub FormVirtualHostEdit_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        ' General
         TextBoxGeneralDomain.Text = VirtualHost.Host
         TextBoxGeneralDocumentRoot.Text = VirtualHost.VHosts.DocumentRoot
+
+        For Each DirectoryPHP As String In System.IO.Directory.GetDirectories(My.Settings.DirectoryXAMPP, "*", IO.SearchOption.TopDirectoryOnly)
+            Dim NewsTXT As String = DirectoryPHP & "\news.txt"
+
+            If System.IO.File.Exists(NewsTXT) Then
+                ComboBoxPHPVersion.Items.Add(Regex.GetGroup(Functions.GetFileContents(NewsTXT), "PHP [\d\.]+"))
+            End If
+        Next
+
+        If ComboBoxPHPVersion.Items.Count > 0 Then ComboBoxPHPVersion.SelectedIndex = 0
+
 
         ' hosts
         TextBoxIPv4Address.Text = VirtualHost.IPv4.Address

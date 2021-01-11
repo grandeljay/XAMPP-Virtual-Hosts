@@ -54,6 +54,8 @@ Partial Class FormVirtualHostEdit
         Me.GroupBoxPreview = New System.Windows.Forms.GroupBox()
         Me.TextBoxPreview = New System.Windows.Forms.TextBox()
         Me.ButtonSave = New System.Windows.Forms.Button()
+        Me.ComboBoxPHPVersion = New System.Windows.Forms.ComboBox()
+        Me.LabelPHPVersion = New System.Windows.Forms.Label()
         Me.GroupBox_hosts.SuspendLayout()
         Me.GroupBox_httpd_vhosts_conf.SuspendLayout()
         Me.GroupBoxGeneral.SuspendLayout()
@@ -73,7 +75,7 @@ Partial Class FormVirtualHostEdit
         Me.GroupBox_hosts.Controls.Add(Me.TextBoxIPv4Host)
         Me.GroupBox_hosts.Controls.Add(Me.TextBoxIPv4Address)
         Me.GroupBox_hosts.Controls.Add(Me.LabelIPv4Address)
-        Me.GroupBox_hosts.Location = New System.Drawing.Point(20, 200)
+        Me.GroupBox_hosts.Location = New System.Drawing.Point(20, 234)
         Me.GroupBox_hosts.Margin = New System.Windows.Forms.Padding(0, 0, 20, 0)
         Me.GroupBox_hosts.Name = "GroupBox_hosts"
         Me.GroupBox_hosts.Padding = New System.Windows.Forms.Padding(20)
@@ -164,7 +166,7 @@ Partial Class FormVirtualHostEdit
         Me.GroupBox_httpd_vhosts_conf.Controls.Add(Me.TextBoxDocumentRoot)
         Me.GroupBox_httpd_vhosts_conf.Controls.Add(Me.TextBoxPort)
         Me.GroupBox_httpd_vhosts_conf.Controls.Add(Me.LabelPort)
-        Me.GroupBox_httpd_vhosts_conf.Location = New System.Drawing.Point(389, 200)
+        Me.GroupBox_httpd_vhosts_conf.Location = New System.Drawing.Point(389, 234)
         Me.GroupBox_httpd_vhosts_conf.Margin = New System.Windows.Forms.Padding(0, 0, 20, 20)
         Me.GroupBox_httpd_vhosts_conf.Name = "GroupBox_httpd_vhosts_conf"
         Me.GroupBox_httpd_vhosts_conf.Padding = New System.Windows.Forms.Padding(20)
@@ -215,6 +217,8 @@ Partial Class FormVirtualHostEdit
         '
         Me.GroupBoxGeneral.AutoSize = True
         Me.GroupBoxGeneral.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBoxGeneral.Controls.Add(Me.LabelPHPVersion)
+        Me.GroupBoxGeneral.Controls.Add(Me.ComboBoxPHPVersion)
         Me.GroupBoxGeneral.Controls.Add(Me.LabelGeneralDocumentRoot)
         Me.GroupBoxGeneral.Controls.Add(Me.TextBoxGeneralDocumentRoot)
         Me.GroupBoxGeneral.Controls.Add(Me.CheckBoxSSL)
@@ -224,7 +228,7 @@ Partial Class FormVirtualHostEdit
         Me.GroupBoxGeneral.Margin = New System.Windows.Forms.Padding(0, 0, 20, 20)
         Me.GroupBoxGeneral.Name = "GroupBoxGeneral"
         Me.GroupBoxGeneral.Padding = New System.Windows.Forms.Padding(20)
-        Me.GroupBoxGeneral.Size = New System.Drawing.Size(349, 163)
+        Me.GroupBoxGeneral.Size = New System.Drawing.Size(349, 194)
         Me.GroupBoxGeneral.TabIndex = 2
         Me.GroupBoxGeneral.TabStop = False
         Me.GroupBoxGeneral.Text = "General"
@@ -251,7 +255,7 @@ Partial Class FormVirtualHostEdit
         'CheckBoxSSL
         '
         Me.CheckBoxSSL.AutoSize = True
-        Me.CheckBoxSSL.Location = New System.Drawing.Point(129, 98)
+        Me.CheckBoxSSL.Location = New System.Drawing.Point(129, 129)
         Me.CheckBoxSSL.Margin = New System.Windows.Forms.Padding(0, 0, 0, 5)
         Me.CheckBoxSSL.Name = "CheckBoxSSL"
         Me.CheckBoxSSL.Size = New System.Drawing.Size(48, 22)
@@ -288,7 +292,7 @@ Partial Class FormVirtualHostEdit
         Me.GroupBoxSSL_httpd_vhosts_conf.Controls.Add(Me.TextBoxCertificate)
         Me.GroupBoxSSL_httpd_vhosts_conf.Controls.Add(Me.TextBoxPortSSL)
         Me.GroupBoxSSL_httpd_vhosts_conf.Controls.Add(Me.LabelSSLPort)
-        Me.GroupBoxSSL_httpd_vhosts_conf.Location = New System.Drawing.Point(389, 353)
+        Me.GroupBoxSSL_httpd_vhosts_conf.Location = New System.Drawing.Point(389, 387)
         Me.GroupBoxSSL_httpd_vhosts_conf.Margin = New System.Windows.Forms.Padding(0, 0, 0, 20)
         Me.GroupBoxSSL_httpd_vhosts_conf.Name = "GroupBoxSSL_httpd_vhosts_conf"
         Me.GroupBoxSSL_httpd_vhosts_conf.Padding = New System.Windows.Forms.Padding(20)
@@ -394,6 +398,26 @@ Partial Class FormVirtualHostEdit
         Me.ButtonSave.Text = "Save && Close"
         Me.ButtonSave.UseVisualStyleBackColor = True
         '
+        'ComboBoxPHPVersion
+        '
+        Me.ComboBoxPHPVersion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxPHPVersion.FormattingEnabled = True
+        Me.ComboBoxPHPVersion.Location = New System.Drawing.Point(129, 98)
+        Me.ComboBoxPHPVersion.Margin = New System.Windows.Forms.Padding(0, 0, 0, 5)
+        Me.ComboBoxPHPVersion.Name = "ComboBoxPHPVersion"
+        Me.ComboBoxPHPVersion.Size = New System.Drawing.Size(200, 26)
+        Me.ComboBoxPHPVersion.TabIndex = 7
+        '
+        'LabelPHPVersion
+        '
+        Me.LabelPHPVersion.AutoSize = True
+        Me.LabelPHPVersion.Location = New System.Drawing.Point(20, 101)
+        Me.LabelPHPVersion.Margin = New System.Windows.Forms.Padding(0)
+        Me.LabelPHPVersion.Name = "LabelPHPVersion"
+        Me.LabelPHPVersion.Size = New System.Drawing.Size(82, 18)
+        Me.LabelPHPVersion.TabIndex = 8
+        Me.LabelPHPVersion.Text = "PHP Version"
+        '
         'FormVirtualHostEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 18.0!)
@@ -462,4 +486,6 @@ Partial Class FormVirtualHostEdit
     Friend WithEvents GroupBoxPreview As GroupBox
     Friend WithEvents TextBoxPreview As TextBox
     Friend WithEvents ButtonSave As Button
+    Friend WithEvents LabelPHPVersion As Label
+    Friend WithEvents ComboBoxPHPVersion As ComboBox
 End Class
