@@ -28,7 +28,7 @@ Public Class FormPathsSpecify
         Dim XAMPP As String = TextBoxDirectoryXAMPP.Text
 
         If Directory.Exists(XAMPP) Then
-            If Not BackgroundOperation.SetXAMPP.BackgroundWorker Is Nothing Then BackgroundOperation.SetXAMPP.BackgroundWorker.CancelAsync()
+            If BackgroundOperation.SetXAMPP.BackgroundWorker IsNot Nothing Then BackgroundOperation.SetXAMPP.BackgroundWorker.CancelAsync()
 
             My.Settings.DirectoryXAMPP = XAMPP
         End If
@@ -42,7 +42,7 @@ Public Class FormPathsSpecify
         Dim HttpdfVhostsConf As String = TextBoxDirectoryHttpdVhostsConf.Text
 
         If File.Exists(HttpdfVhostsConf) Then
-            If Not BackgroundOperation.SetHttpdVhostsConf.BackgroundWorker Is Nothing Then BackgroundOperation.SetHttpdVhostsConf.BackgroundWorker.CancelAsync()
+            If BackgroundOperation.SetHttpdVhostsConf.BackgroundWorker IsNot Nothing Then BackgroundOperation.SetHttpdVhostsConf.BackgroundWorker.CancelAsync()
 
             My.Settings.FileHttpdVhostsConf = HttpdfVhostsConf
         End If
