@@ -6,10 +6,17 @@ Public Class ClassVirtualHostVHost
     Public Property PortSSL As Integer = 443
     Public Property DocumentRoot As String = ""
     Public Property ServerName As String = ""
-    Public Property SSL As Boolean = false
+    Public Property SSL As Boolean = False
     Public Property Certificate As String
     Public Property CertificateKey As String
     Public Property Directory As String = ""
+    Public Property PHPVersionFolderName As String = ""
+    Public ReadOnly Property PHP() As String
+        Get
+            Return PHPVersionFolderName.Length > 0
+        End Get
+    End Property
+
 
     Public ReadOnly Property Entry() As String
         Get
@@ -22,6 +29,17 @@ Public Class ClassVirtualHostVHost
             If DocumentRoot.Trim.Length > 0 Then Output.AppendLine(vbTab & "DocumentRoot " & Chr(34) & DocumentRoot & Chr(34))
             If ServerName.Trim.Length > 0 Then Output.AppendLine(vbTab & "ServerName " & ServerName)
             If Directory.Trim.Length > 0 Then Output.AppendLine(vbTab & Directory)
+
+            ' PHP Version
+            If PHPVersionFolderName.Length > 0 Then
+                Output.AppendLine()
+                Output.AppendLine(vbTab & "UnsetEnv PHPRC")
+                Output.AppendLine(vbTab & "<FilesMatch " & Chr(34) & "\.php$" & Chr(34) & ">")
+                Output.AppendLine(vbTab & vbTab & "php_flag engine off")
+                Output.AppendLine(vbTab & vbTab & "SetHandler application/x-httpd-" & PHPVersionFolderName)
+                Output.AppendLine(vbTab & vbTab & "Action application/x-httpd-" & PHPVersionFolderName & Chr(34) & " /" & PHPVersionFolderName & "/php-cgi.exe" & Chr(34))
+                Output.AppendLine(vbTab & "</FilesMatch>")
+            End If
 
             Output.AppendLine("</VirtualHost>")
 
@@ -58,6 +76,7 @@ Public Class ClassVirtualHostVHost
 
         DocumentRoot = Regex.GetGroup(Input, "DocumentRoot.+?" & Chr(34) & "(.+?)" & Chr(34))
         ServerName = Regex.GetGroup(Input, "\s+ServerName.+?([a-z0-9\.\-]+)")
+        PHPVersionFolderName = Regex.GetGroup(Input, "SetHandler application\/x-httpd-(.+?)\n").Trim
         SSL = Regex.IsValid(String.Join(Environment.NewLine, Raw), "<VirtualHost " & ServerName & ":443>")
         Certificate = Regex.GetGroup(Input, "SSLCertificateFile\s*" & Chr(34) & "(.+?)" & Chr(34))
         CertificateKey = Regex.GetGroup(Input, "SSLCertificateKeyFile\s*" & Chr(34) & "(.+?)" & Chr(34))

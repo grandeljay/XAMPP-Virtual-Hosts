@@ -14,12 +14,15 @@
             Dim NewsTXT As String = DirectoryPHP & "\news.txt"
 
             If System.IO.File.Exists(NewsTXT) Then
-                ComboBoxPHPVersion.Items.Add(Regex.GetGroup(Functions.GetFileContents(NewsTXT), "PHP [\d\.]+"))
+                ComboBoxPHPVersion.Items.Add(System.IO.Path.GetFileName(DirectoryPHP)) 'Regex.GetGroup(Functions.GetFileContents(NewsTXT), "PHP [\d\.]+")
             End If
         Next
 
-        If ComboBoxPHPVersion.Items.Count > 0 Then ComboBoxPHPVersion.SelectedIndex = 0
-
+        If VirtualHost.VHosts.PHP Then
+            ComboBoxPHPVersion.SelectedItem = VirtualHost.VHosts.PHPVersionFolderName
+        Else
+            ComboBoxPHPVersion.SelectedItem = "php"
+        End If
 
         ' hosts
         TextBoxIPv4Address.Text = VirtualHost.IPv4.Address
@@ -46,6 +49,18 @@
 
     Private Sub TextBoxGeneralDocumentRoot_TextChanged(sender As Object, e As EventArgs) Handles TextBoxGeneralDocumentRoot.TextChanged
         TextBoxDocumentRoot.Text = TextBoxGeneralDocumentRoot.Text
+
+        Preview()
+    End Sub
+
+    Private Sub ComboBoxPHPVersion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxPHPVersion.SelectedIndexChanged
+        If VirtualHost Is Nothing Then Exit Sub
+
+        If ComboBoxPHPVersion.SelectedItem = "php" Then
+            VirtualHost.VHosts.PHPVersionFolderName = ""
+        Else
+            VirtualHost.VHosts.PHPVersionFolderName = ComboBoxPHPVersion.SelectedItem
+        End If
 
         Preview()
     End Sub
