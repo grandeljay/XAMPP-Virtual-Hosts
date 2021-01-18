@@ -23,7 +23,7 @@ If you are experiencing any issues please let me know, by creating an [issue](ht
 
 ## Requirements
 - XAMPP
-- Microsoft .NET Framework 4.7.2
+- [Microsoft .NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework) (or higher)
 
 ## Screenshots
 ### Main Window
@@ -32,7 +32,7 @@ If you are experiencing any issues please let me know, by creating an [issue](ht
 ### Add Virtual Host
 ![Add Virtual Host](/screenshots/add-virtual-host.png "Add Virtual Host")
 
-### Add Virtual Host
+### Edit Virtual Host
 ![Edit Virtual Host](/screenshots/edit-virtual-host.png "Edit Virtual Host")
 
 ### Remove Virtual Host
