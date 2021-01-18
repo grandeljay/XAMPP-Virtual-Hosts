@@ -19,6 +19,7 @@ If you are experiencing any issues please let me know, by creating an [issue](ht
 - Version checker / updater
 - Restore backups
 - Determine invalid hosts
+- Set PHP Version for vHost
 
 ## Requirements
 - XAMPP
@@ -30,6 +31,9 @@ If you are experiencing any issues please let me know, by creating an [issue](ht
 
 ### Add Virtual Host
 ![Add Virtual Host](/screenshots/add-virtual-host.png "Add Virtual Host")
+
+### Add Virtual Host
+![Edit Virtual Host](/screenshots/edit-virtual-host.png "Edit Virtual Host")
 
 ### Remove Virtual Host
 ![Remove Virtual Host](/screenshots/remove-virtual-host.png "Remove Virtual Host")
