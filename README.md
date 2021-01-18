@@ -6,6 +6,9 @@ Create and manage Virtual Hosts for XAMPP with a clean and user friendly interfa
 ## Note
 If you are experiencing any issues please let me know, by creating an [issue](https://github.com/grandeljay/XAMPP-Virtual-Hosts/issues/new). Your feedback is very appreciated.
 
+## Installation
+Download the installer under [releases](https://github.com/grandeljay/XAMPP-Virtual-Hosts/releases) and follow its intructions. The installer will install all prerequisites.
+
 ## Features
 - User Friendly GUI to manage all your Virtuals Hosts
     - View Virtual Hosts
