@@ -46,7 +46,3 @@ Download the installer under [releases](https://github.com/grandeljay/XAMPP-Virt
 
 ### Restore Backup
 ![Restore Backup](/screenshots/restore-backup.png "Restore Backup")
-
-## Roadmap
-The following things are planned for the future:
-- Check and prevent duplicate entries
