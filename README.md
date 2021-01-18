@@ -6,6 +6,10 @@ Create and manage Virtual Hosts for XAMPP with a clean and user friendly interfa
 ## Note
 If you are experiencing any issues please let me know, by creating an [issue](https://github.com/grandeljay/XAMPP-Virtual-Hosts/issues/new). Your feedback is very appreciated.
 
+## Requirements
+- XAMPP
+- [Microsoft .NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework) (or higher)
+
 ## Installation
 Download the installer under [releases](https://github.com/grandeljay/XAMPP-Virtual-Hosts/releases) and follow its intructions. The installer will install all prerequisites.
 
@@ -23,10 +27,6 @@ Download the installer under [releases](https://github.com/grandeljay/XAMPP-Virt
 - Restore backups
 - Determine invalid hosts
 - Set PHP Version for vHost
-
-## Requirements
-- XAMPP
-- [Microsoft .NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework) (or higher)
 
 ## Screenshots
 ### Main Window
