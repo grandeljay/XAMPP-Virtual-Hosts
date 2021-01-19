@@ -7,7 +7,7 @@ Module BackgroundOperation
 
         Public Shared Sub Run()
             Dim CommonLocations As String() = {
-                 My.Settings.FileHosts,
+                My.Settings.FileHosts,
                 "C:\Windows\System32\drivers\etc\" & Hosts
             }
 
@@ -40,11 +40,12 @@ Module BackgroundOperation
             '
             ' Guess Locations
             '
-            Dim CommonLocations As New List(Of String)
-            CommonLocations.Add(My.Settings.FileHttpdVhostsConf)
+            Dim CommonLocations As New List(Of String) From {
+                My.Settings.FileHttpdVhostsConf
+            }
 
             For Each Drive As String In Environment.GetLogicalDrives
-                CommonLocations.Add(Drive & "XAMPP\apache\conf\extra\" & HttpdVhostsConf)
+                CommonLocations.Add(Drive & "xampp\apache\conf\extra\" & HttpdVhostsConf)
             Next
 
             For Each Location As String In CommonLocations
@@ -79,6 +80,7 @@ Module BackgroundOperation
         Private Shared Sub BackgroundWorker_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs)
             FormPathsSpecify.TimerDirectoryHttpdVhostsConf.Stop()
             FormPathsSpecify.TextBoxDirectoryHttpdVhostsConf.Text = My.Settings.FileHttpdVhostsConf
+            FormPathsSpecify.LabelProgressXAMPP.Text = "httpd-vhosts.conf has been found."
         End Sub
 
         Private Shared Sub GetFileIndexHttpdVhostsConf(ByVal DirectoryToSearch As String, ByVal FileToSearchFor As String)
@@ -143,16 +145,18 @@ Module BackgroundOperation
             '
             ' Guess Locations
             '
-            Dim CommonLocations As New List(Of String)
-            CommonLocations.Add(My.Settings.DirectoryXAMPP)
+            Dim CommonLocations As New List(Of String) From {
+                My.Settings.DirectoryXAMPP
+            }
 
             For Each Drive As String In Environment.GetLogicalDrives
-                CommonLocations.Add(Drive & "XAMPP")
+                CommonLocations.Add(Drive & "xampp")
             Next
 
             For Each Location As String In CommonLocations
                 If Directory.Exists(Location) Then
                     My.Settings.DirectoryXAMPP = Location
+
                     Exit Sub
                 End If
             Next
@@ -180,6 +184,7 @@ Module BackgroundOperation
         Private Shared Sub BackgroundWorker_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs)
             FormPathsSpecify.TimerDirectoryXAMPP.Stop()
             FormPathsSpecify.TextBoxDirectoryXAMPP.Text = My.Settings.DirectoryXAMPP
+            FormPathsSpecify.LabelProgressXAMPP.Text = "XAMPP directory has been found."
         End Sub
 
         Private Shared Sub GetDirectoryXAMPP(ByVal DirectoryToSearch As String, ByVal FileToSearchFor As String)
@@ -237,6 +242,7 @@ Module BackgroundOperation
     End Structure
 
     Dim FilesMissingCount As Integer
+
     Private Sub FilesMissing()
         FilesMissingCount += 1
 

@@ -18,6 +18,12 @@ Public Class FormMain
 
     Public Sub FormMain_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         '
+        ' Debug
+        '
+        My.Settings.Reset()
+
+
+        '
         ' Determine Hosts and httpd-vhosts.conf files
         '
         BackgroundOperation.SetHosts.Run()

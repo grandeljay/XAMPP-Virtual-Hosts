@@ -268,6 +268,7 @@ Partial Class FormMain
         '
         'ImportToolStripMenuItem
         '
+        Me.ImportToolStripMenuItem.Enabled = False
         Me.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem"
         Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ImportToolStripMenuItem.Text = "Import"
@@ -316,14 +317,14 @@ Partial Class FormMain
         'LinkLabelStatus
         '
         Me.LinkLabelStatus.ActiveLinkColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.LinkLabelStatus.LinkArea = New System.Windows.Forms.LinkArea(0, 0)
         Me.LinkLabelStatus.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
         Me.LinkLabelStatus.LinkColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.LinkLabelStatus.Location = New System.Drawing.Point(23, 38)
         Me.LinkLabelStatus.Name = "LinkLabelStatus"
         Me.LinkLabelStatus.Size = New System.Drawing.Size(204, 306)
         Me.LinkLabelStatus.TabIndex = 1
-        Me.LinkLabelStatus.TabStop = True
-        Me.LinkLabelStatus.Text = "LinkLabelStatus"
+        Me.LinkLabelStatus.Text = "Please select a Virtual Host."
         Me.LinkLabelStatus.VisitedLinkColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(255, Byte), Integer))
         '
         'FormMain

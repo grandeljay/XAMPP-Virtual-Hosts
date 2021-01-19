@@ -127,6 +127,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="BackgroundOperation.vb" />
     <Compile Include="Backups.vb" />
     <Compile Include="ClassBackup.vb" />

@@ -6,7 +6,14 @@ Module Functions
     Public Function GetFileContents(ByVal Filepath As String) As String
         If Not File.Exists(Filepath) Then Return ""
 
-        Dim FilepathContents As String = File.ReadAllText(Filepath)
+        Dim FilepathContents As String = ""
+
+        Try
+            FilepathContents = File.ReadAllText(Filepath)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End
+        End Try
 
         Return FilepathContents
     End Function
@@ -141,11 +148,15 @@ Module Functions
         '
         ' Write To File
         '
-        If IsArray(Contents) Then
-            File.WriteAllLines(Filepath, Contents)
-        Else
-            File.WriteAllText(Filepath, Contents)
-        End If
+        Try
+            If IsArray(Contents) Then
+                File.WriteAllLines(Filepath, Contents)
+            Else
+                File.WriteAllText(Filepath, Contents)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
 
         Return True
     End Function
