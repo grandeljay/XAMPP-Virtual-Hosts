@@ -106,7 +106,7 @@ Public Class FormMain
         End If
     End Sub
 
-    Private Sub ButtonRemoveVirtualHost_Click(sender As Object, e As EventArgs) Handles ButtonVirtualHostRemove.Click
+    Private Sub ButtonRemoveVirtualHost_Click(sender As Object, e As EventArgs)
         If FormVirtualHostRemove.ShowDialog() Then
             FormMain_Shown(sender, e)
         End If
@@ -141,7 +141,7 @@ Public Class FormMain
         FormAbout.Show()
     End Sub
 
-    Private Sub ButtonVirtualHostRestore_Click(sender As Object, e As EventArgs) Handles ButtonVirtualHostRestore.Click
+    Private Sub ButtonVirtualHostRestore_Click(sender As Object, e As EventArgs)
         FormVirtualHostRestore.Show()
     End Sub
 
