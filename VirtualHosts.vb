@@ -176,25 +176,17 @@ Module VirtualHosts
             i4 = i + IPv4Index
             i6 = i + IPv6Index
 
-            If IPv4Hosts.Count > i4 AndAlso IPv6Hosts.Count > i6 AndAlso IPv4Hosts(i4) = IPv6Hosts(i6) Then
-                ' Add entries if there is an equal amount of IPv6 and IPv4 Entries
+            If IPv4Hosts.Count > i4 Then
                 VirtualHost.IPv4.Address = IPv4Addresses(i4)
                 VirtualHost.IPv4.Host = IPv4Hosts(i4)
-                VirtualHost.IPv6.Address = IPv6Addresses(i6)
-                VirtualHost.IPv6.Host = IPv6Hosts(i6)
-            Else
-                ' Determine if IPv4 or IPv6 Entry is missing
-                ' offset the opposite index for the missing entry
-                If FileContents_hosts.IndexOf(IPv4Hosts(i4)) < FileContents_hosts.IndexOf(IPv6Hosts(i6)) Then
-                    VirtualHost.IPv4.Address = IPv4Addresses(i4)
-                    VirtualHost.IPv4.Host = IPv4Hosts(i4)
+            End If
 
-                    IPv6Index -= 1
-                Else
+            If IPv6Hosts.Count > i6 Then
+                If IPv4Hosts(i4) = IPv6Hosts(i6) Then
                     VirtualHost.IPv6.Address = IPv6Addresses(i6)
                     VirtualHost.IPv6.Host = IPv6Hosts(i6)
-
-                    IPv4Index -= 1
+                Else
+                    IPv6Index -= 1
                 End If
             End If
 
