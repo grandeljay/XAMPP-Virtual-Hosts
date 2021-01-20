@@ -18,9 +18,24 @@ Public Class FormMain
 
     Public Sub FormMain_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         '
-        ' Debug
+        ' Update
         '
-        My.Settings.Reset()
+        Dim StartupArguments As New List(Of String)
+        StartupArguments.AddRange(Environment.GetCommandLineArgs)
+        StartupArguments.RemoveAt(0)
+
+        For Each Argument As String In StartupArguments
+            If Argument.StartsWith("update ") Then
+                Dim NewFile As String = Argument.Substring(7)
+
+                File.Copy(Application.ExecutablePath, NewFile, True)
+
+                Threading.Thread.Sleep(2000)
+
+                Process.Start(NewFile)
+                End
+            End If
+        Next
 
 
         '

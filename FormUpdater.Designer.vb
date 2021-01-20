@@ -27,7 +27,6 @@ Partial Class FormUpdater
         Me.ButtonLaunch = New System.Windows.Forms.Button()
         Me.ButtonDownload = New System.Windows.Forms.Button()
         Me.LabelProgress = New System.Windows.Forms.Label()
-        Me.TextBoxDirectory = New System.Windows.Forms.TextBox()
         Me.LabelDirectory = New System.Windows.Forms.Label()
         Me.ProgressBarUpdate = New System.Windows.Forms.ProgressBar()
         Me.ButtonClose = New System.Windows.Forms.Button()
@@ -41,14 +40,13 @@ Partial Class FormUpdater
         Me.GroupBoxUpdate.Controls.Add(Me.ButtonLaunch)
         Me.GroupBoxUpdate.Controls.Add(Me.ButtonDownload)
         Me.GroupBoxUpdate.Controls.Add(Me.LabelProgress)
-        Me.GroupBoxUpdate.Controls.Add(Me.TextBoxDirectory)
         Me.GroupBoxUpdate.Controls.Add(Me.LabelDirectory)
         Me.GroupBoxUpdate.Controls.Add(Me.ProgressBarUpdate)
         Me.GroupBoxUpdate.Location = New System.Drawing.Point(20, 20)
         Me.GroupBoxUpdate.Margin = New System.Windows.Forms.Padding(0, 0, 0, 20)
         Me.GroupBoxUpdate.Name = "GroupBoxUpdate"
         Me.GroupBoxUpdate.Padding = New System.Windows.Forms.Padding(20)
-        Me.GroupBoxUpdate.Size = New System.Drawing.Size(439, 250)
+        Me.GroupBoxUpdate.Size = New System.Drawing.Size(437, 223)
         Me.GroupBoxUpdate.TabIndex = 0
         Me.GroupBoxUpdate.TabStop = False
         Me.GroupBoxUpdate.Text = "Update Available"
@@ -58,8 +56,8 @@ Partial Class FormUpdater
         Me.ButtonLaunch.AutoSize = True
         Me.ButtonLaunch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ButtonLaunch.Enabled = False
-        Me.ButtonLaunch.Location = New System.Drawing.Point(20, 178)
-        Me.ButtonLaunch.Margin = New System.Windows.Forms.Padding(2)
+        Me.ButtonLaunch.Location = New System.Drawing.Point(20, 153)
+        Me.ButtonLaunch.Margin = New System.Windows.Forms.Padding(0, 2, 0, 0)
         Me.ButtonLaunch.Name = "ButtonLaunch"
         Me.ButtonLaunch.Padding = New System.Windows.Forms.Padding(2)
         Me.ButtonLaunch.Size = New System.Drawing.Size(66, 32)
@@ -71,8 +69,8 @@ Partial Class FormUpdater
         '
         Me.ButtonDownload.AutoSize = True
         Me.ButtonDownload.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ButtonDownload.Location = New System.Drawing.Point(20, 83)
-        Me.ButtonDownload.Margin = New System.Windows.Forms.Padding(2, 2, 2, 20)
+        Me.ButtonDownload.Location = New System.Drawing.Point(20, 58)
+        Me.ButtonDownload.Margin = New System.Windows.Forms.Padding(0, 2, 0, 20)
         Me.ButtonDownload.Name = "ButtonDownload"
         Me.ButtonDownload.Padding = New System.Windows.Forms.Padding(2)
         Me.ButtonDownload.Size = New System.Drawing.Size(83, 32)
@@ -83,20 +81,12 @@ Partial Class FormUpdater
         'LabelProgress
         '
         Me.LabelProgress.AutoSize = True
-        Me.LabelProgress.Location = New System.Drawing.Point(17, 135)
+        Me.LabelProgress.Location = New System.Drawing.Point(17, 110)
         Me.LabelProgress.Margin = New System.Windows.Forms.Padding(0)
         Me.LabelProgress.Name = "LabelProgress"
         Me.LabelProgress.Size = New System.Drawing.Size(60, 18)
         Me.LabelProgress.TabIndex = 3
         Me.LabelProgress.Text = "Progress"
-        '
-        'TextBoxDirectory
-        '
-        Me.TextBoxDirectory.Location = New System.Drawing.Point(20, 56)
-        Me.TextBoxDirectory.Margin = New System.Windows.Forms.Padding(0)
-        Me.TextBoxDirectory.Name = "TextBoxDirectory"
-        Me.TextBoxDirectory.Size = New System.Drawing.Size(399, 25)
-        Me.TextBoxDirectory.TabIndex = 2
         '
         'LabelDirectory
         '
@@ -104,29 +94,29 @@ Partial Class FormUpdater
         Me.LabelDirectory.Location = New System.Drawing.Point(17, 38)
         Me.LabelDirectory.Margin = New System.Windows.Forms.Padding(0)
         Me.LabelDirectory.Name = "LabelDirectory"
-        Me.LabelDirectory.Size = New System.Drawing.Size(386, 18)
+        Me.LabelDirectory.Size = New System.Drawing.Size(344, 18)
         Me.LabelDirectory.TabIndex = 1
-        Me.LabelDirectory.Text = "There is an update available. Where would you like to save it to?"
+        Me.LabelDirectory.Text = "There is an update available. Please download and run it."
         '
         'ProgressBarUpdate
         '
-        Me.ProgressBarUpdate.Location = New System.Drawing.Point(20, 153)
+        Me.ProgressBarUpdate.Location = New System.Drawing.Point(20, 128)
         Me.ProgressBarUpdate.Margin = New System.Windows.Forms.Padding(0)
         Me.ProgressBarUpdate.Name = "ProgressBarUpdate"
-        Me.ProgressBarUpdate.Size = New System.Drawing.Size(399, 23)
+        Me.ProgressBarUpdate.Size = New System.Drawing.Size(397, 23)
         Me.ProgressBarUpdate.TabIndex = 1
         '
         'ButtonClose
         '
         Me.ButtonClose.AutoSize = True
         Me.ButtonClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ButtonClose.Location = New System.Drawing.Point(405, 292)
-        Me.ButtonClose.Margin = New System.Windows.Forms.Padding(2)
+        Me.ButtonClose.Location = New System.Drawing.Point(390, 263)
+        Me.ButtonClose.Margin = New System.Windows.Forms.Padding(0)
         Me.ButtonClose.Name = "ButtonClose"
         Me.ButtonClose.Padding = New System.Windows.Forms.Padding(2)
-        Me.ButtonClose.Size = New System.Drawing.Size(54, 32)
+        Me.ButtonClose.Size = New System.Drawing.Size(47, 32)
         Me.ButtonClose.TabIndex = 11
-        Me.ButtonClose.Text = "Close"
+        Me.ButtonClose.Text = "Skip"
         Me.ButtonClose.UseVisualStyleBackColor = True
         '
         'FormUpdater
@@ -157,7 +147,6 @@ Partial Class FormUpdater
     Friend WithEvents GroupBoxUpdate As GroupBox
     Friend WithEvents ProgressBarUpdate As ProgressBar
     Friend WithEvents LabelProgress As Label
-    Friend WithEvents TextBoxDirectory As TextBox
     Friend WithEvents LabelDirectory As Label
     Friend WithEvents ButtonDownload As Button
     Friend WithEvents ButtonLaunch As Button
