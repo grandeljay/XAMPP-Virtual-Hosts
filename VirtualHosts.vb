@@ -117,17 +117,27 @@ Module VirtualHosts
         '
         ' First Save?
         '
+        Dim WriteToFile As Boolean = False
+
         If Not FileContentsHostsOld.Contains(GitHubRepoLink) Or Not FileContentsHttpdVhostsOld.Contains(GitHubRepoLink) Then
             Dim DialogFirstSave As DialogResult = MessageBox.Show("During the saving process a new hosts and httpd-vhosts.conf will be generated. Temporary backups (up to 10 different versions) will be made but make sure nothing essential is missing and that everything is working!" & vbNewLine & vbNewLine & "Proceed saving and generating a new hosts and httpd-vhosts.conf?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
             If DialogFirstSave = DialogResult.Yes Then
-                '
-                ' Write to File
-                '
-                Functions.WriteToFile(My.Settings.FileHosts, FileContentsHostsNew.Trim, True)
-                Functions.WriteToFile(My.Settings.FileHttpdVhostsConf, FileContentsHttpdVhostsNew.Trim, True)
+                WriteToFile = True
             End If
+        Else
+            WriteToFile = True
         End If
+
+
+        '
+        ' Write to File
+        '
+        If WriteToFile Then
+            Functions.WriteToFile(My.Settings.FileHosts, FileContentsHostsNew.Trim, True)
+            Functions.WriteToFile(My.Settings.FileHttpdVhostsConf, FileContentsHttpdVhostsNew.Trim, True)
+        End If
+
 
         '
         ' Reload
