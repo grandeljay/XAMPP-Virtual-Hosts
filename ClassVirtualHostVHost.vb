@@ -37,7 +37,7 @@ Public Class ClassVirtualHostVHost
                 Output.AppendLine(vbTab & "<FilesMatch " & Chr(34) & "\.php$" & Chr(34) & ">")
                 Output.AppendLine(vbTab & vbTab & "php_flag engine off")
                 Output.AppendLine(vbTab & vbTab & "SetHandler application/x-httpd-" & PHPVersionFolderName)
-                Output.AppendLine(vbTab & vbTab & "Action application/x-httpd-" & PHPVersionFolderName & Chr(34) & " /" & PHPVersionFolderName & "/php-cgi.exe" & Chr(34))
+                Output.AppendLine(vbTab & vbTab & "Action application/x-httpd-" & PHPVersionFolderName & " " & Chr(34) & "/" & PHPVersionFolderName & "/php-cgi.exe" & Chr(34))
                 Output.AppendLine(vbTab & "</FilesMatch>")
             End If
 
