@@ -38,7 +38,7 @@ Public Class FormVirtualHostAdd
         ' Close on Success
         '
         If VirtualHosts.Add(NewVirtualHost) Then
-            'MessageBox.Show("Virtual Host " & Chr(34) & NewVirtualHost.Host & Chr(34) & " created successfully!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("Virtual Host " & Chr(34) & NewVirtualHost.Host & Chr(34) & " created successfully! You need to restart Apache for the changes to take effect.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.Close()
         End If
     End Sub
