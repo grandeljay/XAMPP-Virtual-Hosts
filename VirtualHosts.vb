@@ -59,7 +59,7 @@ Module VirtualHosts
         Dim LocalhostExists As Boolean = False
 
         For Each VirtualHost As ClassVirtualHost In VirtualHostsList
-            If VirtualHost.Host.ToLower = "localhost" Then
+            If VirtualHost.Host.ToLower = "localhost" AndAlso VirtualHost.VHosts.ServerName.ToLower = "localhost" Then
                 LocalhostExists = True
             End If
         Next
