@@ -68,8 +68,12 @@ Module BackgroundOperation
         End Sub
 
         Private Shared Sub BackgroundWorker_DoWork(ByVal sender As Object, e As DoWorkEventArgs)
-            For Each LogicalDrive As String In Environment.GetLogicalDrives
-                GetFileIndexHttpdVhostsConf(LogicalDrive, VirtualHosts.HttpdVhostsConf)
+            For Each DriveName As String In Environment.GetLogicalDrives
+                Dim LogicalDrive As New DriveInfo(DriveName)
+
+                If LogicalDrive.DriveType <> DriveType.CDRom Then
+                    GetFileIndexHttpdVhostsConf(LogicalDrive.Name, VirtualHosts.HttpdVhostsConf)
+                End If
             Next
         End Sub
 
@@ -172,8 +176,12 @@ Module BackgroundOperation
         End Sub
 
         Private Shared Sub BackgroundWorker_DoWork(ByVal sender As Object, e As DoWorkEventArgs)
-            For Each LogicalDrive As String In Environment.GetLogicalDrives
-                GetDirectoryXAMPP(LogicalDrive, VirtualHosts.XAMPP)
+            For Each DriveName As String In Environment.GetLogicalDrives
+                Dim LogicalDrive As New DriveInfo(DriveName)
+
+                If LogicalDrive.DriveType <> DriveType.CDRom Then
+                    GetDirectoryXAMPP(LogicalDrive.Name, VirtualHosts.XAMPP)
+                End If
             Next
         End Sub
 
