@@ -27,18 +27,24 @@ Partial Class FormDatabaseImport
         Me.LabelDatabaseSelectDescription = New System.Windows.Forms.Label()
         Me.ComboBoxDatabaseSelect = New System.Windows.Forms.ComboBox()
         Me.GroupBoxReplace = New System.Windows.Forms.GroupBox()
-        Me.TextBoxReplaceDomain = New System.Windows.Forms.TextBox()
-        Me.TextBoxSearchDomain = New System.Windows.Forms.TextBox()
+        Me.TextBoxReplaceDomainEscapedUK = New System.Windows.Forms.TextBox()
+        Me.TextBoxSearchDomainEscapedUK = New System.Windows.Forms.TextBox()
+        Me.TextBoxReplaceDomainEncodedUK = New System.Windows.Forms.TextBox()
+        Me.TextBoxSearchDomainEncodedUK = New System.Windows.Forms.TextBox()
+        Me.TextBoxReplaceDomainUK = New System.Windows.Forms.TextBox()
+        Me.TextBoxSearchDomainUK = New System.Windows.Forms.TextBox()
         Me.TextBoxReplaceDirectoryAbsolute = New System.Windows.Forms.TextBox()
         Me.TextBoxSearchDirectoryAbsolute = New System.Windows.Forms.TextBox()
         Me.LabelReplace = New System.Windows.Forms.Label()
         Me.LabelSearch = New System.Windows.Forms.Label()
         Me.ButtonImport = New System.Windows.Forms.Button()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
-        Me.TextBoxSearchDomainEncoded = New System.Windows.Forms.TextBox()
-        Me.TextBoxReplaceDomainEncoded = New System.Windows.Forms.TextBox()
-        Me.TextBoxSearchDomainEscaped = New System.Windows.Forms.TextBox()
-        Me.TextBoxReplaceDomainEscaped = New System.Windows.Forms.TextBox()
+        Me.TextBoxReplaceDomainEscapedDE = New System.Windows.Forms.TextBox()
+        Me.TextBoxSearchDomainEscapedDE = New System.Windows.Forms.TextBox()
+        Me.TextBoxReplaceDomainEncodedDE = New System.Windows.Forms.TextBox()
+        Me.TextBoxSearchDomainEncodedDE = New System.Windows.Forms.TextBox()
+        Me.TextBoxReplaceDomainDE = New System.Windows.Forms.TextBox()
+        Me.TextBoxSearchDomainDE = New System.Windows.Forms.TextBox()
         Me.GroupBoxDatabaseSelect.SuspendLayout()
         Me.GroupBoxReplace.SuspendLayout()
         Me.SuspendLayout()
@@ -83,55 +89,97 @@ Partial Class FormDatabaseImport
         '
         Me.GroupBoxReplace.AutoSize = True
         Me.GroupBoxReplace.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBoxReplace.Controls.Add(Me.TextBoxReplaceDomainEscaped)
-        Me.GroupBoxReplace.Controls.Add(Me.TextBoxSearchDomainEscaped)
-        Me.GroupBoxReplace.Controls.Add(Me.TextBoxReplaceDomainEncoded)
-        Me.GroupBoxReplace.Controls.Add(Me.TextBoxSearchDomainEncoded)
-        Me.GroupBoxReplace.Controls.Add(Me.TextBoxReplaceDomain)
-        Me.GroupBoxReplace.Controls.Add(Me.TextBoxSearchDomain)
+        Me.GroupBoxReplace.Controls.Add(Me.TextBoxReplaceDomainEscapedDE)
+        Me.GroupBoxReplace.Controls.Add(Me.TextBoxReplaceDomainEscapedUK)
+        Me.GroupBoxReplace.Controls.Add(Me.TextBoxSearchDomainEscapedUK)
+        Me.GroupBoxReplace.Controls.Add(Me.TextBoxSearchDomainEscapedDE)
+        Me.GroupBoxReplace.Controls.Add(Me.TextBoxReplaceDomainEncodedUK)
+        Me.GroupBoxReplace.Controls.Add(Me.TextBoxSearchDomainEncodedUK)
+        Me.GroupBoxReplace.Controls.Add(Me.TextBoxReplaceDomainEncodedDE)
+        Me.GroupBoxReplace.Controls.Add(Me.TextBoxReplaceDomainUK)
+        Me.GroupBoxReplace.Controls.Add(Me.TextBoxSearchDomainUK)
+        Me.GroupBoxReplace.Controls.Add(Me.TextBoxSearchDomainEncodedDE)
         Me.GroupBoxReplace.Controls.Add(Me.TextBoxReplaceDirectoryAbsolute)
         Me.GroupBoxReplace.Controls.Add(Me.TextBoxSearchDirectoryAbsolute)
+        Me.GroupBoxReplace.Controls.Add(Me.TextBoxReplaceDomainDE)
         Me.GroupBoxReplace.Controls.Add(Me.LabelReplace)
+        Me.GroupBoxReplace.Controls.Add(Me.TextBoxSearchDomainDE)
         Me.GroupBoxReplace.Controls.Add(Me.LabelSearch)
         Me.GroupBoxReplace.Location = New System.Drawing.Point(20, 160)
         Me.GroupBoxReplace.Margin = New System.Windows.Forms.Padding(0, 0, 0, 20)
         Me.GroupBoxReplace.Name = "GroupBoxReplace"
         Me.GroupBoxReplace.Padding = New System.Windows.Forms.Padding(20)
-        Me.GroupBoxReplace.Size = New System.Drawing.Size(883, 214)
+        Me.GroupBoxReplace.Size = New System.Drawing.Size(883, 304)
         Me.GroupBoxReplace.TabIndex = 1
         Me.GroupBoxReplace.TabStop = False
         Me.GroupBoxReplace.Text = "Search && Replace"
         '
-        'TextBoxReplaceDomain
+        'TextBoxReplaceDomainEscapedUK
         '
-        Me.TextBoxReplaceDomain.Location = New System.Drawing.Point(440, 56)
-        Me.TextBoxReplaceDomain.Margin = New System.Windows.Forms.Padding(0, 0, 20, 0)
-        Me.TextBoxReplaceDomain.Name = "TextBoxReplaceDomain"
-        Me.TextBoxReplaceDomain.Size = New System.Drawing.Size(403, 25)
-        Me.TextBoxReplaceDomain.TabIndex = 10
-        Me.TextBoxReplaceDomain.Text = "https://hybridsupply.localhost"
+        Me.TextBoxReplaceDomainEscapedUK.Location = New System.Drawing.Point(440, 86)
+        Me.TextBoxReplaceDomainEscapedUK.Margin = New System.Windows.Forms.Padding(0, 0, 20, 0)
+        Me.TextBoxReplaceDomainEscapedUK.Name = "TextBoxReplaceDomainEscapedUK"
+        Me.TextBoxReplaceDomainEscapedUK.Size = New System.Drawing.Size(403, 25)
+        Me.TextBoxReplaceDomainEscapedUK.TabIndex = 14
+        Me.TextBoxReplaceDomainEscapedUK.Text = "http:\/\/hybridsupply-uk.localhost"
         '
-        'TextBoxSearchDomain
+        'TextBoxSearchDomainEscapedUK
         '
-        Me.TextBoxSearchDomain.Location = New System.Drawing.Point(17, 56)
-        Me.TextBoxSearchDomain.Margin = New System.Windows.Forms.Padding(0, 0, 20, 5)
-        Me.TextBoxSearchDomain.Name = "TextBoxSearchDomain"
-        Me.TextBoxSearchDomain.Size = New System.Drawing.Size(403, 25)
-        Me.TextBoxSearchDomain.TabIndex = 9
-        Me.TextBoxSearchDomain.Text = "https://hybridsupply.uk"
+        Me.TextBoxSearchDomainEscapedUK.Location = New System.Drawing.Point(17, 86)
+        Me.TextBoxSearchDomainEscapedUK.Margin = New System.Windows.Forms.Padding(0, 0, 20, 5)
+        Me.TextBoxSearchDomainEscapedUK.Name = "TextBoxSearchDomainEscapedUK"
+        Me.TextBoxSearchDomainEscapedUK.Size = New System.Drawing.Size(403, 25)
+        Me.TextBoxSearchDomainEscapedUK.TabIndex = 13
+        Me.TextBoxSearchDomainEscapedUK.Text = "https:\/\/hybridsupply.uk"
+        '
+        'TextBoxReplaceDomainEncodedUK
+        '
+        Me.TextBoxReplaceDomainEncodedUK.Location = New System.Drawing.Point(440, 116)
+        Me.TextBoxReplaceDomainEncodedUK.Margin = New System.Windows.Forms.Padding(0, 0, 20, 0)
+        Me.TextBoxReplaceDomainEncodedUK.Name = "TextBoxReplaceDomainEncodedUK"
+        Me.TextBoxReplaceDomainEncodedUK.Size = New System.Drawing.Size(403, 25)
+        Me.TextBoxReplaceDomainEncodedUK.TabIndex = 12
+        Me.TextBoxReplaceDomainEncodedUK.Text = "http%3A%2F%2Fhybridsupply-uk.localhost"
+        '
+        'TextBoxSearchDomainEncodedUK
+        '
+        Me.TextBoxSearchDomainEncodedUK.Location = New System.Drawing.Point(17, 116)
+        Me.TextBoxSearchDomainEncodedUK.Margin = New System.Windows.Forms.Padding(0, 0, 20, 5)
+        Me.TextBoxSearchDomainEncodedUK.Name = "TextBoxSearchDomainEncodedUK"
+        Me.TextBoxSearchDomainEncodedUK.Size = New System.Drawing.Size(403, 25)
+        Me.TextBoxSearchDomainEncodedUK.TabIndex = 11
+        Me.TextBoxSearchDomainEncodedUK.Text = "https%3A%2F%2Fhybridsupply.uk"
+        '
+        'TextBoxReplaceDomainUK
+        '
+        Me.TextBoxReplaceDomainUK.Location = New System.Drawing.Point(440, 56)
+        Me.TextBoxReplaceDomainUK.Margin = New System.Windows.Forms.Padding(0, 0, 20, 0)
+        Me.TextBoxReplaceDomainUK.Name = "TextBoxReplaceDomainUK"
+        Me.TextBoxReplaceDomainUK.Size = New System.Drawing.Size(403, 25)
+        Me.TextBoxReplaceDomainUK.TabIndex = 10
+        Me.TextBoxReplaceDomainUK.Text = "http://hybridsupply-uk.localhost"
+        '
+        'TextBoxSearchDomainUK
+        '
+        Me.TextBoxSearchDomainUK.Location = New System.Drawing.Point(17, 56)
+        Me.TextBoxSearchDomainUK.Margin = New System.Windows.Forms.Padding(0, 0, 20, 5)
+        Me.TextBoxSearchDomainUK.Name = "TextBoxSearchDomainUK"
+        Me.TextBoxSearchDomainUK.Size = New System.Drawing.Size(403, 25)
+        Me.TextBoxSearchDomainUK.TabIndex = 9
+        Me.TextBoxSearchDomainUK.Text = "https://hybridsupply.uk"
         '
         'TextBoxReplaceDirectoryAbsolute
         '
-        Me.TextBoxReplaceDirectoryAbsolute.Location = New System.Drawing.Point(440, 146)
+        Me.TextBoxReplaceDirectoryAbsolute.Location = New System.Drawing.Point(440, 236)
         Me.TextBoxReplaceDirectoryAbsolute.Margin = New System.Windows.Forms.Padding(0, 0, 20, 0)
         Me.TextBoxReplaceDirectoryAbsolute.Name = "TextBoxReplaceDirectoryAbsolute"
         Me.TextBoxReplaceDirectoryAbsolute.Size = New System.Drawing.Size(403, 25)
         Me.TextBoxReplaceDirectoryAbsolute.TabIndex = 8
-        Me.TextBoxReplaceDirectoryAbsolute.Text = "D:/XAMPP/htdocs/hybridsupply.de-2019"
+        Me.TextBoxReplaceDirectoryAbsolute.Text = "C:\xampp\htdocs\hybridsupply.de-2019"
         '
         'TextBoxSearchDirectoryAbsolute
         '
-        Me.TextBoxSearchDirectoryAbsolute.Location = New System.Drawing.Point(17, 146)
+        Me.TextBoxSearchDirectoryAbsolute.Location = New System.Drawing.Point(17, 236)
         Me.TextBoxSearchDirectoryAbsolute.Margin = New System.Windows.Forms.Padding(0, 0, 20, 5)
         Me.TextBoxSearchDirectoryAbsolute.Name = "TextBoxSearchDirectoryAbsolute"
         Me.TextBoxSearchDirectoryAbsolute.Size = New System.Drawing.Size(403, 25)
@@ -162,7 +210,7 @@ Partial Class FormDatabaseImport
         '
         Me.ButtonImport.AutoSize = True
         Me.ButtonImport.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ButtonImport.Location = New System.Drawing.Point(37, 394)
+        Me.ButtonImport.Location = New System.Drawing.Point(20, 669)
         Me.ButtonImport.Margin = New System.Windows.Forms.Padding(0, 0, 2, 0)
         Me.ButtonImport.Name = "ButtonImport"
         Me.ButtonImport.Padding = New System.Windows.Forms.Padding(2)
@@ -173,47 +221,65 @@ Partial Class FormDatabaseImport
         '
         'ProgressBar1
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(460, 394)
+        Me.ProgressBar1.Location = New System.Drawing.Point(460, 669)
         Me.ProgressBar1.Margin = New System.Windows.Forms.Padding(0)
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(403, 32)
         Me.ProgressBar1.TabIndex = 10
         '
-        'TextBoxSearchDomainEncoded
+        'TextBoxReplaceDomainEscapedDE
         '
-        Me.TextBoxSearchDomainEncoded.Location = New System.Drawing.Point(17, 116)
-        Me.TextBoxSearchDomainEncoded.Margin = New System.Windows.Forms.Padding(0, 0, 20, 5)
-        Me.TextBoxSearchDomainEncoded.Name = "TextBoxSearchDomainEncoded"
-        Me.TextBoxSearchDomainEncoded.Size = New System.Drawing.Size(403, 25)
-        Me.TextBoxSearchDomainEncoded.TabIndex = 11
-        Me.TextBoxSearchDomainEncoded.Text = "https%3A%2F%2Fhybridsupply.uk"
+        Me.TextBoxReplaceDomainEscapedDE.Location = New System.Drawing.Point(440, 176)
+        Me.TextBoxReplaceDomainEscapedDE.Margin = New System.Windows.Forms.Padding(0, 0, 20, 0)
+        Me.TextBoxReplaceDomainEscapedDE.Name = "TextBoxReplaceDomainEscapedDE"
+        Me.TextBoxReplaceDomainEscapedDE.Size = New System.Drawing.Size(403, 25)
+        Me.TextBoxReplaceDomainEscapedDE.TabIndex = 20
+        Me.TextBoxReplaceDomainEscapedDE.Text = "http:\/\/hybridsupply-de.localhost"
         '
-        'TextBoxReplaceDomainEncoded
+        'TextBoxSearchDomainEscapedDE
         '
-        Me.TextBoxReplaceDomainEncoded.Location = New System.Drawing.Point(440, 116)
-        Me.TextBoxReplaceDomainEncoded.Margin = New System.Windows.Forms.Padding(0, 0, 20, 0)
-        Me.TextBoxReplaceDomainEncoded.Name = "TextBoxReplaceDomainEncoded"
-        Me.TextBoxReplaceDomainEncoded.Size = New System.Drawing.Size(403, 25)
-        Me.TextBoxReplaceDomainEncoded.TabIndex = 12
-        Me.TextBoxReplaceDomainEncoded.Text = "https%3A%2F%2Fhybridsupply.localhost"
+        Me.TextBoxSearchDomainEscapedDE.Location = New System.Drawing.Point(17, 176)
+        Me.TextBoxSearchDomainEscapedDE.Margin = New System.Windows.Forms.Padding(0, 0, 20, 5)
+        Me.TextBoxSearchDomainEscapedDE.Name = "TextBoxSearchDomainEscapedDE"
+        Me.TextBoxSearchDomainEscapedDE.Size = New System.Drawing.Size(403, 25)
+        Me.TextBoxSearchDomainEscapedDE.TabIndex = 19
+        Me.TextBoxSearchDomainEscapedDE.Text = "https:\/\/hybridsupply.de"
         '
-        'TextBoxSearchDomainEscaped
+        'TextBoxReplaceDomainEncodedDE
         '
-        Me.TextBoxSearchDomainEscaped.Location = New System.Drawing.Point(17, 86)
-        Me.TextBoxSearchDomainEscaped.Margin = New System.Windows.Forms.Padding(0, 0, 20, 5)
-        Me.TextBoxSearchDomainEscaped.Name = "TextBoxSearchDomainEscaped"
-        Me.TextBoxSearchDomainEscaped.Size = New System.Drawing.Size(403, 25)
-        Me.TextBoxSearchDomainEscaped.TabIndex = 13
-        Me.TextBoxSearchDomainEscaped.Text = "https:\/\/hybridsupply.uk"
+        Me.TextBoxReplaceDomainEncodedDE.Location = New System.Drawing.Point(440, 206)
+        Me.TextBoxReplaceDomainEncodedDE.Margin = New System.Windows.Forms.Padding(0, 0, 20, 0)
+        Me.TextBoxReplaceDomainEncodedDE.Name = "TextBoxReplaceDomainEncodedDE"
+        Me.TextBoxReplaceDomainEncodedDE.Size = New System.Drawing.Size(403, 25)
+        Me.TextBoxReplaceDomainEncodedDE.TabIndex = 18
+        Me.TextBoxReplaceDomainEncodedDE.Text = "http%3A%2F%2Fhybridsupply-de.localhost"
         '
-        'TextBoxReplaceDomainEscaped
+        'TextBoxSearchDomainEncodedDE
         '
-        Me.TextBoxReplaceDomainEscaped.Location = New System.Drawing.Point(440, 86)
-        Me.TextBoxReplaceDomainEscaped.Margin = New System.Windows.Forms.Padding(0, 0, 20, 0)
-        Me.TextBoxReplaceDomainEscaped.Name = "TextBoxReplaceDomainEscaped"
-        Me.TextBoxReplaceDomainEscaped.Size = New System.Drawing.Size(403, 25)
-        Me.TextBoxReplaceDomainEscaped.TabIndex = 14
-        Me.TextBoxReplaceDomainEscaped.Text = "https:\/\/hybridsupply.localhost"
+        Me.TextBoxSearchDomainEncodedDE.Location = New System.Drawing.Point(17, 206)
+        Me.TextBoxSearchDomainEncodedDE.Margin = New System.Windows.Forms.Padding(0, 0, 20, 5)
+        Me.TextBoxSearchDomainEncodedDE.Name = "TextBoxSearchDomainEncodedDE"
+        Me.TextBoxSearchDomainEncodedDE.Size = New System.Drawing.Size(403, 25)
+        Me.TextBoxSearchDomainEncodedDE.TabIndex = 17
+        Me.TextBoxSearchDomainEncodedDE.Text = "https%3A%2F%2Fhybridsupply.de"
+        '
+        'TextBoxReplaceDomainDE
+        '
+        Me.TextBoxReplaceDomainDE.Location = New System.Drawing.Point(440, 146)
+        Me.TextBoxReplaceDomainDE.Margin = New System.Windows.Forms.Padding(0, 0, 20, 0)
+        Me.TextBoxReplaceDomainDE.Name = "TextBoxReplaceDomainDE"
+        Me.TextBoxReplaceDomainDE.Size = New System.Drawing.Size(403, 25)
+        Me.TextBoxReplaceDomainDE.TabIndex = 16
+        Me.TextBoxReplaceDomainDE.Text = "http://hybridsupply-de.localhost"
+        '
+        'TextBoxSearchDomainDE
+        '
+        Me.TextBoxSearchDomainDE.Location = New System.Drawing.Point(17, 146)
+        Me.TextBoxSearchDomainDE.Margin = New System.Windows.Forms.Padding(0, 0, 20, 5)
+        Me.TextBoxSearchDomainDE.Name = "TextBoxSearchDomainDE"
+        Me.TextBoxSearchDomainDE.Size = New System.Drawing.Size(403, 25)
+        Me.TextBoxSearchDomainDE.TabIndex = 15
+        Me.TextBoxSearchDomainDE.Text = "https://hybridsupply.de"
         '
         'FormDatabaseImport
         '
@@ -221,7 +287,7 @@ Partial Class FormDatabaseImport
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(933, 493)
+        Me.ClientSize = New System.Drawing.Size(933, 721)
         Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.ButtonImport)
         Me.Controls.Add(Me.GroupBoxReplace)
@@ -252,12 +318,18 @@ Partial Class FormDatabaseImport
     Friend WithEvents LabelReplace As Label
     Friend WithEvents TextBoxReplaceDirectoryAbsolute As TextBox
     Friend WithEvents TextBoxSearchDirectoryAbsolute As TextBox
-    Friend WithEvents TextBoxSearchDomain As TextBox
-    Friend WithEvents TextBoxReplaceDomain As TextBox
+    Friend WithEvents TextBoxSearchDomainUK As TextBox
+    Friend WithEvents TextBoxReplaceDomainUK As TextBox
     Friend WithEvents ButtonImport As Button
     Friend WithEvents ProgressBar1 As ProgressBar
-    Friend WithEvents TextBoxReplaceDomainEscaped As TextBox
-    Friend WithEvents TextBoxSearchDomainEscaped As TextBox
-    Friend WithEvents TextBoxReplaceDomainEncoded As TextBox
-    Friend WithEvents TextBoxSearchDomainEncoded As TextBox
+    Friend WithEvents TextBoxReplaceDomainEscapedUK As TextBox
+    Friend WithEvents TextBoxSearchDomainEscapedUK As TextBox
+    Friend WithEvents TextBoxReplaceDomainEncodedUK As TextBox
+    Friend WithEvents TextBoxSearchDomainEncodedUK As TextBox
+    Friend WithEvents TextBoxReplaceDomainEscapedDE As TextBox
+    Friend WithEvents TextBoxSearchDomainEscapedDE As TextBox
+    Friend WithEvents TextBoxReplaceDomainEncodedDE As TextBox
+    Friend WithEvents TextBoxSearchDomainEncodedDE As TextBox
+    Friend WithEvents TextBoxReplaceDomainDE As TextBox
+    Friend WithEvents TextBoxSearchDomainDE As TextBox
 End Class

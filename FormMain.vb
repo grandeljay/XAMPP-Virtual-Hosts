@@ -5,12 +5,16 @@ Public Class FormMain
     Public IgnoreUpdate As Boolean = False
 
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim NewestVersion As Version = Version.Parse(Functions.GetNewestVersion)
-        Dim CurrentVersion As Version = Version.Parse(Application.ProductVersion)
+        Dim RegexVersion = Functions.GetNewestVersion
 
-        If NewestVersion > CurrentVersion AndAlso Not IgnoreUpdate Then
-            FormUpdater.Show()
-            Me.Close()
+        If RegexVersion.Length > 0 Then
+            Dim NewestVersion As Version = Version.Parse(RegexVersion)
+            Dim CurrentVersion As Version = Version.Parse(Application.ProductVersion)
+
+            If NewestVersion > CurrentVersion AndAlso Not IgnoreUpdate Then
+                FormUpdater.Show()
+                Me.Close()
+            End If
         End If
 
         LabelVersion.Text = "Version " & Application.ProductVersion

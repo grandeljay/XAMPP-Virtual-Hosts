@@ -31,9 +31,17 @@ Public Class FormDatabaseImport
             Do Until SR.EndOfStream
                 DatabaseLine = SR.ReadLine()
 
-                DatabaseLine = DatabaseLine.Replace(TextBoxSearchDomain.Text, TextBoxReplaceDomain.Text)
-                DatabaseLine = DatabaseLine.Replace(TextBoxSearchDomainEscaped.Text, TextBoxReplaceDomainEscaped.Text)
-                DatabaseLine = DatabaseLine.Replace(TextBoxSearchDomainEncoded.Text, TextBoxReplaceDomainEncoded.Text)
+                ' UK
+                DatabaseLine = DatabaseLine.Replace(TextBoxSearchDomainUK.Text, TextBoxReplaceDomainUK.Text)
+                DatabaseLine = DatabaseLine.Replace(TextBoxSearchDomainEscapedUK.Text, TextBoxReplaceDomainEscapedUK.Text)
+                DatabaseLine = DatabaseLine.Replace(TextBoxSearchDomainEncodedUK.Text, TextBoxReplaceDomainEncodedUK.Text)
+
+                ' DE
+                DatabaseLine = DatabaseLine.Replace(TextBoxSearchDomainDE.Text, TextBoxReplaceDomainDE.Text)
+                DatabaseLine = DatabaseLine.Replace(TextBoxSearchDomainEscapedDE.Text, TextBoxReplaceDomainEscapedDE.Text)
+                DatabaseLine = DatabaseLine.Replace(TextBoxSearchDomainEncodedDE.Text, TextBoxReplaceDomainEncodedDE.Text)
+
+                ' Absolute Path
                 DatabaseLine = DatabaseLine.Replace(TextBoxSearchDirectoryAbsolute.Text, TextBoxReplaceDirectoryAbsolute.Text)
 
                 SW.WriteLine(DatabaseLine)
@@ -65,16 +73,27 @@ Public Class FormDatabaseImport
         Arguments.Add("-u " & DB_User)
         Arguments.Add("-p" & DB_Password)
         Arguments.Add(String.Join(" ", DB_Options))
-        Arguments.Add(DB_Name & "<" & DB_Name & ".sql")
+        Arguments.Add(DB_Name & " < " & DB_Name & ".sql")
+
+        Dim Lines As New List(Of String)
+        Lines.Add("@echo on")
+        Lines.Add("C:\xampp\mysql\bin\mysql.exe -u root -e " & Chr(34) & "DROP DATABASE " & DB_Name & Chr(34) & ";")
+        Lines.Add("C:\xampp\mysql\bin\mysql.exe -u root -e " & Chr(34) & "CREATE DATABASE " & DB_Name & Chr(34) & ";")
+        Lines.Add(String.Join(" ", Arguments))
+        Lines.Add("pause")
 
 
         '
         ' Create CMD
         '        
         Dim FileCMD As String = My.Settings.DirectoryXAMPP & XAMPP_MYSQL_BIN & "\import.cmd"
-        File.WriteAllText(FileCMD, String.Join(" ", Arguments))
+        File.WriteAllLines(FileCMD, Lines)
 
         MessageBox.Show("Complete")
+
+        Process.Start(FileCMD)
+
+        End
     End Sub
 
     Private Sub ComboBoxDatabaseSelect_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxDatabaseSelect.SelectedIndexChanged

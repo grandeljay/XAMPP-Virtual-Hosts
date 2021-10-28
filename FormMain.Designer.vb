@@ -238,9 +238,8 @@ Partial Class FormMain
         '
         'ImportToolStripMenuItem
         '
-        Me.ImportToolStripMenuItem.Enabled = False
         Me.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem"
-        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(118, 22)
+        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ImportToolStripMenuItem.Text = "Import"
         '
         'SettingsToolStripMenuItem
@@ -253,7 +252,7 @@ Partial Class FormMain
         'SpecifyPathsToolStripMenuItem
         '
         Me.SpecifyPathsToolStripMenuItem.Name = "SpecifyPathsToolStripMenuItem"
-        Me.SpecifyPathsToolStripMenuItem.Size = New System.Drawing.Size(155, 22)
+        Me.SpecifyPathsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SpecifyPathsToolStripMenuItem.Text = "Specify Paths"
         '
         'AboutToolStripMenuItem
